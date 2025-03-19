@@ -3,6 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import {Basic} from "./Pages/Basic";
+import {Home} from "./Pages/Home";
+import { Detailed } from './Pages/Detailed';
+import { Review } from './Pages/Review';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -33,11 +36,14 @@ function App() {
     setKey(event.target.value);
   }
   return (
-    {page === "Home" && <Home changePage={changePage} />}
-    {page === "Basic" && <Basic changePage={changePage} />}
     
     <div className="App">
-      <Basic changePage={changePage} />
+      {page === "Home" && <Home changePage={changePage} />}
+      {page === "Basic" && <Basic changePage={changePage} />}
+      {page === "Detailed" && <Detailed changePage={changePage} />}
+      {page === "Review" && <Review changePage={changePage} />}
+    
+      {/* <Basic changePage={changePage} />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -58,7 +64,7 @@ function App() {
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form>
+      </Form> */}
     </div>
   );
 }

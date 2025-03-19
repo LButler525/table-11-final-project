@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import logo from '.././logo.svg';
+import '../App.css';
 
 let keyData = "";
 const saveKeyData = "MYKEY";
@@ -10,12 +11,12 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
-interface BasicProps {
+interface HomeProps {
     changePage:(input: string) => void;
 }
 
 
-export function Home({changePage}:BasicProps) { 
+export function Home({changePage}:HomeProps) { 
     const [key, setKey] = useState<string>(keyData); //for api key input
 
     function handleSubmit() {
@@ -30,8 +31,9 @@ export function Home({changePage}:BasicProps) {
 
     return(
         <div className="App">
-            <h3>Basic Page</h3>
+            <h3>Home Page</h3>
             <Button onClick={() => changePage("Basic")}>Basic Page</Button>
+            <Button onClick={() => changePage("Detailed")}>Detailed Page</Button>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>

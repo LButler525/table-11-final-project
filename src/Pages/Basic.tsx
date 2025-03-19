@@ -12,6 +12,8 @@ export function Basic({changePage}:BasicProps) {
         <div>
             <h3>Basic Page</h3>
             <Button onClick={() => changePage("Home")}>Home Page</Button>
+            <Button onClick={() => changePage("Detailed")}>Detailed Page</Button>
+            <Button onClick={() => changePage("Review")}>Review Page</Button>
         </div>
     )
 }
