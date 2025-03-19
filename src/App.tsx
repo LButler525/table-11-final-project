@@ -33,7 +33,7 @@ function App() {
         </p>
         <h3>jaredpeoples</h3>
         <h3>Logan Butler</h3>
-        <h3>Logan Butler</h3>
+        <h3>Tommy Mouchantaf</h3>
         <a
           className="App-link"
           href="https://reactjs.org"
