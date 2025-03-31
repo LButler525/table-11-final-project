@@ -42,31 +42,6 @@ function App() {
       {page === "Basic" && <Basic changePage={changePage} />}
       {page === "Detailed" && <Detailed changePage={changePage} />}
       {page === "Review" && <Review changePage={changePage} />}
-    
-      {/* <Basic changePage={changePage} />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <h3>jaredpeoples</h3>
-        <h3>Logan Butler</h3>
-        <h3>Tommy Mouchantaf</h3>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form> */}
     </div>
   );
 }
