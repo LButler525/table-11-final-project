@@ -26,18 +26,24 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 PASS src/App.test.tsx
-  ✓ renders learn react link (55 ms)
+  ✓ renders learn react link (57 ms)
 
---------------------|---------|----------|---------|---------|-------------------
-File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
---------------------|---------|----------|---------|---------|-------------------
-All files           |   28.57 |    16.66 |      20 |   28.57 |                   
- App.tsx            |      60 |       50 |   33.33 |      60 | 11,19-25          
- index.tsx          |       0 |      100 |     100 |       0 | 7-19              
- reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
---------------------|---------|----------|---------|---------|-------------------
+---------------------|---------|----------|---------|---------|-------------------
+File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------|---------|----------|---------|---------|-------------------
+All files            |   19.67 |    33.33 |    6.25 |   20.33 |                   
+ src                 |      20 |    41.66 |      25 |      20 |                   
+  App.tsx            |      75 |     62.5 |      50 |      75 | 13                
+  index.tsx          |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
+ src/Pages           |   19.56 |    16.66 |    3.57 |   20.45 |                   
+  Basic.tsx          |   10.34 |        0 |       0 |   11.11 | 33-287            
+  Detailed.tsx       |       0 |      100 |       0 |       0 | 13-17             
+  Home.tsx           |      50 |       50 |      20 |      50 | 10,22-28,34-35    
+  Review.tsx         |       0 |      100 |       0 |       0 | 13-16             
+---------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        2.25 s
+Time:        2.515 s
 Ran all test suites.
