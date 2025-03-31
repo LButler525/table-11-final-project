@@ -13,7 +13,9 @@ const QuestionList =
      "I like to oversee other people and manage them",
      "I want religion to affect my carrer",
      "I prefer to be methodical when making decisions and take my time"]
+
 const questionOptions = ["Strongly Agree", "Agree", "Neither Agree nor Disagree", "Disagree", "Strongly Disagree"];
+
 const helpList = ["Select one or more options that apply to you by clicking on the boxes", 
     "Move the circle on the slider by clicking and dragging from 1 (left) to 10 (right)", 
     "Select one or more options that apply to you by clicking on the switches", 
@@ -294,7 +296,7 @@ export function Basic({ changePage }: BasicProps) {
                 </Col>
             </Row>
 
-            
+
         </div>
     );
 }
