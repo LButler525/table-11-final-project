@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-// import logo from './logo.svg';
-import logo from '.././logo.svg';
+import logo from '../logo.svg';
 import '../App.css';
 
 let keyData = "";
@@ -39,7 +38,7 @@ export function Home({changePage}:HomeProps) {
           <p>
             Edit <code>src/App.tsx</code> and save to reload.
           </p>
-          <h3>jaredpeoples</h3>
+          <h3>jaredpeoples, LButler525, tommymo</h3>
           <a
             className="App-link"
             href="https://reactjs.org"
