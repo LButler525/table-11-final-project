@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, ButtonGroup, Form, Row, Col, Badge } from "react-bootstrap";
+import { Button, ButtonGroup, Form, Row, Col,} from "react-bootstrap";
 
 interface BasicProps {
     changePage: (input: string) => void;
