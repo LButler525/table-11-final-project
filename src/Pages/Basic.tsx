@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 import { Button, ButtonGroup, Form, Row, Col, OverlayTrigger, Tooltip} from "react-bootstrap";
+import q1_picture from '../Images/basic-q1.jpg';
+import q2_picture from '../Images/basic-q2.jpg';
+import q3_picture from '../Images/basic-q3.jpg';
+import q4_picture from '../Images/basic-q4.png';
+import q5_picture from '../Images/basic-q5.png';
+import q6_picture from '../Images/basic-q6.jpg';
+import q7_picture from '../Images/basic-q7.png';
 
 interface BasicProps {
     changePage: (input: string) => void;
@@ -42,7 +49,7 @@ export function HelpButton({ qnumber }: HelpButtonProps) {
 
 export function Basic({ changePage }: BasicProps) {
     const [question1, setQuestion1] = useState<string[]>([]);
-    const [question2, setQuestion2] = useState<number>(50);
+    const [question2, setQuestion2] = useState<number>(5);
     const [question3, setQuestion3] = useState<string[]>([]);
     const [question4, setQuestion4] = useState<number>(5);
     const [question5, setQuestion5] = useState<string>("");
@@ -57,12 +64,19 @@ export function Basic({ changePage }: BasicProps) {
         <div>
             <h1>Basic Page</h1>
             <ButtonGroup>
-                {["Home", "Detailed", "Review"].map(page => (
+                {["Home", "Detailed"].map(page => (
                     <Button key={page} onClick={() => changePage(page)}>
                         {page} Page
                     </Button>
                 ))}
             </ButtonGroup>
+
+            <Row>
+                <Col sm = "4" />
+                <Col sm = "4">
+                    <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                </Col>
+            </Row>
 
             
             
@@ -73,7 +87,7 @@ export function Basic({ changePage }: BasicProps) {
                     <HelpButton qnumber = {0} />
                 </Col>
                 <Col sm = "6">
-                    <h3 className="text-start">Question 1 {QuestionList[0]}</h3>
+                    <h3 className="text-start">Question 1 - {QuestionList[0]}</h3>
                 </Col>
             </Row>
             
@@ -93,6 +107,11 @@ export function Basic({ changePage }: BasicProps) {
                         />
                     </Col>
                     ))}
+                <Col sm = "2">
+                </Col>
+                <Col sm = "2">
+                    <img src={q1_picture} className="Working with Hands Picture" alt="Working with Hands" width={450} height={225}/>
+                </Col>
             </Row>
             
             <Row>
@@ -126,6 +145,11 @@ export function Basic({ changePage }: BasicProps) {
                     />
                 </Col>
                 <Col sm="2"><strong>{question2}</strong></Col>
+                <Col sm = "1">
+                </Col>
+                <Col sm = "2">
+                    <img src={q2_picture} className="Collaborating Picture" alt="Collaborating with Others" width={450} height={225}/>
+                </Col>
             </Form.Group>
 
             <Row>
@@ -151,7 +175,7 @@ export function Basic({ changePage }: BasicProps) {
                     <Form.Check
                         key={option}
                         inline
-                        type="switch"
+                        type="checkbox"
                         label={option}
                         value={option}
                         checked={question3.includes(option)}
@@ -159,6 +183,11 @@ export function Basic({ changePage }: BasicProps) {
                     />
                     </Col>
                 ))}
+                <Col sm = "2">
+                </Col>
+                <Col sm = "2">
+                    <img src={q3_picture} className="Risk Picture" alt="Risk or Secure" width={450} height={225}/>
+                </Col>
             </Row>
             
             <Row>
@@ -189,6 +218,11 @@ export function Basic({ changePage }: BasicProps) {
                         onChange={e => setQuestion4(Number(e.target.value))}
                     />
                 </Col>
+                <Col sm = "4">
+                </Col>
+                <Col sm = "2">
+                    <img src={q4_picture} className="Variability Picture" alt="Variability in job" width={450} height={225}/>
+                </Col>
             </Form.Group>
 
             <Row>
@@ -207,8 +241,7 @@ export function Basic({ changePage }: BasicProps) {
             </Row>
 
             <Row  className="mb-4">
-                <Col sm = "1">
-                </Col>
+                <Col sm = "1" />
                 <Col sm="4">
                     <Form.Group controlId="Question-5-Answers">
                         
@@ -218,6 +251,10 @@ export function Basic({ changePage }: BasicProps) {
                                 ))}
                             </Form.Select>
                     </Form.Group>
+                </Col>
+                <Col sm = "3" />
+                <Col sm = "2">
+                    <img src={q5_picture} className="Leading others Picture" alt="Leading Others" width={450} height={225}/>
                 </Col>
             </Row>
 
@@ -238,8 +275,7 @@ export function Basic({ changePage }: BasicProps) {
             
             <Row className="mb-4">
                 <ButtonGroup>
-                    <Col sm = "1">
-                    </Col>
+                    <Col sm = "1" />
 
                     {questionOptions.map(option => (
                         <Col key = {option} sm = "1">
@@ -252,7 +288,12 @@ export function Basic({ changePage }: BasicProps) {
                         </Button>
                         </Col>
                     ))}
+                    <Col sm = "2" />
+                    <Col sm = "2">
+                    <img src={q6_picture} className="Religious Career Picture" alt="Religious Career" width={450} height={225}/>
+                    </Col>
                 </ButtonGroup>
+                
             </Row>
             
             <Row>
@@ -271,8 +312,7 @@ export function Basic({ changePage }: BasicProps) {
             </Row>
 
             <Row  className="mb-4">
-                <Col sm = "1">
-                </Col>
+                <Col sm = "1" />
 
                 {questionOptions.map(option => (
                     <Col key = {option} sm = "1">
@@ -288,6 +328,10 @@ export function Basic({ changePage }: BasicProps) {
                     />
                     </Col>
                 ))}
+                <Col sm = "2" />
+                <Col sm = "2">
+                    <img src={q7_picture} className="Methodical Picture" alt="Being Methodical" width={450} height={225}/>
+                </Col>
             </Row>
 
             <Row>
