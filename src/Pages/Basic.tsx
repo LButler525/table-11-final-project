@@ -10,6 +10,16 @@ import q7_picture from '../Images/basic-q7.png';
 
 interface BasicProps {
     changePage: (input: string) => void;
+    answers: {
+        question1: string[];
+        question2: number;
+        question3: string[];
+        question4: number;
+        question5: string;
+        question6: string[];
+        question7: string;
+    };
+    setAnswers: React.Dispatch<React.SetStateAction<BasicProps["answers"]>>;
 }
 
 const QuestionList = 
@@ -47,7 +57,7 @@ export function HelpButton({ qnumber }: HelpButtonProps) {
     );
   }
 
-export function Basic({ changePage }: BasicProps) {
+export function Basic({ changePage, answers, setAnswers }: BasicProps) {
     const [question1, setQuestion1] = useState<string[]>([]);
     const [question2, setQuestion2] = useState<number>(5);
     const [question3, setQuestion3] = useState<string[]>([]);
@@ -340,6 +350,21 @@ export function Basic({ changePage }: BasicProps) {
                 </Col>
             </Row>
 
+            <Row>
+                <Col sm = "1" />
+                <Col sm = "3">
+                    <Button onClick={() => changePage("Review")}>Review Answers</Button>
+                </Col>
+                <Col sm = "2">
+                    <Button onClick={() => changePage("Answers")}>Get Answers</Button>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col sm = "8">
+                    <hr style = {{border : "4px solid black", width: "100%"}} className="my-5" />
+                </Col>
+            </Row>
 
         </div>
     );
