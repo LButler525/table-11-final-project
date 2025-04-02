@@ -25,25 +25,259 @@
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
-PASS src/App.test.tsx
-  ✓ renders learn react link (57 ms)
+FAIL src/App.test.tsx
+  ✕ renders learn react link (77 ms)
+
+  ● renders learn react link
+
+    TestingLibraryElementError: Unable to find an element with the text: /learn react/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"App"[39m
+            [33mstyle[39m=[32m"background-color: rgb(242, 242, 242); min-height: 100vh; padding: 20px;"[39m
+          [36m>[39m
+            [36m<section[39m
+              [33mstyle[39m=[32m"text-align: center; margin-bottom: 40px;"[39m
+            [36m>[39m
+              [36m<h1>[39m
+                [0mPersonalized Career Quiz[0m
+              [36m</h1>[39m
+              [36m<p>[39m
+                [0mTake the basic or detailed quiz to find a career that fits your strengths and preferences[0m
+              [36m</p>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-outline-dark"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mFind Other Quizzes[0m
+              [36m</button>[39m
+            [36m</section>[39m
+            [36m<section[39m
+              [33mstyle[39m=[32m"display: flex; justify-content: space-around; margin-bottom: 40px;"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"max-width: 45%;"[39m
+              [36m>[39m
+                [36m<p>[39m
+                  [36m<strong>[39m
+                    [0m“[0m
+                  [36m</strong>[39m
+                  [0mI love how the quiz personalized my results—it really helped me understand which careers fit me best![0m
+                  [36m<strong>[39m
+                    [0m”[0m
+                  [36m</strong>[39m
+                [36m</p>[39m
+                [36m<p>[39m
+                  [0m—Anonymous Quiz Taker[0m
+                [36m</p>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"max-width: 45%;"[39m
+              [36m>[39m
+                [36m<p>[39m
+                  [36m<strong>[39m
+                    [0m“[0m
+                  [36m</strong>[39m
+                  [0mNavigating this quiz was effortless! The interface was intuitive, making it easy to move through questions.[0m
+                  [36m<strong>[39m
+                    [0m”[0m
+                  [36m</strong>[39m
+                [36m</p>[39m
+                [36m<p>[39m
+                  [0m—Anonymous Quiz Taker[0m
+                [36m</p>[39m
+              [36m</div>[39m
+            [36m</section>[39m
+            [36m<section[39m
+              [33mstyle[39m=[32m"margin-bottom: 40px;"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: flex; justify-content: space-between; align-items: center; background-color: rgb(255, 255, 255); border: 1px solid #ddd; border-radius: 12px; padding: 20px;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"max-width: 60%; text-align: left; margin-right: 20px;"[39m
+                [36m>[39m
+                  [36m<h2>[39m
+                    [0mBasic Questions Quiz[0m
+                  [36m</h2>[39m
+                  [36m<p>[39m
+                    [0mA quick quiz with straightforward questions to help you explore career paths in just a few minutes[0m
+                  [36m</p>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mTake Quiz (10–15 min)[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<div[39m
+                    [33mstyle[39m=[32m"font-size: 40px;"[39m
+                  [36m>[39m
+                    [0m📝[0m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</section>[39m
+            [36m<section[39m
+              [33mstyle[39m=[32m"margin-bottom: 40px;"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: flex; justify-content: space-between; align-items: center; background-color: rgb(255, 255, 255); border: 1px solid #ddd; border-radius: 12px; padding: 20px;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"max-width: 60%; text-align: left; margin-right: 20px;"[39m
+                [36m>[39m
+                  [36m<h2>[39m
+                    [0mDetailed Questions Quiz[0m
+                  [36m</h2>[39m
+                  [36m<p>[39m
+                    [0mA deeper dive into your skills, values, and interests with varied question formats for a more personalized result[0m
+                  [36m</p>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mTake Quiz (30–40 min)[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<div[39m
+                    [33mstyle[39m=[32m"font-size: 40px;"[39m
+                  [36m>[39m
+                    [0m📋[0m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</section>[39m
+            [36m<section[39m
+              [33mstyle[39m=[32m"margin-bottom: 40px;"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: flex; justify-content: space-between; align-items: center; background-color: rgb(255, 255, 255); border: 1px solid #ddd; border-radius: 12px; padding: 20px;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"max-width: 60%; text-align: left; margin-right: 20px;"[39m
+                [36m>[39m
+                  [36m<h2>[39m
+                    [0mLearn More About the Quiz[0m
+                  [36m</h2>[39m
+                  [36m<p>[39m
+                    [0mDiscover how this quiz can guide your career choices—quick, insightful, and research-backed![0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<div[39m
+                    [33mstyle[39m=[32m"font-size: 40px;"[39m
+                  [36m>[39m
+                    [0m📖[0m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</section>[39m
+            [36m<section[39m
+              [33mstyle[39m=[32m"text-align: center; margin-bottom: 40px;"[39m
+            [36m>[39m
+              [36m<p>[39m
+                [0mFollow us[0m
+              [36m</p>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"font-size: 30px;"[39m
+              [36m>[39m
+                [0m⚫ ✉️ 😇 🚫 ✒️ 🧊 🎯[0m
+              [36m</div>[39m
+            [36m</section>[39m
+            [36m<section[39m
+              [33mstyle[39m=[32m"text-align: center; margin-bottom: 40px;"[39m
+            [36m>[39m
+              [36m<h3>[39m
+                [0mExplore More[0m
+              [36m</h3>[39m
+              [36m<p>[39m
+                [0mJoin Thousands Who’ve Found Their Career Path! This quiz has helped countless users explore their strengths and discover careers that truly fit them. Start now![0m
+              [36m</p>[39m
+              [36m<div>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"btn btn-secondary"[39m
+                  [33mstyle[39m=[32m"margin-right: 10px;"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mPrivacy & Policy[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"btn btn-secondary"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mFAQs[0m
+                [36m</button>[39m
+              [36m</div>[39m
+            [36m</section>[39m
+            [36m<form[39m
+              [33mclass[39m=[32m""[39m
+            [36m>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"form-label"[39m
+              [36m>[39m
+                [0mAPI Key:[0m
+              [36m</label>[39m
+              [36m<input[39m
+                [33mclass[39m=[32m"form-control"[39m
+                [33mplaceholder[39m=[32m"Insert API Key Here"[39m
+                [33mtype[39m=[32m"password"[39m
+              [36m/>[39m
+              [36m<br />[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mSubmit[0m
+              [36m</button>[39m
+            [36m</form>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+    [0m [90m  5 |[39m test([32m'renders learn react link'[39m[33m,[39m () [33m=>[39m {
+     [90m  6 |[39m   render([33m<[39m[33mApp[39m [33m/[39m[33m>[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m  7 |[39m   [36mconst[39m linkElement [33m=[39m screen[33m.[39mgetByText([35m/learn react/i[39m)[33m;[39m
+     [90m    |[39m                              [31m[1m^[22m[39m
+     [90m  8 |[39m   expect(linkElement)[33m.[39mtoBeInTheDocument()[33m;[39m
+     [90m  9 |[39m })[33m;[39m
+     [90m 10 |[39m[0m
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at getByText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/App.test.tsx:7:30)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 ---------------------|---------|----------|---------|---------|-------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------|---------|----------|---------|---------|-------------------
-All files            |   19.67 |    33.33 |    6.25 |   20.33 |                   
+All files            |   17.94 |    33.33 |       5 |   18.42 |                   
  src                 |      20 |    41.66 |      25 |      20 |                   
   App.tsx            |      75 |     62.5 |      50 |      75 | 13                
   index.tsx          |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
- src/Pages           |   19.56 |    16.66 |    3.57 |   20.45 |                   
-  Basic.tsx          |   10.34 |        0 |       0 |   11.11 | 33-287            
-  Detailed.tsx       |       0 |      100 |       0 |       0 | 13-17             
-  Home.tsx           |      50 |       50 |      20 |      50 | 10,22-28,34-35    
+ src/Pages           |   17.46 |    16.66 |    2.77 |   18.03 |                   
+  Basic.tsx          |   10.34 |        0 |       0 |   11.11 | 40-327            
+  Detailed.tsx       |      10 |      100 |       0 |      10 | 35-81             
+  Home.tsx           |      50 |       50 |      20 |      50 | 10,22-28,58-73    
   Review.tsx         |       0 |      100 |       0 |       0 | 13-16             
 ---------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.515 s
+Time:        2.748 s
 Ran all test suites.
