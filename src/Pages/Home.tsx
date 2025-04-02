@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import logo from '../logo.svg';
+//import logo from '../logo.svg';
 import '../App.css';
 
 let keyData = "";
