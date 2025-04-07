@@ -406,10 +406,10 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
             <Row>
                 <Col sm = "1" />
                 <Col sm = "3">
-                    <Button onClick={() => changePage("Review")}>Review Answers</Button>
+                    <Button onClick={() => {changePage("Review")}}>Review Answers</Button>
                 </Col>
                 <Col sm = "2">
-                    <Button onClick={() => changePage("Answers")}>Get Answers</Button>
+                    <Button onClick={() => {changePage("Answers")}}>Get Answers</Button>
                 </Col>
             </Row>
 

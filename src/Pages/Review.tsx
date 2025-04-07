@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, ButtonGroup, Form, Row, Col} from "react-bootstrap";
 
 interface ReviewProps {
@@ -32,6 +32,10 @@ export function Review({changePage, answers,}:ReviewProps) {
         window.location.hash = `#${questionId}`;
         changePage('Basic');
     };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
     return(
     <div>
@@ -244,7 +248,7 @@ export function Review({changePage, answers,}:ReviewProps) {
                 <Row>
                     <Col sm = "3" />
                     <Col sm = "3">
-                        <Button onClick={() => changePage("Basic")}>Return to Basic Quiz</Button>
+                        <Button onClick={() => {changePage("Basic"); jumpTo('')}}>Return to Basic Quiz</Button>
                     </Col>
                     <Col sm = "2">
                         <Button onClick={() => changePage("Answers")}>Get Answers</Button>
