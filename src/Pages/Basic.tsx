@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, ButtonGroup, Form, Row, Col, OverlayTrigger, Tooltip} from "react-bootstrap";
 import q1_picture from '../Images/basic-q1.jpg';
 import q2_picture from '../Images/basic-q2.jpg';
@@ -7,6 +7,8 @@ import q4_picture from '../Images/basic-q4.png';
 import q5_picture from '../Images/basic-q5.png';
 import q6_picture from '../Images/basic-q6.jpg';
 import q7_picture from '../Images/basic-q7.png';
+
+import { useRef, useEffect } from 'react';
 
 interface BasicProps {
     changePage: (input: string) => void;
@@ -49,7 +51,7 @@ export function HelpButton({ qnumber }: HelpButtonProps) {
     
     return (
       <OverlayTrigger
-        placement="right" // Position of the tooltip (top, bottom, left, right)
+        placement="top" 
         overlay={<Tooltip id={`tooltip-${qnumber}`}>{helpList[qnumber]}</Tooltip>}
       >
         <Button variant="info">?</Button>
@@ -58,16 +60,42 @@ export function HelpButton({ qnumber }: HelpButtonProps) {
   }
 
 export function Basic({ changePage, answers, setAnswers }: BasicProps) {
-    const [question1, setQuestion1] = useState<string[]>([]);
-    const [question2, setQuestion2] = useState<number>(5);
-    const [question3, setQuestion3] = useState<string[]>([]);
-    const [question4, setQuestion4] = useState<number>(5);
-    const [question5, setQuestion5] = useState<string>("");
-    const [question6, setQuestion6] = useState<string[]>([]);
-    const [question7, setQuestion7] = useState<string>("");
 
-    const toggleSelection = (value: string, state: string[], setter: React.Dispatch<React.SetStateAction<string[]>>) => {
-        setter(state.includes(value) ? state.filter(e => e !== value) : [...state, value]);
+    const question1Ref = useRef<HTMLDivElement>(null);
+    const question2Ref = useRef<HTMLDivElement>(null);
+    const question3Ref = useRef<HTMLDivElement>(null);
+    const question4Ref = useRef<HTMLDivElement>(null);
+    const question5Ref = useRef<HTMLDivElement>(null);
+    const question6Ref = useRef<HTMLDivElement>(null);
+    const question7Ref = useRef<HTMLDivElement>(null);
+
+    // Optional: Scroll when component mounts
+    useEffect(() => {
+        if (window.location.hash === '#question1') {
+            question1Ref.current?.scrollIntoView({ behavior: 'smooth' });
+        } if (window.location.hash === '#question2') {
+            question2Ref.current?.scrollIntoView({ behavior: 'smooth' });
+        } if (window.location.hash === '#question3') {
+            question3Ref.current?.scrollIntoView({ behavior: 'smooth' });
+        } if (window.location.hash === '#question4') {
+            question4Ref.current?.scrollIntoView({ behavior: 'smooth' });
+        } if (window.location.hash === '#question5') {
+            question5Ref.current?.scrollIntoView({ behavior: 'smooth' });
+        } if (window.location.hash === '#question6') {
+            question6Ref.current?.scrollIntoView({ behavior: 'smooth' });
+        } if (window.location.hash === '#question7') {
+            question7Ref.current?.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []);
+
+    const handleAnswerChange = <K extends keyof BasicProps["answers"]>(
+        questionKey: K,
+        value: BasicProps["answers"][K]
+    ) => {
+        setAnswers((prevAnswers) => ({
+            ...prevAnswers,
+            [questionKey]: value,
+        }));
     };
 
     return (
@@ -92,261 +120,286 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
             
             <h2 className="mb-5">Questions</h2>
 
-            <Row  className="mb-4">
-                <Col sm = "1">
-                    <HelpButton qnumber = {0} />
-                </Col>
-                <Col sm = "6">
-                    <h3 className="text-start">Question 1 - {QuestionList[0]}</h3>
-                </Col>
-            </Row>
-            
-            <Row  className="mb-4">
-                <Col sm = "1">
-                </Col>
-                {questionOptions.map(option => (
-                    <Col key = {option} sm = "1">
-                        <Form.Check
-                            key={option}
-                            inline
-                            type="checkbox"
-                            label={option}
-                            value={option}
-                            checked={question1.includes(option)}
-                            onChange={() => toggleSelection(option, question1, setQuestion1)}
-                        />
-                    </Col>
-                    ))}
-                <Col sm = "2">
-                </Col>
-                <Col sm = "2">
-                    <img src={q1_picture} className="Working with Hands Picture" alt="Working with Hands" width={450} height={225}/>
-                </Col>
-            </Row>
-            
             <Row>
                 <Col sm = "8">
-                    <hr style = {{border : "4px solid black", width: "100%"}} className="my-5" />
-                </Col>
-            </Row>
-            
-
-            <Row  className="mb-4">
-                <Col sm = "1">
-                    <HelpButton qnumber = {1} />
-                </Col>
-                <Col sm = "6">
-                    <h3 className="text-start">Question 2 - {QuestionList[1]}</h3>
-                </Col>
-            </Row>
-
-            <Form.Group as={Row}  className="mb-4">
-                <Col sm = "1">
-                </Col>
-                <Col sm = "1">
-                    <Form.Label>Rating:</Form.Label>
-                </Col>
-                <Col sm="3">
-                    <Form.Range
-                        min="1"
-                        max="10"
-                        value={question2}
-                        onChange={e => setQuestion2(Number(e.target.value))}
-                    />
-                </Col>
-                <Col sm="2"><strong>{question2}</strong></Col>
-                <Col sm = "1">
-                </Col>
-                <Col sm = "2">
-                    <img src={q2_picture} className="Collaborating Picture" alt="Collaborating with Others" width={450} height={225}/>
-                </Col>
-            </Form.Group>
-
-            <Row>
-                <Col sm = "8">
-                    <hr style = {{border : "4px solid black", width: "100%"}} className="my-5" />
-                </Col>
-            </Row>
-
-            <Row  className="mb-4">
-                <Col sm = "1">
-                <HelpButton qnumber = {2} />
-                </Col>
-                <Col sm = "6">
-                    <h3 className="text-start">Question 3 - {QuestionList[2]}</h3>
-                </Col>
-            </Row>
-
-            <Row  className="mb-4">
-                <Col sm = "1">
-                </Col>
-                {questionOptions.map(option => (
-                    <Col key = {option} sm = "1">
-                    <Form.Check
-                        key={option}
-                        inline
-                        type="checkbox"
-                        label={option}
-                        value={option}
-                        checked={question3.includes(option)}
-                        onChange={() => toggleSelection(option, question3, setQuestion3)}
-                    />
-                    </Col>
-                ))}
-                <Col sm = "2">
-                </Col>
-                <Col sm = "2">
-                    <img src={q3_picture} className="Risk Picture" alt="Risk or Secure" width={450} height={225}/>
-                </Col>
-            </Row>
-            
-            <Row>
-                <Col sm = "8">
-                    <hr style = {{border : "4px solid black", width: "100%"}} className="my-5" />
-                </Col>
-            </Row>
-
-            <Row  className="mb-4">
-                <Col sm = "1">
-                    <HelpButton qnumber = {3} />
-                </Col>
-                <Col sm = "6">
-                    <h3 className="text-start">Question 4 - {QuestionList[3]}</h3>
-                </Col>
-            </Row>
-
-            <Form.Group as={Row} className="mb-4">
-                <Col sm = "1">
-                </Col>
-                <Form.Label column sm="2">Rating:</Form.Label>
-                <Col sm="1">
-                    <Form.Control
-                        type="number"
-                        min="1"
-                        max="10"
-                        value={question4}
-                        onChange={e => setQuestion4(Number(e.target.value))}
-                    />
-                </Col>
-                <Col sm = "4">
-                </Col>
-                <Col sm = "2">
-                    <img src={q4_picture} className="Variability Picture" alt="Variability in job" width={450} height={225}/>
-                </Col>
-            </Form.Group>
-
-            <Row>
-                <Col sm = "8">
-                    <hr style = {{border : "4px solid black", width: "100%"}} className="my-5" />
-                </Col>
-            </Row>
-
-            <Row  className="mb-4">
-                <Col sm = "1">
-                    <HelpButton qnumber = {4} />
-                </Col>
-                <Col sm = "6">
-                    <h3 className="text-start">Question 5 - {QuestionList[4]}</h3>
-                </Col>
-            </Row>
-
-            <Row  className="mb-4">
-                <Col sm = "1" />
-                <Col sm="4">
-                    <Form.Group controlId="Question-5-Answers">
-                        
-                            <Form.Select value={question5} onChange={e => setQuestion5(e.target.value)}>
-                                {questionOptions.map(option => (
-                                    <option key={option} value={option}>{option}</option>
-                                ))}
-                            </Form.Select>
-                    </Form.Group>
-                </Col>
-                <Col sm = "3" />
-                <Col sm = "2">
-                    <img src={q5_picture} className="Leading others Picture" alt="Leading Others" width={450} height={225}/>
-                </Col>
-            </Row>
-
-            <Row>
-                <Col sm = "8">
-                    <hr style = {{border : "4px solid black", width: "100%"}} className="my-5" />
-                </Col>
-            </Row>
-
-            <Row  className="mb-4">
-                <Col sm = "1">
-                    <HelpButton qnumber = {5} />
-                </Col>
-                <Col sm = "6">
-                    <h3 className="text-start">Question 6 - {QuestionList[5]}</h3>
-                </Col>
-            </Row>
-            
-            <Row className="mb-4">
-                <ButtonGroup>
-                    <Col sm = "1" />
-
-                    {questionOptions.map(option => (
-                        <Col key = {option} sm = "1">
-                        <Button
-                            key={option}
-                            variant={question6.includes(option) ? "primary" : "outline-primary"}
-                            onClick={() => toggleSelection(option, question6, setQuestion6)}
-                        >
-                            {option}
-                        </Button>
+                    <Row  className="mb-4">
+                        <Col sm = "2">
+                            <HelpButton qnumber = {0} />
                         </Col>
-                    ))}
-                    <Col sm = "2" />
-                    <Col sm = "2">
-                    <img src={q6_picture} className="Religious Career Picture" alt="Religious Career" width={450} height={225}/>
-                    </Col>
-                </ButtonGroup>
+                        <Col sm = "10">
+                            <div ref={question1Ref} id="question1">
+                                <h3 className="text-start">Question 1 - {QuestionList[0]}</h3>
+                            </div>
+                        </Col>
+                    </Row>
                 
+                    <Row  className="mb-4">
+                        <Col sm = "1">
+                        </Col>
+                        {questionOptions.map(option => (
+                            <Col key = {option} sm = "2">
+                                <Form.Check
+                                    key={option}
+                                    inline
+                                    type="checkbox"
+                                    label={option}
+                                    value={option}
+                                    checked={answers.question1.includes(option)}
+                                    onChange={() => handleAnswerChange("question1", answers.question1.includes(option)
+                                        ? answers.question1.filter(e => e !== option) // Remove if selected
+                                        : [...answers.question1, option] // Add if not selected
+                                    )}
+                                />
+                            </Col>
+                            ))}
+                        <Col sm = "2">
+                        </Col>
+                    </Row>
+                    
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid black", width: "100%"}} className="my-5" />
+                        </Col>
+                    </Row>
+                    
+
+                    <Row  className="mb-4">
+                        <Col sm = "2">
+                            <HelpButton qnumber = {1} />
+                        </Col>
+                        <Col sm = "10">
+                            <div ref={question2Ref} id="question2">
+                                <h3 className="text-start">Question 2 - {QuestionList[1]}</h3>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Form.Group as={Row}  className="mb-4">
+                        <Col sm = "2">
+                        </Col>
+                        <Col sm = "2">
+                            <Form.Label>Rating:</Form.Label>
+                        </Col>
+                        <Col sm="5">
+                            <Form.Range
+                                min="1"
+                                max="10"
+                                value={answers.question2}
+                                onChange = {e => handleAnswerChange("question2", Number(e.target.value))}
+                            />
+                        </Col>
+                        <Col sm="2"><strong>{answers.question2}</strong></Col>
+                        <Col sm = "1">
+                        </Col>
+                    </Form.Group>
+
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid black", width: "100%"}} className="my-5" />
+                        </Col>
+                    </Row>
+
+                    <Row  className="mb-4">
+                        <Col sm = "2">
+                        <HelpButton qnumber = {2} />
+                        </Col>
+                        <Col sm = "10">
+                            <div ref={question3Ref} id="question3">
+                                <h3 className="text-start">Question 3 - {QuestionList[2]}</h3>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row  className="mb-4">
+                        <Col sm = "2">
+                        </Col>
+                        {questionOptions.map(option => (
+                            <Col key = {option} sm = "2">
+                            <Form.Check
+                                key={option}
+                                inline
+                                type="checkbox"
+                                label={option}
+                                value={option}
+                                checked={answers.question3.includes(option)}
+                                onChange={() => handleAnswerChange("question3", answers.question3.includes(option)
+                                    ? answers.question3.filter(e => e !== option) // Remove if selected
+                                    : [...answers.question3, option] // Add if not selected
+                                )}
+                            />
+                            </Col>
+                        ))}
+                        <Col sm = "2">
+                        </Col>
+                    </Row>
+                    
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid black", width: "100%"}} className="my-5" />
+                        </Col>
+                    </Row>
+
+                    <Row  className="mb-4">
+                        <Col sm = "2">
+                            <HelpButton qnumber = {3} />
+                        </Col>
+                        <Col sm = "10">
+                            <div ref={question4Ref} id="question4">
+                                <h3 className="text-start">Question 4 - {QuestionList[3]}</h3>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Form.Group as={Row} className="mb-4">
+                        <Col sm = "2">
+                        </Col>
+                        <Form.Label column sm="1">Rating:</Form.Label>
+                        <Col sm="2">
+                            <Form.Control
+                                type="number"
+                                min="1"
+                                max="10"
+                                value={answers.question4}
+                                onChange = {e => handleAnswerChange("question4", Number(e.target.value))}
+                            />
+                        </Col>
+                        <Col sm = "4">
+                        </Col>
+                    </Form.Group>
+
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid black", width: "100%"}} className="my-5" />
+                        </Col>
+                    </Row>
+
+                    <Row  className="mb-4">
+                        <Col sm = "2">
+                            <HelpButton qnumber = {4} />
+                        </Col>
+                        <Col sm = "10">
+                            <div ref={question5Ref} id="question5">
+                                <h3 className="text-start">Question 5 - {QuestionList[4]}</h3>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row  className="mb-4">
+                        <Col sm = "2" />
+                        <Col sm="4">
+                            <Form.Group controlId="Question-5-Answers">
+                                    <Form.Select value={answers.question5} onChange = {e => handleAnswerChange("question5", e.target.value)}>
+                                        {questionOptions.map(option => (
+                                            <option key={option} value={option}>{option}</option>
+                                        ))}
+                                    </Form.Select>
+                            </Form.Group>
+                        </Col>
+                        <Col sm = "3" />
+                    </Row>
+
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid black", width: "100%"}} className="my-5" />
+                        </Col>
+                    </Row>
+
+                    <Row  className="mb-4">
+                        <Col sm = "2">
+                            <HelpButton qnumber = {5} />
+                        </Col>
+                        <Col sm = "10">
+                            <div ref={question6Ref} id="question6">
+                                <h3 className="text-start">Question 6 - {QuestionList[5]}</h3>
+                            </div>
+                        </Col>
+                    </Row>
+                    
+                    <Row className="mb-4">
+                        <ButtonGroup>
+                            <Col sm = "1" />
+                                {questionOptions.map(option => (
+                                    <Col key = {option} sm = "2">
+                                        <Button
+                                            variant={answers.question6.includes(option) ? "primary" : "outline-primary"}
+                                            onClick={() => handleAnswerChange("question6", answers.question6.includes(option)
+                                                ? answers.question6.filter(e => e !== option) // Remove if selected
+                                                : [...answers.question6, option] // Add if not selected
+                                            )}
+                                            // onClick={() => toggleSelection(option, question6, setQuestion6)}
+                                        >
+                                            {option}
+                                        </Button>
+                                    </Col>
+                                ))}
+                            <Col sm = "2" />
+                        </ButtonGroup>
+                        
+                    </Row>
+                    
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid black", width: "100%"}} className="my-5" />
+                        </Col>
+                    </Row>
+
+                    <Row className="mb-4">
+                        <Col sm = "2">
+                            <HelpButton qnumber = {6} />
+                        </Col>
+                        <Col sm = "10">
+                            <div ref={question7Ref} id="question7">
+                                <h3 className="text-start">Question 7 - {QuestionList[6]}</h3>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row  className="mb-4">
+                        <Col sm = "1" />
+
+                        {questionOptions.map(option => (
+                            <Col key = {option} sm = "2">
+                            <Form.Check
+                                inline
+                                type="radio"
+                                label={option}
+                                name="question7"
+                                value={option}
+                                checked={answers.question7 === option}
+                                onChange={() => handleAnswerChange("question7", option)}
+                            />
+                            </Col>
+                        ))}
+                    <Col sm = "2" />
+                    </Row>
+                </Col>
+                <Col sm = "3">
+                    
+                        <img src={q1_picture} className="mb-5" alt="Working with Hands" width={450} height={200}/>
+                        <img src={q2_picture} className="mb-4" alt="Collaborating with Others" width={450} height={200}/>
+                        <img src={q3_picture} className="mb-4" alt="Risk or Secure" width={450} height={225}/>
+                        <img src={q4_picture} className="mb-5" alt="Variability in job" width={450} height={200}/>
+                        <img src={q5_picture} className="mb-5" alt="Leading Others" width={450} height={200}/>
+                        <img src={q6_picture} className="mb-5" alt="Religious Career" width={450} height={200}/>
+                        <img src={q7_picture} alt="Being Methodical" width={450} height={250}/>
+                    
+                </Col>
             </Row>
-            
+
             <Row>
                 <Col sm = "8">
-                    <hr style = {{border : "4px solid black", width: "100%"}} className="my-5" />
-                </Col>
-            </Row>
-
-            <Row className="mb-4">
-                <Col sm = "1">
-                    <HelpButton qnumber = {6} />
-                </Col>
-                <Col sm = "6">
-                    <h3 className="text-start">Question 7 - {QuestionList[6]}</h3>
-                </Col>
-            </Row>
-
-            <Row  className="mb-4">
-                <Col sm = "1" />
-
-                {questionOptions.map(option => (
-                    <Col key = {option} sm = "1">
-                    <Form.Check
-                        key={option}
-                        inline
-                        type="radio"
-                        label={option}
-                        name="question7"
-                        value={option}
-                        checked={question7 === option}
-                        onChange={() => setQuestion7(option)}
-                    />
-                    </Col>
-                ))}
-                <Col sm = "2" />
-                <Col sm = "2">
-                    <img src={q7_picture} className="Methodical Picture" alt="Being Methodical" width={450} height={225}/>
-                </Col>
-            </Row>
-
-            <Row>
-                <Col sm = "8">
-                    <hr style = {{border : "4px solid black", width: "100%"}} className="my-5" />
+                    <Row  className="mb-3">
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid black", width: "100%"}} className="mb-5" />
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
 
@@ -362,7 +415,12 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
 
             <Row>
                 <Col sm = "8">
-                    <hr style = {{border : "4px solid black", width: "100%"}} className="my-5" />
+                    <Row  className="my-5">
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid black", width: "100%"}} className="mb-5" />
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
 
