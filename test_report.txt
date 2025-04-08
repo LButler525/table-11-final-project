@@ -26,7 +26,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (77 ms)
+  ✕ renders learn react link (84 ms)
 
   ● renders learn react link
 
@@ -188,9 +188,33 @@ FAIL src/App.test.tsx
                 [0mFollow us[0m
               [36m</p>[39m
               [36m<div[39m
-                [33mstyle[39m=[32m"font-size: 30px;"[39m
+                [33mstyle[39m=[32m"display: flex; justify-content: center; gap: 10px;"[39m
               [36m>[39m
-                [0m⚫ ✉️ 😇 🚫 ✒️ 🧊 🎯[0m
+                [36m<img[39m
+                  [33malt[39m=[32m"LinkedIn"[39m
+                  [33msrc[39m=[32m"LinkedIn.jpg"[39m
+                  [33mstyle[39m=[32m"width: 40px; height: 40px;"[39m
+                [36m/>[39m
+                [36m<img[39m
+                  [33malt[39m=[32m"Twitter"[39m
+                  [33msrc[39m=[32m"twitter.jpg"[39m
+                  [33mstyle[39m=[32m"width: 40px; height: 40px;"[39m
+                [36m/>[39m
+                [36m<img[39m
+                  [33malt[39m=[32m"Instagram"[39m
+                  [33msrc[39m=[32m"IG.jpg"[39m
+                  [33mstyle[39m=[32m"width: 40px; height: 40px;"[39m
+                [36m/>[39m
+                [36m<img[39m
+                  [33malt[39m=[32m"YouTube"[39m
+                  [33msrc[39m=[32m"ytb.jpg"[39m
+                  [33mstyle[39m=[32m"width: 40px; height: 40px;"[39m
+                [36m/>[39m
+                [36m<img[39m
+                  [33malt[39m=[32m"facebook"[39m
+                  [33msrc[39m=[32m"facebook.jpg"[39m
+                  [33mstyle[39m=[32m"width: 40px; height: 40px;"[39m
+                [36m/>[39m
               [36m</div>[39m
             [36m</section>[39m
             [36m<section[39m
@@ -265,21 +289,21 @@ FAIL src/App.test.tsx
 ---------------------|---------|----------|---------|---------|-------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------|---------|----------|---------|---------|-------------------
-All files            |   13.28 |     15.9 |    2.94 |    13.7 |                   
+All files            |   13.17 |     15.9 |    2.89 |    13.6 |                   
  src                 |      25 |    42.85 |      25 |      25 |                   
   App.tsx            |      80 |       60 |      50 |      80 | 14                
   index.tsx          |       0 |      100 |     100 |       0 | 8-22              
   reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
- src/Pages           |    11.6 |     3.33 |    1.56 |   12.03 |                   
+ src/Pages           |    11.5 |     3.33 |    1.53 |   11.92 |                   
   Answers.tsx        |       0 |      100 |       0 |       0 | 13-18             
   Basic.tsx          |    6.12 |        0 |       0 |    6.38 | 52-412            
   Detailed.tsx       |      10 |      100 |       0 |      10 | 35-81             
-  Home.tsx           |      50 |       50 |      20 |      50 | 10,22-28,58-73    
+  Home.tsx           |   46.15 |       50 |   16.66 |   46.15 | 14,26-32,41-77    
   Questions.tsx      |       0 |        0 |       0 |       0 | 11-21             
   Review.tsx         |       8 |        0 |       0 |    8.69 | 31-254            
 ---------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.068 s
+Time:        3.19 s
 Ran all test suites.
