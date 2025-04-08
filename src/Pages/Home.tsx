@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-//import logo from '../logo.svg';
 import '../App.css';
+import LinkedInLogo from '../Images/LinkedIn.jpg';
+import TwitterLogo from '../Images/twitter.jpg'; 
+import IGLogo from '../Images/IG.jpg';
+import YTBLogo from '../Images/ytb.jpg';
+import Facebook from '../Images/facebook.jpg';
 
 let keyData = "";
 const saveKeyData = "MYKEY";
@@ -34,7 +38,7 @@ export function Home({changePage}:HomeProps) {
           <section style={{ textAlign: "center", marginBottom: "40px" }}>
             <h1>Personalized Career Quiz</h1>
             <p>Take the basic or detailed quiz to find a career that fits your strengths and preferences</p>
-            <Button variant="outline-dark">{/* TODO: Link to quizzes page */}Find Other Quizzes</Button>
+            <Button variant="outline-dark" onClick={() => window.open("https://www.google.com/search?q=career+assessment+quizzes", "_blank")}>Find Other Quizzes</Button>
           </section>
 
           {/* Testimonials Section */}
@@ -96,8 +100,32 @@ export function Home({changePage}:HomeProps) {
           {/* Social Icons Section */}
           <section style={{ textAlign: "center", marginBottom: "40px" }}>
             <p>Follow us</p>
-            <div style={{ fontSize: "30px" }}>
-              ⚫ ✉️ 😇 🚫 ✒️ 🧊 🎯
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+              <img
+                src={LinkedInLogo}
+                alt="LinkedIn"
+                style={{ width: "40px", height: "40px" }}
+              />
+              <img
+                src={TwitterLogo}
+                alt="Twitter"
+                style={{ width: "40px", height: "40px" }}
+              />
+              <img
+                src={IGLogo}
+                alt="Instagram"
+                style={{ width: "40px", height: "40px" }}
+              />
+              <img
+                src={YTBLogo}
+                alt="YouTube"
+                style={{ width: "40px", height: "40px" }}
+              />
+              <img
+                src={Facebook}
+                alt="facebook"
+                style={{ width: "40px", height: "40px" }}
+              />
             </div>
           </section>
 
