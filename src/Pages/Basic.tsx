@@ -59,6 +59,35 @@ export function HelpButton({ qnumber }: HelpButtonProps) {
     );
   }
 
+export function summarizeBasicResponse(answers: BasicProps["answers"]) {
+    const response = `
+        The user has answered as follows:
+
+        Question 1 - ${QuestionList[0]}:
+        ${answers.question1.join(", ")}
+
+        Question 2 - ${QuestionList[1]}:
+        ${answers.question2}
+
+        Question 3 - ${QuestionList[2]}:
+        ${answers.question3.join(", ")}
+
+        Question 4 - ${QuestionList[3]}:
+        ${answers.question4}
+
+        Question 5 - ${QuestionList[4]}:
+        ${answers.question5}
+
+        Question 6 - ${QuestionList[5]}:
+        ${answers.question6.join(", ")}
+
+        Question 7 - ${QuestionList[6]}:
+        ${answers.question7}
+        `;
+    console.log(response)
+    return response
+}
+
 export function Basic({ changePage, answers, setAnswers }: BasicProps) {
 
     const question1Ref = useRef<HTMLDivElement>(null);
@@ -125,7 +154,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
     
                 <Row>
                     <Col sm="4" />
-                    <Col sm="4">
+                    <Col sm="4" ref={question1Ref}>
                         <hr style={{ border: "2px solid black", width: "100%" }} className="my-3" />
                     </Col>
                 </Row>
@@ -140,7 +169,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                     marginBottom: "10px",
                     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"
                 }}>
-                    <ProgressBar 
+                    <ProgressBar
                         now={progress} 
                         label={`${progress}%`} 
                         variant={progress === 100 ? "success" : "primary"}
@@ -155,7 +184,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                                 <HelpButton qnumber={0} />
                             </Col>
                             <Col sm="10">
-                                <div ref={question1Ref} id="question1">
+                                <div id="question1">
                                     <h3 className="text-start">Question 1 - {QuestionList[0]}</h3>
                                 </div>
                             </Col>
@@ -164,7 +193,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                         <Row className="mb-4">
                             <Col sm="1" />
                             {questionOptions.map(option => (
-                                <Col key={option} sm="2">
+                                <Col key={option} sm="2" ref={question2Ref}>
                                     <Form.Check
                                         key={option}
                                         inline
@@ -194,7 +223,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                                 <HelpButton qnumber={1} />
                             </Col>
                             <Col sm="10">
-                                <div ref={question2Ref} id="question2">
+                                <div id="question2">
                                     <h3 className="text-start">Question 2 - {QuestionList[1]}</h3>
                                 </div>
                             </Col>
@@ -205,7 +234,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                             <Col sm="2">
                                 <Form.Label>Rating:</Form.Label>
                             </Col>
-                            <Col sm="5">
+                            <Col sm="5" ref={question3Ref}>
                                 <Form.Range
                                     min="1"
                                     max="10"
@@ -229,7 +258,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                                 <HelpButton qnumber={2} />
                             </Col>
                             <Col sm="10">
-                                <div ref={question3Ref} id="question3">
+                                <div id="question3">
                                     <h3 className="text-start">Question 3 - {QuestionList[2]}</h3>
                                 </div>
                             </Col>
@@ -238,7 +267,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                         <Row className="mb-4">
                             <Col sm="2" />
                             {questionOptions.map(option => (
-                                <Col key={option} sm="2">
+                                <Col key={option} sm="2"  ref={question4Ref}>
                                     <Form.Check
                                         key={option}
                                         inline
@@ -268,7 +297,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                                 <HelpButton qnumber={3} />
                             </Col>
                             <Col sm="10">
-                                <div ref={question4Ref} id="question4">
+                                <div id="question4">
                                     <h3 className="text-start">Question 4 - {QuestionList[3]}</h3>
                                 </div>
                             </Col>
@@ -277,7 +306,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                         <Form.Group as={Row} className="mb-4">
                             <Col sm="2" />
                             <Form.Label column sm="1">Rating:</Form.Label>
-                            <Col sm="2">
+                            <Col sm="2"  ref={question5Ref}>
                                 <Form.Control
                                     type="number"
                                     min="1"
@@ -301,7 +330,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                                 <HelpButton qnumber={4} />
                             </Col>
                             <Col sm="10">
-                                <div ref={question5Ref} id="question5">
+                                <div id="question5">
                                     <h3 className="text-start">Question 5 - {QuestionList[4]}</h3>
                                 </div>
                             </Col>
@@ -309,7 +338,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
     
                         <Row className="mb-4">
                             <Col sm="2" />
-                            <Col sm="4">
+                            <Col sm="4" ref={question6Ref}> 
                                 <Form.Group controlId="Question-5-Answers">
                                     <Form.Select value={answers.question5} onChange={e => handleAnswerChange("question5", e.target.value)}>
                                         {questionOptions.map(option => (
@@ -333,7 +362,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                                 <HelpButton qnumber={5} />
                             </Col>
                             <Col sm="10">
-                                <div ref={question6Ref} id="question6">
+                                <div id="question6">
                                     <h3 className="text-start">Question 6 - {QuestionList[5]}</h3>
                                 </div>
                             </Col>
@@ -343,7 +372,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                             <ButtonGroup>
                                 <Col sm="1" />
                                 {questionOptions.map(option => (
-                                    <Col key={option} sm="2">
+                                    <Col key={option} sm="2" ref={question7Ref}>
                                         <Button
                                             variant={answers.question6.includes(option) ? "primary" : "outline-primary"}
                                             onClick={() => handleAnswerChange("question6", answers.question6.includes(option)
@@ -371,7 +400,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                                 <HelpButton qnumber={6} />
                             </Col>
                             <Col sm="10">
-                                <div ref={question7Ref} id="question7">
+                                <div id="question7">
                                     <h3 className="text-start">Question 7 - {QuestionList[6]}</h3>
                                 </div>
                             </Col>
@@ -420,10 +449,10 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                 <Row>
                     <Col sm="1" />
                     <Col sm="3">
-                        <Button onClick={() => changePage("Review")}>Review Answers</Button>
+                        <Button disabled = {progress!==100} onClick={() => changePage("Review")}>Review Answers</Button>
                     </Col>
                     <Col sm="2">
-                        <Button onClick={() => changePage("Answers")}>Get Answers</Button>
+                        <Button disabled = {progress!==100} onClick={() => changePage("Answers")}>Get Answers</Button>
                     </Col>
                 </Row>
     
@@ -438,6 +467,8 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                     </Col>
                 </Row>
             </div>
+            
+
         </div>
     );
 }

@@ -39,7 +39,7 @@ function App() {
       {page === "Basic" && <Basic changePage={changePage} answers={answers} setAnswers={setAnswers} />}
       {page === "Detailed" && <Detailed changePage={changePage} />}
       {page === "Review" && <Review changePage={changePage} answers={answers}/>}
-      {page === "Answers" && <Answers changePage={changePage} />}
+      {page === "Answers" && <Answers changePage={changePage} answers={answers} />}
     </div>
   );
 }
