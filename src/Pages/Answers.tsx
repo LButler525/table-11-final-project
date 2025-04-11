@@ -86,10 +86,10 @@ export function Answers({changePage, answers}:AnswersProps) {
                       <ReactMarkdown
                         components={{
                           h3: ({ node, ...props }) => (
-                            <h3 className="mt-4 mb-2" {...props} style={{ color: 'black' }}/>
+                            <h3 {...props} style={{ color: 'black' }} id="Response Header 3">‍</h3>
                           ),
                           h4: ({ node, ...props }) => (
-                            <h4 className="mt-3 mb-2" {...props} style={{ color: 'black' }}/>
+                            <h4 {...props} style={{ color: 'black' }} id="Response Header 4">‍</h4>
                           ),
                           li: ({ node, ...props }) => <li className="mb-1" {...props} style={{ color: 'black' }}/>,
                           strong: ({ node, ...props }) => (
