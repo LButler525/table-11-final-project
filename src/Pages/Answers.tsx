@@ -1,21 +1,109 @@
-import React from "react";
-//import { useState } from "react";
-import { Button } from "react-bootstrap";
+import React, { useEffect, useState, useMemo } from "react";
+import { Button, Col, Row } from "react-bootstrap";
 //import { Form } from "react-bootstrap";
+import ReactMarkdown from 'react-markdown';
+import OpenAI from "openai";
+import { summarizeBasicResponse } from "./Basic";
+const key = localStorage.getItem("MYKEY") 
+const apiKey = key ? JSON.parse(key) : null;
+
+
 
 
 interface AnswersProps {
     changePage:(input: string) => void;
+    answers: {
+        question1: string[];
+        question2: number;
+        question3: string[];
+        question4: number;
+        question5: string;
+        question6: string[];
+        question7: string;
+    };
 }
 
 
-export function Answers({changePage}:AnswersProps) {    
+export function Answers({changePage, answers}:AnswersProps) {  
+
+    const [response, setResponse] = useState<string>("Loading...");
+    
+    const openai = useMemo(() => {
+        return new OpenAI({
+            apiKey: apiKey,
+            dangerouslyAllowBrowser: true
+        });
+    }, []);
+
+    useEffect(() => {
+        async function OpenAiResponse() {
+          try {
+            const response = await openai.chat.completions.create({
+              model: "gpt-4o-mini",
+              messages: [
+                {
+                  role: "system",
+                  content:
+                    "You are a career expert that wishes to provide a list of viable career options for the user based off of answers to a career quiz. You should also provide suggestions on education or other means to reach the top career suggested.",
+                },
+                {
+                  role: "user",
+                  content: summarizeBasicResponse(answers),
+                },
+              ],
+            });
+    
+            setResponse(
+              response.choices[0].message.content || "No content returned."
+            );
+          } catch (err) {
+            console.error("OpenAI error:", err);
+            setResponse("Something went wrong with the OpenAI request.");
+          }
+        }
+    
+        OpenAiResponse(); //Run
+      }, [answers, openai.chat.completions]);
+
+    
+    
+
+    
+
     return(
         <div>
             <h3>Answers Page</h3>
             <Button onClick={() => changePage("Home")}>Home Page</Button>
             <Button onClick={() => changePage("Basic")}>Basic Page</Button>
             <Button onClick={() => changePage("Detailed")}>Detailed Page</Button>
+
+            <Row>
+              <Col sm = "2" />
+              <Col sm = "8">
+                <div className="card mt-3">
+                      <div className="card-body" style={{ whiteSpace: "pre-wrap" }}>
+                      {response && (
+                      <ReactMarkdown
+                        components={{
+                          h3: ({ node, ...props }) => (
+                            <h3 className="mt-4 mb-2" {...props} style={{ color: 'black' }}/>
+                          ),
+                          h4: ({ node, ...props }) => (
+                            <h4 className="mt-3 mb-2" {...props} style={{ color: 'black' }}/>
+                          ),
+                          li: ({ node, ...props }) => <li className="mb-1" {...props} style={{ color: 'black' }}/>,
+                          strong: ({ node, ...props }) => (
+                            <strong style={{ color: 'black' }} {...props} />
+                          ),
+                        }}
+                      >
+                        {response}
+                      </ReactMarkdown>)}
+                      </div>
+                  </div>
+              </Col>
+            </Row>
+            
         </div>
     )
 }

@@ -59,6 +59,35 @@ export function HelpButton({ qnumber }: HelpButtonProps) {
     );
   }
 
+export function summarizeBasicResponse(answers: BasicProps["answers"]) {
+    const response = `
+        The user has answered as follows:
+
+        Question 1 - ${QuestionList[0]}:
+        ${answers.question1.join(", ")}
+
+        Question 2 - ${QuestionList[1]}:
+        ${answers.question2}
+
+        Question 3 - ${QuestionList[2]}:
+        ${answers.question3.join(", ")}
+
+        Question 4 - ${QuestionList[3]}:
+        ${answers.question4}
+
+        Question 5 - ${QuestionList[4]}:
+        ${answers.question5}
+
+        Question 6 - ${QuestionList[5]}:
+        ${answers.question6.join(", ")}
+
+        Question 7 - ${QuestionList[6]}:
+        ${answers.question7}
+        `;
+    console.log(response)
+    return response
+}
+
 export function Basic({ changePage, answers, setAnswers }: BasicProps) {
 
     const question1Ref = useRef<HTMLDivElement>(null);
@@ -423,6 +452,8 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                     </Row>
                 </Col>
             </Row>
+
+            
 
         </div>
     );
