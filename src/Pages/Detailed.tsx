@@ -150,6 +150,8 @@ export function Detailed({changePage}:DetailedProps) {
                         value={question3}
                         onChange={updateQ3} />
                 </Form.Group>
+
+
             </Row>
 
             <Row>

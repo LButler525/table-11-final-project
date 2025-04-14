@@ -101,26 +101,34 @@ export function Home({changePage}:HomeProps) {
           <section style={{ textAlign: "center", marginBottom: "40px" }}>
             <p>Follow us</p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
               <img
                 src={LinkedInLogo}
                 alt="LinkedIn"
                 style={{ width: "40px", height: "40px" }}
               />
-              <img
-                src={TwitterLogo}
-                alt="Twitter"
-                style={{ width: "40px", height: "40px" }}
-              />
+              </a>
+              <a href="https://www.x.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={TwitterLogo}
+                  alt="X"
+                  style={{ width: "40px", height: "40px" }}
+                />
+              </a>
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
               <img
                 src={IGLogo}
                 alt="Instagram"
                 style={{ width: "40px", height: "40px" }}
               />
-              <img
-                src={YTBLogo}
-                alt="YouTube"
-                style={{ width: "40px", height: "40px" }}
-              />
+              </a>
+              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src={YTBLogo}
+                      alt="YouTube"
+                      style={{ width: "40px", height: "40px" }}
+                    />
+              </a>
               <img
                 src={Facebook}
                 alt="facebook"
