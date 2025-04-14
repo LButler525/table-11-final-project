@@ -9,22 +9,22 @@ interface DetailedProps {
 }
 
 const QuestionList = [
-     "Detailed Question 1",
-     "Detailed Question 2",
-     "Detailed Question 3",
-     "Detailed Question 4",
-     "Detailed Question 5",
-     "Detailed Question 6",
-     "Detailed Question 7"]
+     "What is your ideal work environment?",
+     "Where do you see yourself in 5 years?",
+     "What's the most difficult problem you've ever solved?",
+     "In what industries have you worked?",
+     "How do you work under pressure?",
+     "What are your biggest strengths?",
+     "What motivates you?"]
 
 const helpList = [
-    "Detailed help pop-up for question 1", 
-    "Detailed help pop-up for question 2", 
-    "Detailed help pop-up for question 3", 
-    "Detailed help pop-up for question 4", 
-    "Detailed help pop-up for question 5", 
-    "Detailed help pop-up for question 6", 
-    "Detailed help pop-up for question 7"]
+    "Tell us a little bit about the work enviroment that you think would work best for you. Feel free to tell us about past work enviroments or hypotheticals you've heard.", 
+    "THis question focuses on where you see yourself in the coming years. We want to know generally what your goals are and how different careers fit those goals.", 
+    "With this question we want to know how you react in different situations one of the most telling experiences is stress and knowing how you solve problems is important to different industries.", 
+    "This question focuses on your past work expereience (if any) to see how you feel about jobs you may have already held so we dont suggest them again.", 
+    "This question asks you to expand upon how you work under pressure to see what what environments would be good. i.e a fast paced kitchen or a slower office position.", 
+    "We want to know where you thrive. THis question focuses on the aspects of your personality that shine the brightest.", 
+    "This is a relativley basic question with a crazy answer. motivations drives all."]
 
 interface HelpButtonProps {
     qnumber: number;
