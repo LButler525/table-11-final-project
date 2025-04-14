@@ -120,6 +120,15 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
     const [question2Changed, setQuestion2Changed] = useState(false);
     const [question4Changed, setQuestion4Changed] = useState(false);
 
+    // Add this useEffect to check if the user is coming from the review page
+    useEffect(() => {
+        if (localStorage.getItem("returnFromReview") === "true") {
+            setQuestion2Changed(true);
+            setQuestion4Changed(true);
+            localStorage.removeItem("returnFromReview");
+        }
+    }, []);
+
     // Calculate progress
     const totalQuestions = 7;
     const answeredCount =
