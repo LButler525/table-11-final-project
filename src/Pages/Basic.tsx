@@ -8,7 +8,7 @@ import q5_picture from '../Images/basic-q5.png';
 import q6_picture from '../Images/basic-q6.jpg';
 import q7_picture from '../Images/basic-q7.png';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 interface BasicProps {
     changePage: (input: string) => void;
@@ -116,14 +116,17 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
             question7Ref.current?.scrollIntoView({ behavior: 'smooth' });
         }
     }, []);
+    
+    const [question2Changed, setQuestion2Changed] = useState(false);
+    const [question4Changed, setQuestion4Changed] = useState(false);
 
     // Calculate progress
     const totalQuestions = 7;
     const answeredCount =
     (answers.question1 && answers.question1.length > 0 ? 1 : 0) +
-    (answers.question2 !== 5 ? 1 : 0) +
+    (question2Changed ? 1 : 0) +
     (answers.question3 && answers.question3.length > 0 ? 1 : 0) +
-    (answers.question4 !== 5 ? 1 : 0) +
+    (question4Changed ? 1 : 0) +
     (answers.question5 !== "" ? 1 : 0) +
     (answers.question6 && answers.question6.length > 0 ? 1 : 0) +
     (answers.question7 !== "" ? 1 : 0);
@@ -173,7 +176,7 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                         now={progress} 
                         label={`${progress}%`} 
                         variant={progress === 100 ? "success" : "primary"}
-                        style={{ height: "12px", margin: "10px 0", backgroundColor: "#e0e0e0" }} 
+                        style={{ height: "12px", width: "80%", margin: "10px auto", backgroundColor: "#e0e0e0" }} 
                     />
                 </div>
     
@@ -239,7 +242,12 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                                     min="1"
                                     max="10"
                                     value={answers.question2}
-                                    onChange={e => handleAnswerChange("question2", Number(e.target.value))}
+                                    onChange={e => {
+                                        if (!question2Changed) {
+                                            setQuestion2Changed(true);
+                                        }
+                                        handleAnswerChange("question2", Number(e.target.value));
+                                    }}
                                 />
                             </Col>
                             <Col sm="2"><strong>{answers.question2}</strong></Col>
@@ -312,7 +320,12 @@ export function Basic({ changePage, answers, setAnswers }: BasicProps) {
                                     min="1"
                                     max="10"
                                     value={answers.question4}
-                                    onChange={e => handleAnswerChange("question4", Number(e.target.value))}
+                                onChange={e => {
+                                    if (!question4Changed) {
+                                        setQuestion4Changed(true);
+                                    }
+                                    handleAnswerChange("question4", Number(e.target.value));
+                                }}
                                 />
                             </Col>
                             <Col sm="4" />
