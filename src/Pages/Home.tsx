@@ -129,11 +129,13 @@ export function Home({changePage}:HomeProps) {
                       style={{ width: "40px", height: "40px" }}
                     />
               </a>
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
               <img
                 src={Facebook}
                 alt="facebook"
                 style={{ width: "40px", height: "40px" }}
               />
+              </a>
             </div>
           </section>
 
