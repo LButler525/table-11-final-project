@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Button, OverlayTrigger, Row, Col, Tooltip } from "react-bootstrap";
+import { Button, OverlayTrigger, Row, Col, Tooltip, ProgressBar } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 
 
@@ -51,6 +51,14 @@ export function Detailed({changePage}:DetailedProps) {
     const [question6, setQuestion6] = useState<string>("Enter your response here");
     const [question7, setQuestion7] = useState<string>("Enter your response here");
 
+    // Calculate detailed quiz progress
+    const totalQuestions = QuestionList.length;
+    const answeredCount =
+     [question1, question2, question3, question4, question5, question6, question7]
+       .filter(ans => ans.trim() !== "" && ans !== "Enter your response here")
+       .length;
+    const progress = Math.round((answeredCount / totalQuestions) * 100);
+
     function updateQ1(event: React.ChangeEvent<HTMLTextAreaElement>) {
         setQuestion1(event.target.value);
     }
@@ -88,6 +96,27 @@ export function Detailed({changePage}:DetailedProps) {
             </Row>
 
             <h2 style={{textAlign: "center"}}>Questions</h2>
+            <div style={{
+     position: "sticky",
+     top: 0,
+     zIndex: 1000,
+     backgroundColor: "#fff",
+     padding: "5px 20px",
+     marginBottom: "10px",
+     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"
+   }}>
+     <ProgressBar
+       now={progress}
+       label={`${progress}%`}
+       variant={progress === 100 ? "success" : "primary"}
+       style={{
+         height: "11px",
+         width: "80%",
+         margin: "10px auto",
+         backgroundColor: "#e0e0e0"
+       }}
+     />
+   </div>
 
             <Row>
                 <Col sm = "1">
