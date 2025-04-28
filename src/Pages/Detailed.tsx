@@ -6,6 +6,16 @@ import { Form } from "react-bootstrap";
 
 interface DetailedProps {
     changePage:(input: string) => void;
+    answersD: {
+        question1: string;
+        question2: string;
+        question3: string;
+        question4: string;
+        question5: string;
+        question6: string;
+        question7: string;
+    };
+    setAnswersD: React.Dispatch<React.SetStateAction<DetailedProps["answersD"]>>;
 }
 
 const QuestionList = [
@@ -42,36 +52,46 @@ export function HelpButton({ qnumber }: HelpButtonProps) {
     );
   }
 
-export function Detailed({changePage}:DetailedProps) {
-    const [question1, setQuestion1] = useState<string>("Enter your response here");
-    const [question2, setQuestion2] = useState<string>("Enter your response here");
-    const [question3, setQuestion3] = useState<string>("Enter your response here");
-    const [question4, setQuestion4] = useState<string>("Enter your response here");
-    const [question5, setQuestion5] = useState<string>("Enter your response here");
-    const [question6, setQuestion6] = useState<string>("Enter your response here");
-    const [question7, setQuestion7] = useState<string>("Enter your response here");
+export function summrizeDetailResponse(answersD: DetailedProps["answersD"]) {
+    const response = `
+        The user has answered as follows:
 
-    function updateQ1(event: React.ChangeEvent<HTMLTextAreaElement>) {
-        setQuestion1(event.target.value);
-    }
-    function updateQ2(event: React.ChangeEvent<HTMLTextAreaElement>) {
-        setQuestion2(event.target.value);
-    }
-    function updateQ3(event: React.ChangeEvent<HTMLTextAreaElement>) {
-        setQuestion3(event.target.value);
-    }
-    function updateQ4(event: React.ChangeEvent<HTMLTextAreaElement>) {
-        setQuestion4(event.target.value);
-    }
-    function updateQ5(event: React.ChangeEvent<HTMLTextAreaElement>) {
-        setQuestion5(event.target.value);
-    }
-    function updateQ6(event: React.ChangeEvent<HTMLTextAreaElement>) {
-        setQuestion6(event.target.value);
-    }
-    function updateQ7(event: React.ChangeEvent<HTMLTextAreaElement>) {
-        setQuestion7(event.target.value);
-    }
+        Question 1 - ${QuestionList[0]}:
+        ${answersD.question1}
+
+        Question 2 - ${QuestionList[1]}:
+        ${answersD.question2}
+
+        Question 3 - ${QuestionList[2]}:
+        ${answersD.question3}
+
+        Question 4 - ${QuestionList[3]}:
+        ${answersD.question4}
+
+        Question 5 - ${QuestionList[4]}:
+        ${answersD.question5}
+
+        Question 6 - ${QuestionList[5]}:
+        ${answersD.question6}
+
+        Question 7 - ${QuestionList[6]}:
+        ${answersD.question7}
+        `;
+    console.log(response)
+    return response
+}
+
+export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
+
+    const handleAnswerChange = <K extends keyof DetailedProps["answersD"]>(
+        questionKey: K,
+        value: DetailedProps["answersD"][K]
+    ) => {
+        setAnswersD((prevAnswers) => ({
+            ...prevAnswers,
+            [questionKey]: value,
+        }));
+    };
 
     return(
         <div>
@@ -105,8 +125,8 @@ export function Detailed({changePage}:DetailedProps) {
                     <Form.Control
                         as="textarea"
                         rows={3}
-                        value={question1}
-                        onChange={updateQ1} />
+                        value={answersD.question1}
+                        onChange={(e) => handleAnswerChange("question1", e.target.value)} />
                 </Form.Group>
             </Row>
 
@@ -126,8 +146,8 @@ export function Detailed({changePage}:DetailedProps) {
                     <Form.Control
                         as="textarea"
                         rows={3}
-                        value={question2}
-                        onChange={updateQ2} />
+                        value={answersD.question2}
+                        onChange={(e) => handleAnswerChange("question2", e.target.value)} />
                 </Form.Group>
             </Row>
 
@@ -147,8 +167,8 @@ export function Detailed({changePage}:DetailedProps) {
                     <Form.Control
                         as="textarea"
                         rows={3}
-                        value={question3}
-                        onChange={updateQ3} />
+                        value={answersD.question3}
+                        onChange={(e) => handleAnswerChange("question3", e.target.value)} />
                 </Form.Group>
             </Row>
 
@@ -168,8 +188,8 @@ export function Detailed({changePage}:DetailedProps) {
                     <Form.Control
                         as="textarea"
                         rows={3}
-                        value={question4}
-                        onChange={updateQ4} />
+                        value={answersD.question4}
+                        onChange={(e) => handleAnswerChange("question4", e.target.value)} />
                 </Form.Group>
             </Row>
 
@@ -189,8 +209,8 @@ export function Detailed({changePage}:DetailedProps) {
                     <Form.Control
                         as="textarea"
                         rows={3}
-                        value={question5}
-                        onChange={updateQ5} />
+                        value={answersD.question5}
+                        onChange={(e) => handleAnswerChange("question5", e.target.value)} />
                 </Form.Group>
             </Row>
 
@@ -210,8 +230,8 @@ export function Detailed({changePage}:DetailedProps) {
                     <Form.Control
                         as="textarea"
                         rows={3}
-                        value={question6}
-                        onChange={updateQ6} />
+                        value={answersD.question6}
+                        onChange={(e) => handleAnswerChange("question6", e.target.value)} />
                 </Form.Group>
             </Row>
 
@@ -231,10 +251,17 @@ export function Detailed({changePage}:DetailedProps) {
                     <Form.Control
                         as="textarea"
                         rows={3}
-                        value={question7}
-                        onChange={updateQ7} />
+                        value={answersD.question7}
+                        onChange={(e) => handleAnswerChange("question7", e.target.value)} />
                 </Form.Group>
             </Row>
+            <Row>
+                                <Col sm="1" />
+                                <Col sm="2">
+                                    <Button  onClick={() => changePage("AnswersD")}>Get Answers</Button>
+                                </Col>
+                            </Row>
+                
         </div>
     )
 }
