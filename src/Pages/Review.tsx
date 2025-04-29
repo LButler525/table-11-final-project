@@ -245,7 +245,12 @@ export function Review({changePage, answers2}:ReviewProps) {
                                     </Col>
                         ))}
                 </Row>
-                <Button onClick={() => jumpTo('question3')}>Go to Question 3</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    changePage("Basic");
+                    jumpTo('question3');
+                }}>
+                    Go to Question 3 </Button>
 
                 <Row>
                     <Col sm = "1" />
@@ -270,7 +275,13 @@ export function Review({changePage, answers2}:ReviewProps) {
                         />
                     </Col>
                 </Row>
-                <Button onClick={() => jumpTo('question4')}>Go to Question 4</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    changePage("Basic");
+                    jumpTo('question4');
+                }}>
+                    Go to Question 4
+                </Button>
 
                 <Row>
                     <Col sm = "1" />
@@ -297,7 +308,13 @@ export function Review({changePage, answers2}:ReviewProps) {
                     </Col>
                     <Col sm="1"><strong>{answers2.question5}</strong></Col>
                 </Row>
-                <Button onClick={() => jumpTo('question5')}>Go to Question 5</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    changePage("Basic");
+                    jumpTo('question5');
+                }}>
+                    Go to Question 5
+                </Button>
 
                 <Row>
                     <Col sm = "1" />
@@ -717,7 +734,13 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "3" />
                     <Col sm = "3">
-                        <Button onClick={() => {changePage("Basic"); jumpTo('')}}>Return to Basic Quiz</Button>
+                    <Button onClick={() => {
+                        localStorage.setItem("returnFromReview", "true");
+                        changePage("Basic");
+                        jumpTo('');
+                    }}>
+                        Return to Basic Quiz
+                    </Button>
                     </Col>
                     <Col sm = "2">
                         <Button onClick={() => changePage("Answers")}>Get Answers</Button>

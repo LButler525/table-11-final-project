@@ -8,7 +8,7 @@ import q5_picture from '../Images/basic-q5.png';
 import q6_picture from '../Images/basic-q6.jpg';
 import q7_picture from '../Images/basic-q7.png';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 interface BasicProps {
     changePage: (input: string) => void;
@@ -315,6 +315,18 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
         }
         
     }, []);
+    
+    const [question2Changed, setQuestion2Changed] = useState(false);
+    const [question4Changed, setQuestion4Changed] = useState(false);
+
+    // Add this useEffect to check if the user is coming from the review page
+    useEffect(() => {
+        if (localStorage.getItem("returnFromReview") === "true") {
+            setQuestion2Changed(true);
+            setQuestion4Changed(true);
+            localStorage.removeItem("returnFromReview");
+        }
+    }, []);
 
     // Calculate progress
     const totalQuestions = 20;
@@ -385,7 +397,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         now={progress} 
                         label={`${progress}%`} 
                         variant={progress === 100 ? "success" : "primary"}
-                        style={{ height: "12px", margin: "10px 0", backgroundColor: "#e0e0e0" }} 
+                        style={{ height: "12px", width: "80%", margin: "10px auto", backgroundColor: "#e0e0e0" }} 
                     />
                 </div>
     
