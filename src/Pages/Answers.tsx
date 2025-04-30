@@ -12,19 +12,32 @@ const apiKey = key ? JSON.parse(key) : null;
 
 interface AnswersProps {
     changePage:(input: string) => void;
-    answers: {
-        question1: string[];
-        question2: number;
-        question3: string[];
-        question4: number;
-        question5: string;
-        question6: string[];
-        question7: string;
+    answers2: {
+      question1: string[];
+      question2: string[];
+      question3: string[];
+      question4: number;
+      question5: number;
+      question6: string[];
+      question7: string[];
+      question8: number;
+      question9: string[];
+      question10: number;
+      question11: string[];
+      question12: string[];
+      question13: number;
+      question14: string[];
+      question15: string[];
+      question16: string[];
+      question17: number;
+      question18: string[];
+      question19: string[];
+      question20: string[];
     };
 }
 
 
-export function Answers({changePage, answers}:AnswersProps) {  
+export function Answers({changePage, answers2}:AnswersProps) {  
 
     const [response, setResponse] = useState<string>("Loading...");
     
@@ -36,6 +49,8 @@ export function Answers({changePage, answers}:AnswersProps) {
     }, []);
 
     useEffect(() => {
+      if (!answers2.question1.length) return; //way to verify it's ready
+
         async function OpenAiResponse() {
           try {
             const response = await openai.chat.completions.create({
@@ -48,7 +63,7 @@ export function Answers({changePage, answers}:AnswersProps) {
                 },
                 {
                   role: "user",
-                  content: summarizeBasicResponse(answers),
+                  content: summarizeBasicResponse(answers2),
                 },
               ],
             });
@@ -63,7 +78,7 @@ export function Answers({changePage, answers}:AnswersProps) {
         }
     
         OpenAiResponse(); //Run
-      }, [answers, openai.chat.completions]);
+      }, [answers2, openai.chat.completions]);
 
     
     
@@ -74,16 +89,18 @@ export function Answers({changePage, answers}:AnswersProps) {
         <div>
             <h3>Answers Page</h3>
             <Button onClick={() => changePage("Home")}>Home Page</Button>
-            <Button onClick={() => changePage("Basic")}>Basic Page</Button>
+            <Button onClick={() => {
+              localStorage.setItem("returnFromReview", "true");
+              changePage("Basic")}}>Basic Page</Button>
             <Button onClick={() => changePage("Detailed")}>Detailed Page</Button>
 
             <Row>
               <Col sm = "2" />
               <Col sm = "8">
-                <div className="card mt-3">
-                      <div className="card-body" style={{ whiteSpace: "pre-wrap" }}>
+                <div className="card">
+                      <div className="card-body"  style={{ whiteSpace: "pre-wrap", textAlign: "left" }}>
                       {response && (
-                      <ReactMarkdown
+                      <ReactMarkdown 
                         components={{
                           h3: ({ node, ...props }) => (
                             <h3 {...props} style={{ color: 'black' }} id="Response Header 3">‍</h3>
@@ -91,7 +108,7 @@ export function Answers({changePage, answers}:AnswersProps) {
                           h4: ({ node, ...props }) => (
                             <h4 {...props} style={{ color: 'black' }} id="Response Header 4">‍</h4>
                           ),
-                          li: ({ node, ...props }) => <li className="mb-1" {...props} style={{ color: 'black' }}/>,
+                          li: ({ node, ...props }) => <li {...props} style={{ color: 'black' }}/>,
                           strong: ({ node, ...props }) => (
                             <strong style={{ color: 'black' }} {...props} />
                           ),
