@@ -7,6 +7,7 @@ import { Detailed } from './Pages/Detailed';
 import { Review } from './Pages/Review';
 import { Answers } from './Pages/Answers';
 import { AnswersD } from './Pages/Answers_D'
+import { LearnMore } from './Pages/LearnMore';
 
 function App() {
   const [page, setPage] = useState<string>("Home");
@@ -86,6 +87,7 @@ function App() {
       {page === "Basic" && <Basic changePage={changePage} answers2={answers2} setAnswers2={setAnswers2}/>}
       {page === "Review" && <Review changePage={changePage} answers2={answers2}/>}
       {page === "Answers" && <Answers changePage={changePage} answers2={answers2} />}
+      {page === "LearnMore" && <LearnMore changePage={changePage} />}
     </div>
   );
 }
