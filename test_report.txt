@@ -55,19 +55,20 @@ File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #
 ---------------------|---------|----------|---------|---------|-------------------
 All files            |       0 |        0 |       0 |       0 |                   
  src                 |       0 |        0 |       0 |       0 |                   
-  App.tsx            |       0 |        0 |       0 |       0 | 11-61             
+  App.tsx            |       0 |        0 |       0 |       0 | 12-62             
   index.tsx          |       0 |      100 |     100 |       0 | 8-22              
   reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
  src/Pages           |       0 |        0 |       0 |       0 |                   
   Answers.tsx        |       0 |        0 |       0 |       0 | 7-113             
   Basic.tsx          |       0 |        0 |       0 |       0 | 60-1208           
   Detailed.tsx       |       0 |        0 |       0 |       0 | 11-89             
-  Home.tsx           |       0 |        0 |       0 |       0 | 10-77             
+  Home.tsx           |       0 |        0 |       0 |       0 | 10-93             
+  LearnMore.tsx      |       0 |      100 |       0 |       0 | 10-83             
   Questions.tsx      |       0 |        0 |       0 |       0 | 11-55             
   Review.tsx         |       0 |        0 |       0 |       0 | 42-781            
 ---------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        5.011 s
+Time:        5.194 s
 Ran all test suites.
