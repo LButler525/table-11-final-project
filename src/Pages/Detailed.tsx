@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, OverlayTrigger, Row, Col, Tooltip } from "react-bootstrap";
+import { Button, OverlayTrigger, Row, Col, Tooltip, ProgressBar } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 
 
@@ -91,6 +91,14 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
             [questionKey]: value,
         }));
     };
+    // Calculate detailed quiz progress
+    const totalQuestions = QuestionList.length;
+    const answeredCount =
+     [answersD.question1, answersD.question2, answersD.question3, answersD.question4, answersD.question5, answersD.question6, answersD.question7]
+       .filter(ans => ans.trim() !== "" && ans !== "Enter your response here")
+       .length;
+    const progress = Math.round((answeredCount / totalQuestions) * 100);
+
 
     return(
         <div>
@@ -107,6 +115,27 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
             </Row>
 
             <h2 style={{textAlign: "center"}}>Questions</h2>
+            <div style={{
+     position: "sticky",
+     top: 0,
+     zIndex: 1000,
+     backgroundColor: "#fff",
+     padding: "5px 20px",
+     marginBottom: "10px",
+     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"
+   }}>
+     <ProgressBar
+       now={progress}
+       label={`${progress}%`}
+       variant={progress === 100 ? "success" : "primary"}
+       style={{
+         height: "11px",
+         width: "80%",
+         margin: "10px auto",
+         backgroundColor: "#e0e0e0"
+       }}
+     />
+   </div>
 
             <Row>
                 <Col sm = "1">
@@ -169,6 +198,8 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                         value={answersD.question3}
                         onChange={(e) => handleAnswerChange("question3", e.target.value)} />
                 </Form.Group>
+
+
             </Row>
 
             <Row>
