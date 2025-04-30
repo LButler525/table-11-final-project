@@ -156,12 +156,25 @@ const questionOptions2 = [
         ]
 ]
 const helpList = ["Select one or more options that apply to you by clicking on the boxes", 
-    "Move the circle on the slider by clicking and dragging from 1 (left) to 10 (right)", 
-    "Select one or more options that apply to you by clicking on the switches", 
-    "Change the number to your answer by clicking the up arrow to increase, and down arrow to decrease", 
-    "Select an option from the dropdown by clicking on the box, followed by your answer", 
     "Select one or more options that apply to you by clicking on the boxes", 
-    "Select one options that apply to you by clicking on the circles"]
+    "Select one or more options that apply to you by clicking on the buttons", 
+    "Change the number to your answer by clicking the up arrow to increase, and down arrow to decrease", 
+    "Change the number to your answer by moving the slider to the right to increase, and left to decrease", 
+    "Select one or more options that apply to you by clicking on the boxes", 
+    "Select one or more options that apply to you by clicking on the boxes",
+    "Change the number to your answer by moving the slider to the right to increase, and left to decrease",
+    "Select one or more options that apply to you by clicking on the buttons",
+    "Change the number to your answer by clicking the up arrow to increase, and down arrow to decrease",
+    "Select one or more options that apply to you by clicking on the buttons",
+    "Select one or more options that apply to you by clicking on the boxes",
+    "Change the number to your answer by clicking the up arrow to increase, and down arrow to decrease",
+    "Select one or more options that apply to you by clicking on the boxes",
+    "Select one or more options that apply to you by clicking on the boxes",
+    "Select one or more options that apply to you by clicking on the buttons",
+    "Change the number to your answer by moving the slider to the right to increase, and left to decrease",
+    "Select one or more options that apply to you by clicking on the boxes",
+    "Select one or more options that apply to you by clicking on the boxes",
+    "Select one or more options that apply to you by clicking on the buttons"]
 
 interface HelpButtonProps {
     qnumber: number;
@@ -342,20 +355,20 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
     (answers2.question1 && answers2.question1.length > 0 ? 1 : 0) +
     (answers2.question2 && answers2.question2.length > 0 ? 1 : 0) +
     (answers2.question3 && answers2.question3.length > 0 ? 1 : 0) +
-    (question4Changed ? 1 : 0) +
-    (question5Changed ? 1 : 0) +
+    (answers2.question4 > 0 ? 1 : 0) +
+    (answers2.question5 > 0 ? 1 : 0) +
     (answers2.question6 && answers2.question6.length > 0 ? 1 : 0) +
     (answers2.question7 && answers2.question7.length > 0 ? 1 : 0) +
-    (question8Changed ? 1 : 0) +
+    (answers2.question8 > 0 ? 1 : 0) +
     (answers2.question9 && answers2.question9.length > 0 ? 1 : 0) +
-    (question10Changed ? 1 : 0) +
+    (answers2.question10 > 0 ? 1 : 0) +
     (answers2.question11 && answers2.question11.length > 0 ? 1 : 0) +
     (answers2.question12 && answers2.question12.length > 0 ? 1 : 0) +
-    (question13Changed ? 1 : 0) +
+    (answers2.question13 > 0 ? 1 : 0) +
     (answers2.question14 && answers2.question14.length > 0 ? 1 : 0) +
     (answers2.question15 && answers2.question15.length > 0 ? 1 : 0) +
     (answers2.question16 && answers2.question16.length > 0 ? 1 : 0) +
-    (question17Changed ? 1 : 0) +
+    (answers2.question17 > 0 ? 1 : 0) +
     (answers2.question18 && answers2.question18.length > 0 ? 1 : 0) +
     (answers2.question19 && answers2.question19.length > 0 ? 1 : 0) +
     (answers2.question20 && answers2.question20.length > 0 ? 1 : 0) 
@@ -531,7 +544,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
 
                         <Row className="mb-4">
                             <Col sm="2">
-                                <HelpButton qnumber={4} />
+                                <HelpButton qnumber={3} />
                             </Col>
                             <Col sm="10">
                                 <div id="question4">
@@ -548,7 +561,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                     type="number"
                                     min="1"
                                     max="10"
-                                    value={answers2.question4}
+                                    value={answers2.question4 === 0 ? NaN : answers2.question4}
                                 onChange={e => {
                                     if (!question4Changed) {
                                         setQuestion4Changed(true);
@@ -569,7 +582,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
 
                         <Row className="mb-4">
                         <Col sm="2">
-                            <HelpButton qnumber={5} />
+                            <HelpButton qnumber={4} />
                         </Col>
                         <Col sm="10">
                             <div id="question5">
@@ -609,7 +622,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         {/* Question 6 */}
                         <Row className="mb-4">
                         <Col sm="2">
-                            <HelpButton qnumber={6} />
+                            <HelpButton qnumber={5} />
                         </Col>
                         <Col sm="10">
                             <div id="question6">
@@ -652,7 +665,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         {/* Question 7 */}
                         <Row className="mb-4">
                         <Col sm="2">
-                            <HelpButton qnumber={7} />
+                            <HelpButton qnumber={6} />
                         </Col>
                         <Col sm="10">
                             <div id="question7">
@@ -689,7 +702,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
 
                         <Row className="mb-4">
                             <Col sm="2">
-                                <HelpButton qnumber={8} />
+                                <HelpButton qnumber={7} />
                             </Col>
                             <Col sm="10">
                                 <div id="question8">
@@ -715,7 +728,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                     handleAnswerChange2("question8", Number(e.target.value))}}
                                 />
                             </Col>
-                            <Col sm="2"><strong>{answers2.question8}</strong></Col>
+                            <Col sm="2"><strong>{answers2.question8 === 0 ? "Select a Value" : answers2.question8}</strong></Col>
                             <Col sm="1" />
                             </Form.Group>
 
@@ -730,7 +743,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         {/* Question 9 */}
                         <Row className="mb-4">
                         <Col sm="2">
-                            <HelpButton qnumber={9} />
+                            <HelpButton qnumber={8} />
                         </Col>
                         <Col sm="10">
                             <div id="question9">
@@ -767,7 +780,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
 
                         <Row className="mb-4">
                         <Col sm="2">
-                            <HelpButton qnumber={10} />
+                            <HelpButton qnumber={9} />
                         </Col>
                         <Col sm="10">
                             <div id="question10">
@@ -805,7 +818,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         {/* Question 11 */}
                         <Row className="mb-4">
                         <Col sm="2">
-                            <HelpButton qnumber={11} />
+                            <HelpButton qnumber={10} />
                         </Col>
                         <Col sm="10">
                             <div id="question11">
@@ -834,7 +847,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         {/* Question 12 */}
                         <Row className="mb-4">
                         <Col sm="2">
-                            <HelpButton qnumber={12} />
+                            <HelpButton qnumber={11} />
                         </Col>
                         <Col sm="10">
                             <div id="question12">
@@ -871,7 +884,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
 
                         <Row className="mb-4">
                         <Col sm="2">
-                            <HelpButton qnumber={13} />
+                            <HelpButton qnumber={12} />
                         </Col>
                         <Col sm="10">
                             <div id="question13">
@@ -910,7 +923,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         {/* Question 14 */}
                         <Row className="mb-4">
                         <Col sm="2">
-                            <HelpButton qnumber={14} />
+                            <HelpButton qnumber={13} />
                         </Col>
                         <Col sm="10">
                             <div id="question14">
@@ -952,7 +965,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         {/* Question 15 */}
                         <Row className="mb-4">
                         <Col sm="2">
-                            <HelpButton qnumber={15} />
+                            <HelpButton qnumber={14} />
                         </Col>
                         <Col sm="10">
                             <div id="question15">
@@ -990,7 +1003,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         {/* Question 16 */}
                         <Row className="mb-4">
                         <Col sm="2">
-                            <HelpButton qnumber={16} />
+                            <HelpButton qnumber={15} />
                         </Col>
                         <Col sm="10">
                             <div id="question16">
@@ -1025,7 +1038,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
 
                         <Row className="mb-4">
                         <Col sm="2">
-                            <HelpButton qnumber={17} />
+                            <HelpButton qnumber={16} />
                         </Col>
                         <Col sm="10">
                             <div id="question17">
@@ -1065,7 +1078,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         {/* Question 18 */}
                         <Row className="mb-4">
                         <Col sm="2">
-                            <HelpButton qnumber={18} />
+                            <HelpButton qnumber={17} />
                         </Col>
                         <Col sm="10">
                             <div id="question18">
@@ -1107,7 +1120,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         {/* Question 19 */}
                         <Row className="mb-4">
                         <Col sm="2">
-                            <HelpButton qnumber={19} />
+                            <HelpButton qnumber={18} />
                         </Col>
                         <Col sm="10">
                             <div id="question19">
@@ -1145,7 +1158,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         {/* Question 20 */}
                         <Row className="mb-4">
                         <Col sm="2">
-                            <HelpButton qnumber={20} />
+                            <HelpButton qnumber={19} />
                         </Col>
                         <Col sm="10">
                             <div id="question20">
