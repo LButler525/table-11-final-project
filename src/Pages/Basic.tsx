@@ -80,10 +80,10 @@ const QuestionList2 =
 
 const questionOptions2 = [
     ["Healthcare",
-        "Technology",
         "Business / Entrepreneurship",
         "Creative Arts / Design",
-        "Education / Training"],
+        "Education / Training",
+        "Science / Engineering"],
     ["Independently",
         "On a small team",
         "Leading others",
@@ -316,14 +316,22 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
         
     }, []);
     
-    const [question2Changed, setQuestion2Changed] = useState(false);
     const [question4Changed, setQuestion4Changed] = useState(false);
+    const [question5Changed, setQuestion5Changed] = useState(false);
+    const [question8Changed, setQuestion8Changed] = useState(false);
+    const [question10Changed, setQuestion10Changed] = useState(false);
+    const [question13Changed, setQuestion13Changed] = useState(false);
+    const [question17Changed, setQuestion17Changed] = useState(false);
 
-    // Add this useEffect to check if the user is coming from the review page
+    // This useEffect to check if the user is coming from the review page
     useEffect(() => {
         if (localStorage.getItem("returnFromReview") === "true") {
-            setQuestion2Changed(true);
             setQuestion4Changed(true);
+            setQuestion5Changed(true);
+            setQuestion8Changed(true);
+            setQuestion10Changed(true);
+            setQuestion13Changed(true);
+            setQuestion17Changed(true);
             localStorage.removeItem("returnFromReview");
         }
     }, []);
@@ -334,20 +342,20 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
     (answers2.question1 && answers2.question1.length > 0 ? 1 : 0) +
     (answers2.question2 && answers2.question2.length > 0 ? 1 : 0) +
     (answers2.question3 && answers2.question3.length > 0 ? 1 : 0) +
-    (answers2.question4 !== 5 ? 1 : 0) +
-    (answers2.question5 !== 5 ? 1 : 0) +
+    (question4Changed ? 1 : 0) +
+    (question5Changed ? 1 : 0) +
     (answers2.question6 && answers2.question6.length > 0 ? 1 : 0) +
     (answers2.question7 && answers2.question7.length > 0 ? 1 : 0) +
-    (answers2.question8 !== 5 ? 1 : 0) +
+    (question8Changed ? 1 : 0) +
     (answers2.question9 && answers2.question9.length > 0 ? 1 : 0) +
-    (answers2.question10 !== 5 ? 1 : 0) +
+    (question10Changed ? 1 : 0) +
     (answers2.question11 && answers2.question11.length > 0 ? 1 : 0) +
     (answers2.question12 && answers2.question12.length > 0 ? 1 : 0) +
-    (answers2.question13 !== 5 ? 1 : 0) +
+    (question13Changed ? 1 : 0) +
     (answers2.question14 && answers2.question14.length > 0 ? 1 : 0) +
     (answers2.question15 && answers2.question15.length > 0 ? 1 : 0) +
     (answers2.question16 && answers2.question16.length > 0 ? 1 : 0) +
-    (answers2.question17 !== 5 ? 1 : 0) +
+    (question17Changed ? 1 : 0) +
     (answers2.question18 && answers2.question18.length > 0 ? 1 : 0) +
     (answers2.question19 && answers2.question19.length > 0 ? 1 : 0) +
     (answers2.question20 && answers2.question20.length > 0 ? 1 : 0) 
@@ -542,6 +550,9 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                     max="10"
                                     value={answers2.question4}
                                 onChange={e => {
+                                    if (!question4Changed) {
+                                        setQuestion4Changed(true);
+                                    }
                                     handleAnswerChange2("question4", Number(e.target.value));
                                 }}
                                 />
@@ -577,10 +588,14 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             min="1"
                             max="10"
                             value={answers2.question5}
-                            onChange={e => handleAnswerChange2("question5", Number(e.target.value))}
+                            onChange={e => {
+                                if (!question5Changed) {
+                                    setQuestion5Changed(true);
+                                }
+                                handleAnswerChange2("question5", Number(e.target.value))}}
                             />
                         </Col>
-                        <Col sm="2"><strong>{answers2.question5}</strong></Col>
+                        <Col sm="2"><strong>{(answers2.question5 === 0) ? "Select a Value" : answers2.question5}</strong></Col>
                         <Col sm="1" />
                         </Form.Group>
     
@@ -693,7 +708,11 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 min="1"
                                 max="10"
                                 value={answers2.question8}
-                                onChange={e => handleAnswerChange2("question8", Number(e.target.value))}
+                                onChange={e => {
+                                    if (!question8Changed) {
+                                        setQuestion8Changed(true);
+                                    }
+                                    handleAnswerChange2("question8", Number(e.target.value))}}
                                 />
                             </Col>
                             <Col sm="2"><strong>{answers2.question8}</strong></Col>
@@ -758,14 +777,19 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </Row>
 
                         <Form.Group as={Row} className="mb-4">
-                        <Col sm="3" />
-                        <Col sm="6" ref={question11Ref}>
+                        <Col sm="2" />
+                        <Form.Label column sm="1">Rating:</Form.Label>
+                        <Col sm="2" ref={question11Ref}>
                             <Form.Control
                             type="number"
                             min="1"
                             max="10"
-                            value={answers2.question10}
-                            onChange={e => handleAnswerChange2("question10", Number(e.target.value))}
+                            value={answers2.question10 === 0 ? NaN : answers2.question10}
+                            onChange={e => {
+                                if (!question10Changed) {
+                                    setQuestion10Changed(true);
+                                }
+                                handleAnswerChange2("question10", Number(e.target.value))}}
                             />
                         </Col>
                         <Col sm="3" />
@@ -857,14 +881,19 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </Row>
 
                         <Form.Group as={Row} className="mb-4">
-                        <Col sm="3" />
-                        <Col sm="6" ref={question14Ref}>
+                        <Col sm="2" />
+                        <Form.Label column sm="1">Rating:</Form.Label>
+                        <Col sm="2" ref={question14Ref}>
                             <Form.Control
                             type="number"
                             min="1"
                             max="10"
-                            value={answers2.question13}
-                            onChange={e => handleAnswerChange2("question13", Number(e.target.value))}
+                            value={answers2.question13 === 0 ? NaN : answers2.question13}
+                            onChange={e => {
+                                if (!question13Changed) {
+                                    setQuestion13Changed(true);
+                                }
+                                handleAnswerChange2("question13", Number(e.target.value))}}
                             />
                         </Col>
                         <Col sm="3" />
@@ -1015,10 +1044,14 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             min="1"
                             max="10"
                             value={answers2.question17}
-                            onChange={e => handleAnswerChange2("question17", Number(e.target.value))}
+                            onChange={e => {
+                                if (!question17Changed) {
+                                    setQuestion17Changed(true);
+                                }
+                                handleAnswerChange2("question17", Number(e.target.value))}}
                             />
                         </Col>
-                        <Col sm="2"><strong>{answers2.question17}</strong></Col>
+                        <Col sm="2"><strong>{answers2.question17 === 0 ? "Select a Value" : answers2.question17}</strong></Col>
                         <Col sm="1" />
                         </Form.Group>
 
@@ -1165,10 +1198,14 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                 <Row>
                     <Col sm="1" />
                     <Col sm="3">
-                        <Button disabled = {progress!==100} onClick={() => changePage("Review")}>Review Answers</Button>
+                        <Button disabled = {progress!==100} onClick={() => {
+                            window.location.hash = ``;
+                            changePage("Review")}}>Review Answers</Button>
                     </Col>
                     <Col sm="2">
-                        <Button disabled = {progress!==100} onClick={() => changePage("Answers")}>Get Answers</Button>
+                        <Button disabled = {progress!==100} onClick={() => {
+                            window.location.hash = ``;
+                            changePage("Answers")}}>Get Answers</Button>
                     </Col>
                 </Row>
     

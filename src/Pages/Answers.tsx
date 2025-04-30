@@ -49,7 +49,7 @@ export function Answers({changePage, answers2}:AnswersProps) {
     }, []);
 
     useEffect(() => {
-      if (!answers2.question1.length) return; // or another way to verify it's ready
+      if (!answers2.question1.length) return; //way to verify it's ready
 
         async function OpenAiResponse() {
           try {
@@ -89,16 +89,18 @@ export function Answers({changePage, answers2}:AnswersProps) {
         <div>
             <h3>Answers Page</h3>
             <Button onClick={() => changePage("Home")}>Home Page</Button>
-            <Button onClick={() => changePage("Basic")}>Basic Page</Button>
+            <Button onClick={() => {
+              localStorage.setItem("returnFromReview", "true");
+              changePage("Basic")}}>Basic Page</Button>
             <Button onClick={() => changePage("Detailed")}>Detailed Page</Button>
 
             <Row>
               <Col sm = "2" />
               <Col sm = "8">
-                <div className="card mt-3">
-                      <div className="card-body" style={{ whiteSpace: "pre-wrap" }}>
+                <div className="card">
+                      <div className="card-body"  style={{ whiteSpace: "pre-wrap", textAlign: "left" }}>
                       {response && (
-                      <ReactMarkdown
+                      <ReactMarkdown 
                         components={{
                           h3: ({ node, ...props }) => (
                             <h3 {...props} style={{ color: 'black' }} id="Response Header 3">‍</h3>
@@ -106,7 +108,7 @@ export function Answers({changePage, answers2}:AnswersProps) {
                           h4: ({ node, ...props }) => (
                             <h4 {...props} style={{ color: 'black' }} id="Response Header 4">‍</h4>
                           ),
-                          li: ({ node, ...props }) => <li className="mb-1" {...props} style={{ color: 'black' }}/>,
+                          li: ({ node, ...props }) => <li {...props} style={{ color: 'black' }}/>,
                           strong: ({ node, ...props }) => (
                             <strong style={{ color: 'black' }} {...props} />
                           ),

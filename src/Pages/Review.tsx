@@ -65,7 +65,8 @@ const questionOptions2 = [
         "Technology",
         "Business / Entrepreneurship",
         "Creative Arts / Design",
-        "Education / Training"],
+        "Education / Training",
+        "Engineering"],
     ["Independently",
         "On a small team",
         "Leading others",
@@ -138,13 +139,12 @@ const questionOptions2 = [
         ]
 ]
 
-
+export function jumpTo(questionId: string, changePage: (input: string) => void) {
+    window.location.hash = `#${questionId}`;
+    changePage('Basic');
+};
 
 export function Review({changePage, answers2}:ReviewProps) {    
-    const jumpTo = (questionId: string) => {
-        window.location.hash = `#${questionId}`;
-        changePage('Basic');
-    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -155,7 +155,10 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <h1>Review Page</h1>
                 <ButtonGroup>
                     {["Home", "Basic", "Detailed"].map(page => (
-                        <Button key={page} onClick={() => changePage(page)}>
+                        <Button key={page} onClick={() => {
+                            localStorage.setItem("returnFromReview", "true");
+                            window.location.hash = ``;
+                            changePage(page)}}>
                             {page} Page
                         </Button>
                     ))}
@@ -190,7 +193,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                         </Col>
                         ))}
                 </Row>  
-                <Button onClick={() => jumpTo('question1')}>Go to Question 1</Button>     
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question1', changePage)}}>Go to Question 1</Button>     
 
                 <Row>
                     <Col sm = "1" />
@@ -220,7 +225,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                         </ListGroup>
                     </Col>
                 </Row> 
-                <Button onClick={() => jumpTo('question2')}>Go to Question 2</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question2', changePage)}}>Go to Question 2</Button>
 
                 <Row>
                     <Col sm = "1" />
@@ -247,8 +254,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 </Row>
                 <Button onClick={() => {
                     localStorage.setItem("returnFromReview", "true");
-                    changePage("Basic");
-                    jumpTo('question3');
+                    jumpTo('question3', changePage);
                 }}>
                     Go to Question 3 </Button>
 
@@ -277,8 +283,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 </Row>
                 <Button onClick={() => {
                     localStorage.setItem("returnFromReview", "true");
-                    changePage("Basic");
-                    jumpTo('question4');
+                    jumpTo('question4', changePage);
                 }}>
                     Go to Question 4
                 </Button>
@@ -310,8 +315,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 </Row>
                 <Button onClick={() => {
                     localStorage.setItem("returnFromReview", "true");
-                    changePage("Basic");
-                    jumpTo('question5');
+                    jumpTo('question5', changePage);
                 }}>
                     Go to Question 5
                 </Button>
@@ -344,7 +348,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                         </ListGroup>
                     </Col>
                 </Row> 
-                <Button onClick={() => jumpTo('question6')}>Go to Question 6</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question6', changePage)}}>Go to Question 6</Button>
 
                 <Row>
                     <Col sm = "1" />
@@ -372,7 +378,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                         </Col>
                         ))}
                 </Row> 
-                <Button onClick={() => jumpTo('question7')}>Go to Question 7</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question7', changePage)}}>Go to Question 7</Button>
     
                 <Row>
                     <Col sm = "1" />
@@ -399,7 +407,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                     </Col>
                     <Col sm="1"><strong>{answers2.question8}</strong></Col>
                 </Row>
-                <Button onClick={() => jumpTo('question8')}>Go to Question 8</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question8', changePage)}}>Go to Question 8</Button>
 
                 <Row>
                     <Col sm = "1" />
@@ -424,7 +434,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                                     </Col>
                         ))}
                 </Row>
-                <Button onClick={() => jumpTo('question9')}>Go to Question 9</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question9', changePage)}}>Go to Question 9</Button>
 
                 <Row>
                     <Col sm = "1" />
@@ -449,7 +461,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                         />
                     </Col>
                 </Row>
-                <Button onClick={() => jumpTo('question10')}>Go to Question 10</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question10', changePage)}}>Go to Question 10</Button>
 
                 <Row>
                     <Col sm = "1" />
@@ -474,7 +488,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                                     </Col>
                         ))}
                 </Row>
-                <Button onClick={() => jumpTo('question11')}>Go to Question 11</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question11', changePage)}}>Go to Question 11</Button>
 
                 <Row>
                     <Col sm = "1" />
@@ -502,7 +518,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                         </Col>
                         ))}
                 </Row>  
-                <Button onClick={() => jumpTo('question12')}>Go to Question 12</Button> 
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question12', changePage)}}>Go to Question 12</Button> 
 
                 <Row>
                     <Col sm = "1" />
@@ -527,7 +545,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                         />
                     </Col>
                 </Row>
-                <Button onClick={() => jumpTo('question13')}>Go to Question 13</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question13', changePage)}}>Go to Question 13</Button>
 
                 <Row>
                     <Col sm = "1" />
@@ -557,7 +577,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                         </ListGroup>
                     </Col>
                 </Row> 
-                <Button onClick={() => jumpTo('question14')}>Go to Question 14</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question14', changePage)}}>Go to Question 14</Button>
 
                 <Row>
                     <Col sm = "1" />
@@ -585,7 +607,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                         </Col>
                         ))}
                 </Row>  
-                <Button onClick={() => jumpTo('question15')}>Go to Question 15</Button>  
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question15', changePage)}}>Go to Question 15</Button>  
 
                 <Row>
                     <Col sm = "1" />
@@ -610,7 +634,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                                     </Col>
                         ))}
                 </Row>
-                <Button onClick={() => jumpTo('question16')}>Go to Question 16</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question16', changePage)}}>Go to Question 16</Button>
 
                 <Row>
                     <Col sm = "1" />
@@ -637,7 +663,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                     </Col>
                     <Col sm="1"><strong>{answers2.question17}</strong></Col>
                 </Row>
-                <Button onClick={() => jumpTo('question17')}>Go to Question 17</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question17', changePage)}}>Go to Question 17</Button>
                     
                 <Row>
                     <Col sm = "1" />
@@ -667,7 +695,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                         </ListGroup>
                     </Col>
                 </Row> 
-                <Button onClick={() => jumpTo('question18')}>Go to Question 18</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question18', changePage)}}>Go to Question 18</Button>
 
                 <Row>
                     <Col sm = "1" />
@@ -695,7 +725,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                         </Col>
                         ))}
                 </Row>  
-                <Button onClick={() => jumpTo('question19')}>Go to Question 19</Button> 
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question19', changePage)}}>Go to Question 19</Button> 
 
                 <Row>
                     <Col sm = "1" />
@@ -720,7 +752,9 @@ export function Review({changePage, answers2}:ReviewProps) {
                                     </Col>
                         ))}
                 </Row>
-                <Button onClick={() => jumpTo('question20')}>Go to Question 20</Button>
+                <Button onClick={() => {
+                    localStorage.setItem("returnFromReview", "true");
+                    jumpTo('question20', changePage)}}>Go to Question 20</Button>
 
 
 
@@ -736,14 +770,15 @@ export function Review({changePage, answers2}:ReviewProps) {
                     <Col sm = "3">
                     <Button onClick={() => {
                         localStorage.setItem("returnFromReview", "true");
-                        changePage("Basic");
-                        jumpTo('');
+                        jumpTo('', changePage);
                     }}>
                         Return to Basic Quiz
                     </Button>
                     </Col>
                     <Col sm = "2">
-                        <Button onClick={() => changePage("Answers")}>Get Answers</Button>
+                        <Button onClick={() => {
+                            window.location.hash = ``;
+                            changePage("Answers")}}>Get Answers</Button>
                     </Col>
                 </Row>
     
