@@ -36,6 +36,8 @@ export function AnswersD({changePage, answersD}:AnswersProps) {
     }, []);
 
     useEffect(() => {
+      if (!answersD.question1.length) return; //way to verify it's ready
+
         async function OpenAiResponse() {
           try {
             const response = await openai.chat.completions.create({
@@ -82,7 +84,7 @@ export function AnswersD({changePage, answersD}:AnswersProps) {
               <Col sm = "2" />
               <Col sm = "8">
                 <div className="card mt-3">
-                      <div className="card-body" style={{ whiteSpace: "pre-wrap" }}>
+                      <div className="card-body" style={{ whiteSpace: "pre-wrap", textAlign: "left"}}>
                       {response && (
                       <ReactMarkdown
                         components={{
@@ -92,7 +94,7 @@ export function AnswersD({changePage, answersD}:AnswersProps) {
                           h4: ({ node, ...props }) => (
                             <h4 {...props} style={{ color: 'black' }} id="Response Header 4">‍</h4>
                           ),
-                          li: ({ node, ...props }) => <li className="mb-1" {...props} style={{ color: 'black' }}/>,
+                          li: ({ node, ...props }) => <li {...props} style={{ color: 'black' }}/>,
                           strong: ({ node, ...props }) => (
                             <strong style={{ color: 'black' }} {...props} />
                           ),

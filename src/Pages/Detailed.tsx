@@ -95,7 +95,7 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
     const totalQuestions = QuestionList.length;
     const answeredCount =
      [answersD.question1, answersD.question2, answersD.question3, answersD.question4, answersD.question5, answersD.question6, answersD.question7]
-       .filter(ans => ans.trim() !== "" && ans !== "Enter your response here")
+       .filter(ans => ans.trim() !== "" && ans !== "Enter response here")
        .length;
     const progress = Math.round((answeredCount / totalQuestions) * 100);
 
