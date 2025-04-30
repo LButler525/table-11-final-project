@@ -6,6 +6,7 @@ import {Home} from "./Pages/Home";
 import { Detailed } from './Pages/Detailed';
 import { Review } from './Pages/Review';
 import { Answers } from './Pages/Answers';
+import { AnswersD } from './Pages/Answers_D'
 import { LearnMore } from './Pages/LearnMore';
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
       question19: string[];
       question20: string[];
   }>({
-      question1: [],
+    question1: [],
       question2: [],
       question3: [],
       question4: 0,
@@ -57,14 +58,33 @@ function App() {
       question18: [],
       question19: [],
       question20: []
-  })
+  });
+
+  const [answersD, setAnswersD] = useState<{
+    question1: string;
+    question2: string;
+    question3: string;
+    question4: string;
+    question5: string;
+    question6: string;
+    question7: string;
+  }>({
+    question1: 'Enter response here',
+    question2: 'Enter response here',
+    question3: 'Enter response here',
+    question4: 'Enter response here',
+    question5: 'Enter response here',
+    question6: 'Enter response here',
+    question7: 'Enter response here'
+  });
   
   return (
     
     <div className="App">
       {page === "Home" && <Home changePage={changePage} />}
+      {page === "Detailed" && <Detailed changePage={changePage} answersD={answersD} setAnswersD={setAnswersD}/>}
+      {page === "AnswersD" && <AnswersD changePage={changePage} answersD={answersD} />}
       {page === "Basic" && <Basic changePage={changePage} answers2={answers2} setAnswers2={setAnswers2}/>}
-      {page === "Detailed" && <Detailed changePage={changePage} />}
       {page === "Review" && <Review changePage={changePage} answers2={answers2}/>}
       {page === "Answers" && <Answers changePage={changePage} answers2={answers2} />}
       {page === "LearnMore" && <LearnMore changePage={changePage} />}
