@@ -288,7 +288,7 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
             <Row>
                                 <Col sm="1" />
                                 <Col sm="2">
-                                    <Button  onClick={() => changePage("AnswersD")}>Get Answers</Button>
+                                    <Button  disabled = {progress!==100} onClick={() => changePage("AnswersD")}>Get Answers</Button>
                                 </Col>
                             </Row>
                 
