@@ -85,10 +85,30 @@ export function Home({changePage}:HomeProps) {
 
           {/* Learn More Section */}
           <section style={{ marginBottom: "40px" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#fff", border: "1px solid #ddd", borderRadius: "12px", padding: "20px" }}>
+            <div
+              onClick={() => changePage("LearnMore")}
+              onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#f8f9fa")}
+              onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#fff")}
+              onMouseDown={e => (e.currentTarget.style.backgroundColor = "#e0e0e0")}
+              onMouseUp={e => (e.currentTarget.style.backgroundColor = "#f8f9fa")}
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                backgroundColor: "#fff",
+                border: "1px solid #ddd",
+                borderRadius: "12px",
+                padding: "20px",
+                cursor: "pointer",
+                transition: "background-color 0.2s"
+              }}
+            >
               <div style={{ maxWidth: "60%", textAlign: "left", marginRight: "20px" }}>
                 <h2>Learn More About the Quiz</h2>
-                <p>Discover how this quiz can guide your career choices—quick, insightful, and research-backed!</p>
+                <p>
+                  Discover how this quiz can guide your career choices—quick,
+                  insightful, and research-backed!
+                </p>
               </div>
               <div>
                 {/* Placeholder for image/icon */}
