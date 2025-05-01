@@ -59,8 +59,8 @@ All files            |       0 |        0 |       0 |       0 |
   index.tsx          |       0 |      100 |     100 |       0 | 8-22              
   reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
  src/Pages           |       0 |        0 |       0 |       0 |                   
-  Answers.tsx        |       0 |        0 |       0 |       0 | 7-113             
-  Answers_D.tsx      |       0 |        0 |       0 |       0 | 7-99              
+  Answers.tsx        |       0 |        0 |       0 |       0 | 7-176             
+  Answers_D.tsx      |       0 |        0 |       0 |       0 | 7-156             
   Basic.tsx          |       0 |        0 |       0 |       0 | 60-1221           
   Detailed.tsx       |       0 |        0 |       0 |       0 | 20-291            
   Home.tsx           |       0 |        0 |       0 |       0 | 10-93             
@@ -71,5 +71,5 @@ All files            |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        5.324 s
+Time:        5.144 s
 Ran all test suites.
