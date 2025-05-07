@@ -9,6 +9,7 @@ import q6_picture from '../Images/basic-q6.jpg';
 import q7_picture from '../Images/basic-q7.png';
 
 import { useRef, useEffect, useState } from 'react';
+import OverlappingBoxes from "./OverlappingBoxes";
 
 interface BasicProps {
     changePage: (input: string) => void;
@@ -387,803 +388,1007 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
     return (
         <div>
             <div>
-                <h1>Basic Page</h1>
+                <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <h1>Basic Page</h1>
+                                    
+                                <ButtonGroup>
+                                    {["Home", "Detailed"].map(page => (
+                                        <Button variant = "outline-danger" key={page} onClick={() => changePage(page)}>
+                                            {page} Page
+                                        </Button>
+                                    ))}
+                                </ButtonGroup>
+                        
+                               <Row>
+                                    <Col sm="4" />
+                                    <Col sm="4" ref={question1Ref}>
+                                        <hr style={{ border: "2px solid black", width: "100%" }} className="my-3" />
+                                    </Col>
+                                </Row>
+                        
+                                <h2 className="mb-3">Questions</h2>
+                                <div style={{
+                                    position: "sticky",
+                                    top: 0,
+                                    zIndex: 1000,
+                                    backgroundColor: "#555",
+                                    padding: "5px 20px",
+                                    marginBottom: "10px",
+                                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"
+                                }}>
+                                    <ProgressBar
+                                        now={progress} 
+                                        label={`${progress}%`} 
+                                        variant={progress === 100 ? "danger" : "warning"}
+                                        style={{ height: "12px", width: "1600px", margin: "10px auto", backgroundColor: "#e0e0e0" }} 
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <Row>
+                            <Col sm="1" />
+                            <Col sm="10">
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1}} className="my-5" />
+                            </Col>
+                    </Row>
                 
-                <ButtonGroup>
-                    {["Home", "Detailed"].map(page => (
-                        <Button key={page} onClick={() => changePage(page)}>
-                            {page} Page
-                        </Button>
-                    ))}
-                </ButtonGroup>
-    
-                <Row>
-                    <Col sm="4" />
-                    <Col sm="4" ref={question1Ref}>
-                        <hr style={{ border: "2px solid black", width: "100%" }} className="my-3" />
-                    </Col>
-                </Row>
-    
-                <h2 className="mb-3">Questions</h2>
-                <div style={{
-                    position: "sticky",
-                    top: 0,
-                    zIndex: 1000,
-                    backgroundColor: "#fff",
-                    padding: "5px 20px",
-                    marginBottom: "10px",
-                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"
-                }}>
-                    <ProgressBar
-                        now={progress} 
-                        label={`${progress}%`} 
-                        variant={progress === 100 ? "success" : "primary"}
-                        style={{ height: "12px", width: "80%", margin: "10px auto", backgroundColor: "#e0e0e0" }} 
-                    />
-                </div>
-    
                 <Row>
                     <Col sm="8">
                         {/* ----------------------------------------------------------------------------------------------------------------- */}
                         <Row className="mb-4">
-                            <Col sm="2">
+                            <Col sm="1">
                                 <HelpButton qnumber={0} />
                             </Col>
                             <Col sm="10">
                                 <div id="question1">
-                                    <h3 className="text-start">Question 1 - {QuestionList2[0]}</h3>
+                                    <OverlappingBoxes text = {`Question 1 - ${QuestionList2[0]}`}/>
                                 </div>
                             </Col>
                         </Row>
                     
-                        <Row className="mb-4">
-                            <Col sm="1" />
-                            {questionOptions2[0].map(option => (
-                                <Col key={option} sm="2" ref={question2Ref}>
-                                    <Form.Check
-                                        key={option}
-                                        inline
-                                        type="checkbox"
-                                        label={option}
-                                        value={option}
-                                        checked={answers2.question1.includes(option)}
-                                        onChange={() => handleAnswerChange2("question1", answers2.question1.includes(option)
-                                            ? answers2.question1.filter(e => e !== option)
-                                            : [...answers2.question1, option]
-                                        )}
-                                    />
-                                </Col>
-                            ))}
-                            <Col sm="2" />
-                        </Row>
+                        
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question2Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                            {questionOptions2[0].map(option => (
+                                                    <Form.Check
+                                                        className = "custom-checkbox"
+                                                        key={option}
+                                                        inline
+                                                        type="checkbox"
+                                                        label={option}
+                                                        value={option}
+                                                        checked={answers2.question1.includes(option)}
+                                                        onChange={() => handleAnswerChange2("question1", answers2.question1.includes(option)
+                                                            ? answers2.question1.filter(e => e !== option)
+                                                            : [...answers2.question1, option]
+                                                        )}
+                                                    />
+                                            ))}
+                                        </div>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
+                       
                         
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1}} className="my-5" />
                             </Col>
                         </Row>
 
                         <Row className="mb-4">
-                            <Col sm="2">
+                            <Col sm="1">
                                 <HelpButton qnumber={1} />
                             </Col>
                             <Col sm="10">
                                 <div id="question2">
-                                    <h3 className="text-start">Question 2 - {QuestionList2[1]}</h3>
+                                <OverlappingBoxes text = {`Question 2 - ${QuestionList2[1]}`}/>
                                 </div>
                             </Col>
                         </Row>
                     
-                        <Row className="mb-4">
-                        <Col sm={{ span: 8, offset: 2 }} ref={question3Ref}>
-                            <ListGroup>
-                            {questionOptions2[1].map(option => (
-                                <ListGroup.Item
-                                key={option}
-                                action
-                                active={answers2.question2.includes(option)} 
-                                onClick={() => {
-                                    const isSelected = answers2.question2.includes(option);
-                                    const newSelection = isSelected
-                                    ? answers2.question2.filter(o => o !== option) 
-                                    : [...answers2.question2, option];
-                                    handleAnswerChange2("question2", newSelection);
-                                }}
-                                style={{ cursor: "pointer" }}
-                                >
-                                {option}
-                                </ListGroup.Item>
-                            ))}
-                            </ListGroup>
-                        </Col>
-                        </Row>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question3Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left'}}>
+                                            <ListGroup>
+                                            {questionOptions2[1].map(option => (
+                                                <ListGroup.Item
+                                                key={option}
+                                                action
+                                                active={answers2.question2.includes(option)} 
+                                                onClick={() => {
+                                                    const isSelected = answers2.question2.includes(option);
+                                                    const newSelection = isSelected
+                                                    ? answers2.question2.filter(o => o !== option) 
+                                                    : [...answers2.question2, option];
+                                                    handleAnswerChange2("question2", newSelection);
+                                                }}
+                                                style={{
+                                                    cursor: "pointer",
+                                                    backgroundColor: answers2.question2.includes(option) ? "#cc2435" : "#e98585", // persistent color change
+                                                    color: answers2.question2.includes(option) ? "white" : "black", // persistent text color change
+                                                    borderColor: answers2.question2.includes(option) ? "#cc2435" : "#e98585", // persistent border color change
+                                                  }}
+                                                variant = "danger"
+                                                className = "mb-2"
+                                                >
+                                                {option}
+                                                </ListGroup.Item>
+                                            ))}
+                                            </ListGroup>
+                                        </div>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
                         
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
                         <Row className="mb-4">
-                            <Col sm="2">
+                            <Col sm="1">
                                 <HelpButton qnumber={2} />
                             </Col>
                             <Col sm="10">
                                 <div id="question3">
-                                    <h3 className="text-start">Question 3 - {QuestionList2[2]}</h3>
+                                <OverlappingBoxes text = {`Question 3 - ${QuestionList2[2]}`}/>
                                 </div>
                             </Col>
                         </Row>
                     
-                        <Row className="mb-4">
-                            <Col sm="1" />
-                            {questionOptions2[2].map(option => (                                
-                                <Col key={option} ref={question4Ref}>
-                                            <Button
-                                                variant={answers2.question3.includes(option) ? "primary" : "outline-primary"}
-                                                onClick={() => handleAnswerChange2("question3", answers2.question3.includes(option)
-                                                    ? answers2.question3.filter(e => e !== option)
-                                                    : [...answers2.question3, option]
-                                                )}
-                                            >
-                                                {option}
-                                            </Button>
-                                </Col>
-                            ))}
-                            <Col sm="2" />
-                        </Row>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question4Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                            {questionOptions2[2].map(option => (
+                                                            <Button
+                                                                variant={answers2.question3.includes(option) ? "danger" : "outline-danger"}
+                                                                onClick={() => handleAnswerChange2("question3", answers2.question3.includes(option)
+                                                                    ? answers2.question3.filter(e => e !== option)
+                                                                    : [...answers2.question3, option]
+                                                                )}
+                                                                className="me-2"
+                                                            >
+                                                                {option}
+                                                            </Button> 
+                                            ))}
+                                        </div>
+                                    </Row>
+                                </div>
+                           </div>
+                        </div>
                         
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
                         <Row className="mb-4">
-                            <Col sm="2">
+                            <Col sm="1">
                                 <HelpButton qnumber={3} />
                             </Col>
                             <Col sm="10">
                                 <div id="question4">
-                                    <h3 className="text-start">Question 4 - {QuestionList2[3]}</h3>
+                                <OverlappingBoxes text = {`Question 4 - ${QuestionList2[3]}`}/>
                                 </div>
                             </Col>
                         </Row>
-
-                        <Form.Group as={Row} className="mb-4">
-                        <Col sm="2" />
-                            <Form.Label column sm="1">Rating:</Form.Label>
-                            <Col sm="2"  ref={question5Ref}>
-                                <Form.Control
-                                    type="number"
-                                    min="1"
-                                    max="10"
-                                    value={answers2.question4 === 0 ? NaN : answers2.question4}
-                                onChange={e => {
-                                    if (!question4Changed) {
-                                        setQuestion4Changed(true);
-                                    }
-                                    handleAnswerChange2("question4", Number(e.target.value));
-                                }}
-                                />
-                            </Col>
-                            <Col sm="4" />
-                        </Form.Group>
+                        
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question5Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                            <Form.Group as = {Row} controlId="rating">
+                                                <Form.Label column sm="4">Rating:</Form.Label>
+                                                <Col sm="8">
+                                                    <Form.Control
+                                                        type="number"
+                                                        min="1"
+                                                        max="10"
+                                                        value={answers2.question4 === 0 ? NaN : answers2.question4}
+                                                    onChange={e => {
+                                                        if (!question4Changed) {
+                                                            setQuestion4Changed(true);
+                                                        }
+                                                        handleAnswerChange2("question4", Number(e.target.value));
+                                                    }}
+                                                    />
+                                                    </Col>
+                                            </Form.Group>
+                                        </div>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
     
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
                         <Row className="mb-4">
-                        <Col sm="2">
+                        <Col sm="1">
                             <HelpButton qnumber={4} />
                         </Col>
                         <Col sm="10">
                             <div id="question5">
-                            <h3 className="text-start">Question 5 - {QuestionList2[4]}</h3>
+                                <OverlappingBoxes text = {`Question 5 - ${QuestionList2[4]}`}/>
                             </div>
                         </Col>
                         </Row>
-
-                        <Form.Group as={Row} className="mb-4">
-                        <Col sm="2" />
-                        <Col sm="2">
-                            <Form.Label>Rating:</Form.Label>
-                        </Col>
-                        <Col sm="5" ref={question6Ref}>
-                            <Form.Range
-                            min="1"
-                            max="10"
-                            value={answers2.question5}
-                            onChange={e => {
-                                if (!question5Changed) {
-                                    setQuestion5Changed(true);
-                                }
-                                handleAnswerChange2("question5", Number(e.target.value))}}
-                            />
-                        </Col>
-                        <Col sm="2"><strong>{(answers2.question5 === 0) ? "Select a Value" : answers2.question5}</strong></Col>
-                        <Col sm="1" />
-                        </Form.Group>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question5Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                            <Form.Group as={Row}>
+                                            <Col sm="3">
+                                                <Form.Label>Rating:</Form.Label>
+                                            </Col>
+                                            <Col sm="7" ref={question6Ref}>
+                                                <Form.Range
+                                                min="1"
+                                                max="10"
+                                                value={answers2.question5}
+                                                onChange={e => {
+                                                    if (!question5Changed) {
+                                                        setQuestion5Changed(true);
+                                                    }
+                                                    handleAnswerChange2("question5", Number(e.target.value))}}
+                                                />
+                                            </Col>
+                                            <Col sm="2"><strong>{(answers2.question5 === 0) ? "" : answers2.question5}</strong></Col>
+                                            </Form.Group>
+                                        </div>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
     
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
                         {/* Question 6 */}
                         <Row className="mb-4">
-                        <Col sm="2">
-                            <HelpButton qnumber={5} />
-                        </Col>
-                        <Col sm="10">
-                            <div id="question6">
-                            <h3 className="text-start">Question 6 - {QuestionList2[5]}</h3>
+                            <Col sm="1">
+                                <HelpButton qnumber={5} />
+                            </Col>
+                            <Col sm="10">
+                                <div id="question6">
+                                    <OverlappingBoxes text={`Question 6 - ${QuestionList2[5]}`} />
+                                </div>
+                            </Col>
+                        </Row>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question7Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                            <ListGroup>
+                                                {questionOptions2[5].map(option => (
+                                                    <ListGroup.Item
+                                                        className = "mb-2"
+                                                        key={option}
+                                                        action
+                                                        active={answers2.question6.includes(option)}
+                                                        onClick={() => {
+                                                            const isSelected = answers2.question6.includes(option);
+                                                            const newSelection = isSelected
+                                                                ? answers2.question6.filter(o => o !== option)
+                                                                : [...answers2.question6, option];
+                                                            handleAnswerChange2("question6", newSelection);
+                                                        }}
+                                                        style={{
+                                                            cursor: "pointer",
+                                                            backgroundColor: answers2.question6.includes(option) ? "#cc2435" : "#e98585", // persistent color change
+                                                            color: answers2.question6.includes(option) ? "white" : "black", // persistent text color change
+                                                            borderColor: answers2.question6.includes(option) ? "#cc2435" : "#e98585", // persistent border color change
+                                                          }}
+                                                        variant="danger"
+                                                    >
+                                                        {option}
+                                                    </ListGroup.Item>
+                                                ))}
+                                            </ListGroup>
+                                        </div>
+                                    </Row>
+                                </div>
                             </div>
-                        </Col>
-                        </Row>
-                        <Row className="mb-4">
-                        <Col sm={{ span: 8, offset: 2 }} ref={question7Ref}>
-                            <ListGroup>
-                            {questionOptions2[5].map(option => (
-                                <ListGroup.Item
-                                key={option}
-                                action
-                                active={answers2.question6.includes(option)} // ✅ check if it's *in* the array
-                                onClick={() => {
-                                    const isSelected = answers2.question6.includes(option);
-                                    const newSelection = isSelected
-                                    ? answers2.question6.filter(o => o !== option) // ❌ remove if already selected
-                                    : [...answers2.question6, option]; // ✅ add if not selected
-                                    handleAnswerChange2("question6", newSelection);
-                                }}
-                                style={{ cursor: "pointer" }}
-                                >
-                                {option}
-                                </ListGroup.Item>
-                            ))}
-                            </ListGroup>
-                        </Col>
-                        </Row>
+                        </div>
 
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
-                        
 
                         {/* Question 7 */}
                         <Row className="mb-4">
-                        <Col sm="2">
-                            <HelpButton qnumber={6} />
-                        </Col>
-                        <Col sm="10">
-                            <div id="question7">
-                                <h3 className="text-start">Question 7 - {QuestionList2[6]}</h3>
-                            </div>
-                        </Col>
-                        </Row>
-                        <Row className="mb-4">
-                        <Col sm="1" />
-                        {questionOptions2[6].map(option => (
-                            <Col key={option} sm="2" ref={question8Ref}>
-                            <Form.Check
-                                inline
-                                type="checkbox"
-                                label={option}
-                                value={option}
-                                checked={answers2.question7.includes(option)}
-                                onChange={() => handleAnswerChange2("question7", answers2.question7.includes(option)
-                                ? answers2.question7.filter(e => e !== option)
-                                : [...answers2.question7, option]
-                                )}
-                            />
+                            <Col sm="1">
+                                <HelpButton qnumber={6} />
                             </Col>
-                        ))}
-                        <Col sm="2" />
+                            <Col sm="10">
+                                <div id="question7">
+                                    <OverlappingBoxes text={`Question 7 - ${QuestionList2[6]}`} />
+                                </div>
+                            </Col>
                         </Row>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question8Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                            {questionOptions2[6].map(option => (
+                                                <Form.Check
+                                                    className = "custom-checkbox"
+                                                    key={option}
+                                                    inline
+                                                    type="checkbox"
+                                                    label={option}
+                                                    value={option}
+                                                    checked={answers2.question7.includes(option)}
+                                                    onChange={() =>
+                                                        handleAnswerChange2(
+                                                            "question7",
+                                                            answers2.question7.includes(option)
+                                                                ? answers2.question7.filter(e => e !== option)
+                                                                : [...answers2.question7, option]
+                                                        )
+                                                    }
+                                                />
+                                            ))}
+                                        </div>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
 
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
+                        {/* Question 8 */}
                         <Row className="mb-4">
-                            <Col sm="2">
+                            <Col sm="1">
                                 <HelpButton qnumber={7} />
                             </Col>
                             <Col sm="10">
                                 <div id="question8">
-                                <h3 className="text-start">Question 8 - {QuestionList2[7]}</h3>
+                                    <OverlappingBoxes text={`Question 8 - ${QuestionList2[7]}`} />
                                 </div>
                             </Col>
-                            </Row>
-
-                            <Form.Group as={Row} className="mb-4">
-                            <Col sm="2" />
-                            <Col sm="2">
-                                <Form.Label>Rating:</Form.Label>
-                            </Col>
-                            <Col sm="5" ref={question9Ref}>
-                                <Form.Range
-                                min="1"
-                                max="10"
-                                value={answers2.question8}
-                                onChange={e => {
-                                    if (!question8Changed) {
-                                        setQuestion8Changed(true);
-                                    }
-                                    handleAnswerChange2("question8", Number(e.target.value))}}
-                                />
-                            </Col>
-                            <Col sm="2"><strong>{answers2.question8 === 0 ? "Select a Value" : answers2.question8}</strong></Col>
-                            <Col sm="1" />
-                            </Form.Group>
-
+                        </Row>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question9Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                            <Form.Group as={Row}>
+                                                <Col sm="3">
+                                                    <Form.Label>Rating:</Form.Label>
+                                                </Col>
+                                                <Col sm="7">
+                                                    <Form.Range
+                                                        min="1"
+                                                        max="10"
+                                                        value={answers2.question8}
+                                                        onChange={e => {
+                                                            if (!question8Changed) {
+                                                                setQuestion8Changed(true);
+                                                            }
+                                                            handleAnswerChange2("question8", Number(e.target.value));
+                                                        }}
+                                                    />
+                                                </Col>
+                                                <Col sm="2"><strong>{answers2.question8 === 0 ? "" : answers2.question8}</strong></Col>
+                                            </Form.Group>
+                                        </div>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
 
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
                         {/* Question 9 */}
                         <Row className="mb-4">
-                        <Col sm="2">
-                            <HelpButton qnumber={8} />
-                        </Col>
-                        <Col sm="10">
-                            <div id="question9">
-                            <h3 className="text-start">Question 9 - {QuestionList2[8]}</h3>
-                            </div>
-                        </Col>
-                        </Row>
-                        <Row className="mb-4">
-                        <Col sm="1" />
-                        {questionOptions2[8].map(option => (
-                            <Col key={option} ref={question10Ref}>
-                            <Button
-                                variant={answers2.question9.includes(option) ? "primary" : "outline-primary"}
-                                onClick={() => handleAnswerChange2(
-                                "question9",
-                                answers2.question9.includes(option)
-                                    ? answers2.question9.filter(e => e !== option)
-                                    : [...answers2.question9, option]
-                                )}
-                            >
-                                {option}
-                            </Button>
+                            <Col sm="1">
+                                <HelpButton qnumber={8} />
                             </Col>
-                        ))}
-                        <Col sm="2" />
+                            <Col sm="10">
+                                <div id="question9">
+                                    <OverlappingBoxes text={`Question 9 - ${QuestionList2[8]}`} />
+                                </div>
+                            </Col>
                         </Row>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question10Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                            {questionOptions2[8].map(option => (
+                                                <Button
+                                                    key={option}
+                                                    variant={answers2.question9.includes(option) ? "danger" : "outline-danger"}
+                                                    onClick={() =>
+                                                        handleAnswerChange2(
+                                                            "question9",
+                                                            answers2.question9.includes(option)
+                                                                ? answers2.question9.filter(e => e !== option)
+                                                                : [...answers2.question9, option]
+                                                        )
+                                                    }
+                                                    className="me-2"
+                                                >
+                                                    {option}
+                                                </Button>
+                                            ))}
+                                        </div>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
 
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
+                        {/* Question 10 */}
                         <Row className="mb-4">
-                        <Col sm="2">
-                            <HelpButton qnumber={9} />
-                        </Col>
-                        <Col sm="10">
-                            <div id="question10">
-                            <h3 className="text-start">Question 10 - {QuestionList2[9]}</h3>
-                            </div>
-                        </Col>
+                            <Col sm="1">
+                                <HelpButton qnumber={9} />
+                            </Col>
+                            <Col sm="10">
+                                <div id="question10">
+                                    <OverlappingBoxes text={`Question 10 - ${QuestionList2[9]}`} />
+                                </div>
+                            </Col>
                         </Row>
-
-                        <Form.Group as={Row} className="mb-4">
-                        <Col sm="2" />
-                        <Form.Label column sm="1">Rating:</Form.Label>
-                        <Col sm="2" ref={question11Ref}>
-                            <Form.Control
-                            type="number"
-                            min="1"
-                            max="10"
-                            value={answers2.question10 === 0 ? NaN : answers2.question10}
-                            onChange={e => {
-                                if (!question10Changed) {
-                                    setQuestion10Changed(true);
-                                }
-                                handleAnswerChange2("question10", Number(e.target.value))}}
-                            />
-                        </Col>
-                        <Col sm="3" />
-                        </Form.Group>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question11Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                            <Form.Group as={Row} controlId="rating">
+                                                <Form.Label column sm="4">Rating:</Form.Label>
+                                                <Col sm="8">
+                                                    <Form.Control
+                                                        type="number"
+                                                        min="1"
+                                                        max="10"
+                                                        value={answers2.question10 === 0 ? NaN : answers2.question10}
+                                                        onChange={e => {
+                                                            if (!question10Changed) {
+                                                                setQuestion10Changed(true);
+                                                            }
+                                                            handleAnswerChange2("question10", Number(e.target.value));
+                                                        }}
+                                                    />
+                                                </Col>
+                                            </Form.Group>
+                                        </div>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
 
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1}} className="my-5" />
                             </Col>
                         </Row>
 
                         {/* Question 11 */}
                         <Row className="mb-4">
-                        <Col sm="2">
+                        <Col sm="1">
                             <HelpButton qnumber={10} />
                         </Col>
                         <Col sm="10">
                             <div id="question11">
-                            <h3 className="text-start">Question 11 - {QuestionList2[10]}</h3>
+                            <OverlappingBoxes text = {`Question 11 - ${QuestionList2[10]}`}/>
                             </div>
                         </Col>
                         </Row>
-                        <Row className="mb-4">
-                            <Col sm="1" />
-                            {questionOptions2[10].map(option => (                                
-                                <Col key={option} ref={question12Ref}>
-                                            <Button
-                                                variant={answers2.question11.includes(option) ? "primary" : "outline-primary"}
-                                                onClick={() => handleAnswerChange2("question11", answers2.question11.includes(option)
-                                                    ? answers2.question11.filter(e => e !== option)
-                                                    : [...answers2.question11, option]
-                                                )}
-                                            >
-                                                {option}
-                                            </Button>
-                                </Col>
-                            ))}
-                            <Col sm="2" />
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question4Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                            {questionOptions2[10].map(option => (
+                                                            <Button
+                                                                variant={answers2.question11.includes(option) ? "danger" : "outline-danger"}
+                                                                onClick={() => handleAnswerChange2("question11", answers2.question11.includes(option)
+                                                                    ? answers2.question11.filter(e => e !== option)
+                                                                    : [...answers2.question11, option]
+                                                                )}
+                                                                className="me-2"
+                                                            >
+                                                                {option}
+                                                            </Button>
+                                            ))}
+                                            </div>
+                                        </Row>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <Row>
+                        <Col sm="1" />
+                        <Col sm="10">
+                            <hr style={{ border: "4px solid #555", width: "100%", opacity:1}} className="my-5" />
+                        </Col>
                         </Row>
 
                         {/* Question 12 */}
                         <Row className="mb-4">
-                        <Col sm="2">
+                        <Col sm="1">
                             <HelpButton qnumber={11} />
                         </Col>
                         <Col sm="10">
                             <div id="question12">
-                            <h3 className="text-start">Question 12 - {QuestionList2[11]}</h3>
+                            <OverlappingBoxes text = {`Question 12 - ${QuestionList2[11]}`}/>
                             </div>
                         </Col>
                         </Row>
-                        <Row className="mb-4">
-                        <Col sm="1" />
-                        {questionOptions2[11].map(option => (
-                            <Col key={option} sm="2" ref={question13Ref}>
-                            <Form.Check
-                                inline
-                                type="checkbox"
-                                label={option}
-                                value={option}
-                                checked={answers2.question12.includes(option)}
-                                onChange={() => handleAnswerChange2("question12", answers2.question12.includes(option)
-                                ? answers2.question12.filter(e => e !== option)
-                                : [...answers2.question12, option]
-                                )}
-                            />
-                            </Col>
-                        ))}
-                        <Col sm="2" />
-                        </Row>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                <Row ref={question13Ref}>
+                                    <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                    {questionOptions2[11].map(option => (
+                                        <Form.Check
+                                            className = "custom-checkbox"
+                                            inline
+                                            type="checkbox"
+                                            label={option}
+                                            value={option}
+                                            checked={answers2.question12.includes(option)}
+                                            onChange={() => handleAnswerChange2("question12", answers2.question12.includes(option)
+                                            ? answers2.question12.filter(e => e !== option)
+                                            : [...answers2.question12, option]
+                                            )}
+                                        />
+                                    ))}
+                                    </div>
+                                </Row>
+                            </div>
+                        </div>
+                    </div>
 
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
                         <Row className="mb-4">
-                        <Col sm="2">
+                        <Col sm="1">
                             <HelpButton qnumber={12} />
                         </Col>
                         <Col sm="10">
                             <div id="question13">
-                            <h3 className="text-start">Question 13 - {QuestionList2[12]}</h3>
+                            <OverlappingBoxes text = {`Question 13 - ${QuestionList2[12]}`}/>
                             </div>
                         </Col>
                         </Row>
-
-                        <Form.Group as={Row} className="mb-4">
-                        <Col sm="2" />
-                        <Form.Label column sm="1">Rating:</Form.Label>
-                        <Col sm="2" ref={question14Ref}>
-                            <Form.Control
-                            type="number"
-                            min="1"
-                            max="10"
-                            value={answers2.question13 === 0 ? NaN : answers2.question13}
-                            onChange={e => {
-                                if (!question13Changed) {
-                                    setQuestion13Changed(true);
-                                }
-                                handleAnswerChange2("question13", Number(e.target.value))}}
-                            />
-                        </Col>
-                        <Col sm="3" />
-                        </Form.Group>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question5Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                            <Form.Group as={Row}>
+                                            <Form.Label column sm="4">Rating:</Form.Label>
+                                            <Col sm="8" ref={question14Ref}>
+                                                <Form.Control
+                                                type="number"
+                                                min="1"
+                                                max="10"
+                                                value={answers2.question13 === 0 ? NaN : answers2.question13}
+                                                onChange={e => {
+                                                    if (!question13Changed) {
+                                                        setQuestion13Changed(true);
+                                                    }
+                                                    handleAnswerChange2("question13", Number(e.target.value))}}
+                                                />
+                                            </Col>
+                                            </Form.Group>
+                                        </div>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
 
 
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
                         {/* Question 14 */}
                         <Row className="mb-4">
-                        <Col sm="2">
+                        <Col sm="1">
                             <HelpButton qnumber={13} />
                         </Col>
                         <Col sm="10">
                             <div id="question14">
-                            <h3 className="text-start">Question 14 - {QuestionList2[13]}</h3>
+                            <OverlappingBoxes text = {`Question 14 - ${QuestionList2[13]}`}/>
                             </div>
                         </Col>
                         </Row>
-                        <Row className="mb-4">
-                        <Col sm={{ span: 8, offset: 2 }} ref={question15Ref}>
-                            <ListGroup>
-                            {questionOptions2[13].map(option => (
-                                <ListGroup.Item
-                                key={option}
-                                action
-                                active={answers2.question14.includes(option)} 
-                                onClick={() => {
-                                    const isSelected = answers2.question14.includes(option);
-                                    const newSelection = isSelected
-                                    ? answers2.question14.filter(o => o !== option) 
-                                    : [...answers2.question14, option];
-                                    handleAnswerChange2("question14", newSelection);
-                                }}
-                                style={{ cursor: "pointer" }}
-                                >
-                                {option}
-                                </ListGroup.Item>
-                            ))}
-                            </ListGroup>
-                        </Col>
-                        </Row>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question15Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left'}}>
+                                            <ListGroup>
+                                            {questionOptions2[13].map(option => (
+                                                <ListGroup.Item
+                                                key={option}
+                                                action
+                                                active={answers2.question14.includes(option)} 
+                                                onClick={() => {
+                                                    const isSelected = answers2.question14.includes(option);
+                                                    const newSelection = isSelected
+                                                    ? answers2.question14.filter(o => o !== option) 
+                                                    : [...answers2.question14, option];
+                                                    handleAnswerChange2("question14", newSelection);
+                                                }}
+                                                style={{
+                                                    cursor: "pointer",
+                                                    backgroundColor: answers2.question14.includes(option) ? "#cc2435" : "#e98585", // persistent color change
+                                                    color: answers2.question14.includes(option) ? "white" : "black", // persistent text color change
+                                                    borderColor: answers2.question14.includes(option) ? "#cc2435" : "#e98585", // persistent border color change
+                                                  }}
+                                                variant = "danger"
+                                                className = "mb-2"
+                                                >
+                                                {option}
+                                                </ListGroup.Item>
+                                            ))}
+                                            </ListGroup>
+                                        </div>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
 
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
                         {/* Question 15 */}
                         <Row className="mb-4">
-                        <Col sm="2">
+                        <Col sm="1">
                             <HelpButton qnumber={14} />
                         </Col>
                         <Col sm="10">
                             <div id="question15">
-                            <h3 className="text-start">Question 15 - {QuestionList2[14]}</h3>
+                            <OverlappingBoxes text = {`Question 15 - ${QuestionList2[14]}`}/>
                             </div>
                         </Col>
                         </Row>
-                        <Row className="mb-4">
-                        <Col sm="1" />
-                        {questionOptions2[14].map(option => (
-                            <Col key={option} sm="2" ref={question16Ref}>
-                            <Form.Check
-                                inline
-                                type="checkbox"
-                                label={option}
-                                value={option}
-                                checked={answers2.question15.includes(option)}
-                                onChange={() => handleAnswerChange2("question15", answers2.question15.includes(option)
-                                ? answers2.question15.filter(e => e !== option)
-                                : [...answers2.question15, option]
-                                )}
-                            />
-                            </Col>
-                        ))}
-                        <Col sm="2" />
-                        </Row>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question2Ref}>
+                                        <div style={{ fontSize: '0.96rem', textAlign: 'left' }}>
+                                            {questionOptions2[14].map(option => (
+                                                <Form.Check
+                                                    className = "custom-checkbox"
+                                                    inline
+                                                    type="checkbox"
+                                                    label={option}
+                                                    value={option}
+                                                    checked={answers2.question15.includes(option)}
+                                                    onChange={() => handleAnswerChange2("question15", answers2.question15.includes(option)
+                                                    ? answers2.question15.filter(e => e !== option)
+                                                    : [...answers2.question15, option]
+                                                    )}
+                                                />
+                                            ))}
+                                        </div>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
 
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
                         {/* Question 16 */}
                         <Row className="mb-4">
-                        <Col sm="2">
+                        <Col sm="1">
                             <HelpButton qnumber={15} />
                         </Col>
                         <Col sm="10">
                             <div id="question16">
-                            <h3 className="text-start">Question 16 - {QuestionList2[15]}</h3>
+                            <OverlappingBoxes text = {`Question 16 - ${QuestionList2[15]}`}/>
                             </div>
                         </Col>
                         </Row>
-                        <Row className="mb-4">
-                            <Col sm="1" />
-                            {questionOptions2[15].map(option => (                                
-                                <Col key={option} ref={question17Ref}>
-                                            <Button
-                                                variant={answers2.question16.includes(option) ? "primary" : "outline-primary"}
-                                                onClick={() => handleAnswerChange2("question16", answers2.question16.includes(option)
-                                                    ? answers2.question16.filter(e => e !== option)
-                                                    : [...answers2.question16, option]
-                                                )}
-                                            >
-                                                {option}
-                                            </Button>
-                                </Col>
-                            ))}
-                            <Col sm="2" />
-                        </Row>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question4Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                            {questionOptions2[15].map(option => (        
+                                                            <Button
+                                                                variant={answers2.question16.includes(option) ? "danger" : "outline-danger"}
+                                                                onClick={() => handleAnswerChange2("question16", answers2.question16.includes(option)
+                                                                    ? answers2.question16.filter(e => e !== option)
+                                                                    : [...answers2.question16, option]
+                                                                )}
+                                                                className="me-2"
+                                                            >
+                                                                {option}
+                                                            </Button>
+                                            ))}
+                                        </div>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
 
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
                         <Row className="mb-4">
-                        <Col sm="2">
+                        <Col sm="1">
                             <HelpButton qnumber={16} />
                         </Col>
                         <Col sm="10">
                             <div id="question17">
-                            <h3 className="text-start">Question 17 - {QuestionList2[16]}</h3>
+                            <OverlappingBoxes text = {`Question 17 - ${QuestionList2[16]}`}/>
                             </div>
                         </Col>
                         </Row>
 
-                        <Form.Group as={Row} className="mb-4">
-                        <Col sm="2" />
-                        <Col sm="2">
-                            <Form.Label>Rating:</Form.Label>
-                        </Col>
-                        <Col sm="5" ref={question18Ref}>
-                            <Form.Range
-                            min="1"
-                            max="10"
-                            value={answers2.question17}
-                            onChange={e => {
-                                if (!question17Changed) {
-                                    setQuestion17Changed(true);
-                                }
-                                handleAnswerChange2("question17", Number(e.target.value))}}
-                            />
-                        </Col>
-                        <Col sm="2"><strong>{answers2.question17 === 0 ? "Select a Value" : answers2.question17}</strong></Col>
-                        <Col sm="1" />
-                        </Form.Group>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question5Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                            <Form.Group as={Row}>
+                                            <Col sm="3">
+                                                <Form.Label>Rating:</Form.Label>
+                                            </Col>
+                                            <Col sm="7" ref={question18Ref}>
+                                                <Form.Range
+                                                min="1"
+                                                max="10"
+                                                value={answers2.question17}
+                                                onChange={e => {
+                                                    if (!question17Changed) {
+                                                        setQuestion17Changed(true);
+                                                    }
+                                                    handleAnswerChange2("question17", Number(e.target.value))}}
+                                                />
+                                            </Col>
+                                            <Col sm="2"><strong>{answers2.question17 === 0 ? "" : answers2.question17}</strong></Col>
+                                            </Form.Group>
+                                        </div>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
 
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
                         {/* Question 18 */}
                         <Row className="mb-4">
-                        <Col sm="2">
+                        <Col sm="1">
                             <HelpButton qnumber={17} />
                         </Col>
                         <Col sm="10">
                             <div id="question18">
-                            <h3 className="text-start">Question 18 - {QuestionList2[17]}</h3>
+                            <OverlappingBoxes text = {`Question 18 - ${QuestionList2[17]}`}/>
                             </div>
                         </Col>
                         </Row>
-                        <Row className="mb-4">
-                        <Col sm={{ span: 8, offset: 2 }} ref={question19Ref}>
-                            <ListGroup>
-                            {questionOptions2[17].map(option => (
-                                <ListGroup.Item
-                                key={option}
-                                action
-                                active={answers2.question18.includes(option)} 
-                                onClick={() => {
-                                    const isSelected = answers2.question18.includes(option);
-                                    const newSelection = isSelected
-                                    ? answers2.question18.filter(o => o !== option) 
-                                    : [...answers2.question18, option];
-                                    handleAnswerChange2("question18", newSelection);
-                                }}
-                                style={{ cursor: "pointer" }}
-                                >
-                                {option}
-                                </ListGroup.Item>
-                            ))}
-                            </ListGroup>
-                        </Col>
-                        </Row>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question19Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left'}}>
+                                            <ListGroup>
+                                            {questionOptions2[17].map(option => (
+                                                <ListGroup.Item
+                                                key={option}
+                                                action
+                                                active={answers2.question18.includes(option)} 
+                                                onClick={() => {
+                                                    const isSelected = answers2.question18.includes(option);
+                                                    const newSelection = isSelected
+                                                    ? answers2.question18.filter(o => o !== option) 
+                                                    : [...answers2.question18, option];
+                                                    handleAnswerChange2("question18", newSelection);
+                                                }}
+                                                style={{
+                                                    cursor: "pointer",
+                                                    backgroundColor: answers2.question18.includes(option) ? "#cc2435" : "#e98585", // persistent color change
+                                                    color: answers2.question18.includes(option) ? "white" : "black", // persistent text color change
+                                                    borderColor: answers2.question18.includes(option) ? "#cc2435" : "#e98585", // persistent border color change
+                                                  }}
+                                                variant = "danger"
+                                                className = "mb-2"
+                                                >
+                                                {option}
+                                                </ListGroup.Item>
+                                            ))}
+                                            </ListGroup>
+                                        </div>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
 
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
                         {/* Question 19 */}
                         <Row className="mb-4">
-                        <Col sm="2">
+                        <Col sm="1">
                             <HelpButton qnumber={18} />
                         </Col>
                         <Col sm="10">
                             <div id="question19">
-                            <h3 className="text-start">Question 19 - {QuestionList2[18]}</h3>
+                            <OverlappingBoxes text = {`Question 19 - ${QuestionList2[18]}`}/>
                             </div>
                         </Col>
                         </Row>
-                        <Row className="mb-4">
-                        <Col sm="1" />
-                        {questionOptions2[18].map(option => (
-                            <Col key={option} sm="2" ref={question20Ref}>
-                            <Form.Check
-                                inline
-                                type="checkbox"
-                                label={option}
-                                value={option}
-                                checked={answers2.question19.includes(option)}
-                                onChange={() => handleAnswerChange2("question19", answers2.question19.includes(option)
-                                ? answers2.question19.filter(e => e !== option)
-                                : [...answers2.question19, option]
-                                )}
-                            />
-                            </Col>
-                        ))}
-                        <Col sm="2" />
-                        </Row>
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question2Ref}>
+                                        <div style={{ fontSize: '0.95rem', textAlign: 'left' }}>
+                                            {questionOptions2[18].map(option => (
+                                                <Form.Check
+                                                    className = "custom-checkbox"
+                                                    inline
+                                                    type="checkbox"
+                                                    label={option}
+                                                    value={option}
+                                                    checked={answers2.question19.includes(option)}
+                                                    onChange={() => handleAnswerChange2("question19", answers2.question19.includes(option)
+                                                    ? answers2.question19.filter(e => e !== option)
+                                                    : [...answers2.question19, option]
+                                                    )}
+                                                />
+                                            ))}
+                                        </div>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
 
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="my-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
                         {/* Question 20 */}
                         <Row className="mb-4">
-                        <Col sm="2">
+                        <Col sm="1">
                             <HelpButton qnumber={19} />
                         </Col>
                         <Col sm="10">
                             <div id="question20">
-                            <h3 className="text-start">Question 20 - {QuestionList2[19]}</h3>
+                            <OverlappingBoxes text = {`Question 20 - ${QuestionList2[19]}`}/>
                             </div>
                         </Col>
                         </Row>
-                        <Row className="mb-4">
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row ref={question4Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                            {questionOptions2[19].map(option => (    
+                                                            <Button
+                                                                variant={answers2.question20.includes(option) ? "danger" : "outline-danger"}
+                                                                onClick={() => handleAnswerChange2("question20", answers2.question20.includes(option)
+                                                                    ? answers2.question20.filter(e => e !== option)
+                                                                    : [...answers2.question20, option]
+                                                                )}
+                                                                className="me-2"
+                                                            >
+                                                                {option}
+                                                            </Button>
+                                            ))}
+                                        </div>
+                                    </Row>
+                                </div>
+                        </div>
+                        </div>
+
+                        <Row>
                             <Col sm="1" />
-                            {questionOptions2[19].map(option => (                                
-                                <Col key={option}>
-                                            <Button
-                                                variant={answers2.question20.includes(option) ? "primary" : "outline-primary"}
-                                                onClick={() => handleAnswerChange2("question20", answers2.question20.includes(option)
-                                                    ? answers2.question20.filter(e => e !== option)
-                                                    : [...answers2.question20, option]
-                                                )}
-                                            >
-                                                {option}
-                                            </Button>
-                                </Col>
-                            ))}
-                            <Col sm="2" />
+                            <Col sm="10">
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1}} className="my-5" />
+                            </Col>
                         </Row>
 
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <Row>
+                                        <Col sm="5">
+                                            <Button variant = "outline-danger" disabled = {progress!==100} onClick={() => {
+                                                window.location.hash = ``;
+                                                changePage("Review")}}>Review Answers</Button>
+                                        </Col>
+                                        <Col sm = "1"/>
+                                        <Col sm="5">
+                                            <Button variant = "outline-danger" disabled = {progress!==100} onClick={() => {
+                                                window.location.hash = ``;
+                                                changePage("Answers")}}>Get Answers</Button>
+                                        </Col>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
                         {/* ----------------------------------------------------------------------------------------------------------------- */}
                     </Col>
                     <Col sm="3">
@@ -1196,38 +1401,15 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <img src={q7_picture} alt="Being Methodical" width={450} height={250} />
                     </Col>
                 </Row>
-    
-                <Row>
-                    <Col sm="8">
-                        <Row className="mb-3">
-                            <Col sm="1" />
-                            <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="mb-5" />
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row>
-    
-                <Row>
-                    <Col sm="1" />
-                    <Col sm="3">
-                        <Button disabled = {progress!==100} onClick={() => {
-                            window.location.hash = ``;
-                            changePage("Review")}}>Review Answers</Button>
-                    </Col>
-                    <Col sm="2">
-                        <Button disabled = {progress!==100} onClick={() => {
-                            window.location.hash = ``;
-                            changePage("Answers")}}>Get Answers</Button>
-                    </Col>
-                </Row>
+                
+                
     
                 <Row>
                     <Col sm="8">
                         <Row className="my-5">
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid black", width: "100%" }} className="mb-5" />
+                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1}} className="mb-5" />
                             </Col>
                         </Row>
                     </Col>

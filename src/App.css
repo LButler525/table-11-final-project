@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+body {
+  background-image: url("Images/Background-1.jpg");
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +40,54 @@
     transform: rotate(360deg);
   }
 }
+.box-wrapper {
+  display: inline-block;
+  border: 4px solid #555;  /* Outer border if you still want one */
+  border-radius: 8px;
+}
+
+.box-background {
+  background-color: #f76c6c;  /* BACK layer color */
+  padding: 8px;  /* Space between back and front box */
+  border-radius: 4px;
+}
+
+.box-foreground {
+  background-color: #f6b26b; /* FRONT layer color */
+  padding: 20px 40px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  border-radius: 4px; /* Optional: round inner corners */
+}
+
+.custom-checkbox .form-check-input:checked {
+  background-color: #f76c6c; /* change this to your color */
+  border-color: #555;
+}
+
+/* Optional: custom color for the box border when not checked */
+.custom-checkbox .form-check-input {
+  border-color: #555;
+}
+
+.btn-outline-danger {
+  color: black;
+  background-color: #e98585;
+  background-color: cutom-color;
+  border-color: #e98585;
+  border-color: cutom-cor;
+}
+
+.btn-danger{
+  scale: 1.03
+}
+
+.list-group-item-danger:hover {
+  color: white !important;
+  background-color: #cc2435 !important;
+  border-color: #cc2435 !important;
+}
+
+
