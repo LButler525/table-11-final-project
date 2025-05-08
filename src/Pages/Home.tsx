@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import '../App.css';
-import LinkedInLogo from '../Images/LinkedIn.jpg';
-import TwitterLogo from '../Images/twitter.jpg'; 
-import IGLogo from '../Images/IG.jpg';
-import YTBLogo from '../Images/ytb.jpg';
-import Facebook from '../Images/facebook.jpg';
+import LinkedInLogo from '../Images/LinkedIn.png';
+import TwitterLogo from '../Images/twitter.png'; 
+import IGLogo from '../Images/IG.png';
+import YTBLogo from '../Images/ytb.png';
+import Facebook from '../Images/facebook.png';
 
 let keyData = "";
 const saveKeyData = "MYKEY";
@@ -20,6 +20,20 @@ interface HomeProps {
 
 
 export function Home({changePage}:HomeProps) { 
+    const headerRef = useRef<HTMLDivElement>(null);
+    const [headerWidth, setHeaderWidth] = useState<number>(0);
+    const detailedRef = useRef<HTMLDivElement>(null);
+    const [sectionWidth, setSectionWidth] = useState<number>(0);
+
+    useEffect(() => {
+      if (headerRef.current) {
+        setHeaderWidth(headerRef.current.offsetWidth);
+      }
+      if (detailedRef.current) {
+        setSectionWidth(detailedRef.current.offsetWidth);
+      }
+    }, []);
+
     const [key, setKey] = useState<string>(keyData); //for api key input
 
     function handleSubmit() {
@@ -33,33 +47,48 @@ export function Home({changePage}:HomeProps) {
       }
 
     return(
-        <div className="App" style={{ backgroundColor: "#F2F2F2", minHeight: "100vh", padding: "20px" }}>
+        <div className="App" style={{ minHeight: "100vh", padding: "20px" }}>
           {/* Header Section */}
-          <section style={{ textAlign: "center", marginBottom: "40px" }}>
+          <div className="box-wrapper" ref={headerRef}>
+            <div className="box-background">
+              <div className="box-foreground">
+          <section style={{ textAlign: "center", marginBottom: "0px" }}>
             <h1>Personalized Career Quiz</h1>
             <p>Take the basic or detailed quiz to find a career that fits your strengths and preferences</p>
-            <Button variant="outline-dark" onClick={() => window.open("https://www.google.com/search?q=career+assessment+quizzes", "_blank")}>Find Other Quizzes</Button>
+            <Button variant="outline-danger" onClick={() => window.open("https://www.google.com/search?q=career+assessment+quizzes", "_blank")}>Find Other Quizzes</Button>
           </section>
+              </div>
+            </div>
+          </div>
 
           {/* Testimonials Section */}
-          <section style={{ display: "flex", justifyContent: "space-around", marginBottom: "40px" }}>
+          <div className="box-wrapper" style={headerWidth ? { width: headerWidth } : undefined}>
+            <div className="box-background">
+              <div className="box-foreground">
+          <section style={{ display: "flex", justifyContent: "space-around", marginBottom: "0px" }}>
             <div style={{ maxWidth: "45%" }}>
-              <p><strong>“</strong>I love how the quiz personalized my results—it really helped me understand which careers fit me best!<strong>”</strong></p>
-              <p>—Anonymous Quiz Taker</p>
+              <p className="testimonial-text"><strong>“</strong>I love how the quiz personalized my results—it really helped me understand which careers fit me best!<strong>”</strong></p>
+              <p className="testimonial-author">—Anonymous Quiz Taker</p>
             </div>
             <div style={{ maxWidth: "45%" }}>
-              <p><strong>“</strong>Navigating this quiz was effortless! The interface was intuitive, making it easy to move through questions.<strong>”</strong></p>
-              <p>—Anonymous Quiz Taker</p>
+              <p className="testimonial-text"><strong>“</strong>Navigating this quiz was effortless! The interface was intuitive, making it easy to move through questions.<strong>”</strong></p>
+              <p className="testimonial-author">—Anonymous Quiz Taker</p>
             </div>
           </section>
+              </div>
+            </div>
+          </div>
 
           {/* Basic Quiz Section */}
-          <section style={{ marginBottom: "40px" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#fff", border: "1px solid #ddd", borderRadius: "12px", padding: "20px" }}>
+          <div className="box-wrapper" style={sectionWidth ? { width: sectionWidth } : undefined}>
+            <div className="box-background">
+              <div className="box-foreground">
+          <section style={{ marginBottom: "0px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px" }}>
               <div style={{ maxWidth: "60%", textAlign: "left", marginRight: "20px" }}>
-                <h2>Basic Questions Quiz</h2>
-                <p>A quick quiz with straightforward questions to help you explore career paths in just a few minutes</p>
-                <Button variant="primary" onClick={() => changePage("Basic")}>Take Quiz (10–15 min)</Button>
+                <h2 style={{ fontWeight: 700, fontSize: '2rem' }}>Basic Questions Quiz</h2>
+                <p style={{ fontWeight: 400, fontSize: '1rem' }}>A quick quiz with straightforward questions to help you explore career paths in just a few minutes</p>
+                <Button variant="outline-danger" onClick={() => changePage("Basic")}>Take Quiz (10–15 min)</Button>
               </div>
               <div>
                 {/* Placeholder for image/icon */}
@@ -67,14 +96,20 @@ export function Home({changePage}:HomeProps) {
               </div>
             </div>
           </section>
+              </div>
+            </div>
+          </div>
 
           {/* Detailed Quiz Section */}
-          <section style={{ marginBottom: "40px" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#fff", border: "1px solid #ddd", borderRadius: "12px", padding: "20px" }}>
+          <div className="box-wrapper" ref={detailedRef} style={{ width: 'calc(100% - 20px)', margin: '20px auto' }}>
+            <div className="box-background">
+              <div className="box-foreground">
+          <section style={{ marginBottom: "0px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px" }}>
               <div style={{ maxWidth: "60%", textAlign: "left", marginRight: "20px" }}>
-                <h2>Detailed Questions Quiz</h2>
-                <p>A deeper dive into your skills, values, and interests with varied question formats for a more personalized result</p>
-                <Button variant="primary" onClick={() => changePage("Detailed")}>Take Quiz (30–40 min)</Button>
+                <h2 style={{ fontWeight: 700, fontSize: '2rem' }}>Detailed Questions Quiz</h2>
+                <p style={{ fontWeight: 400, fontSize: '1rem' }}>A deeper dive into your skills, values, and interests with varied question formats for a more personalized result</p>
+                <Button variant="outline-danger" onClick={() => changePage("Detailed")}>Take Quiz (30–40 min)</Button>
               </div>
               <div>
                 {/* Placeholder for image/icon */}
@@ -82,30 +117,29 @@ export function Home({changePage}:HomeProps) {
               </div>
             </div>
           </section>
+              </div>
+            </div>
+          </div>
 
           {/* Learn More Section */}
-          <section style={{ marginBottom: "40px" }}>
+          <div className="box-wrapper interactive-box" style={sectionWidth ? { width: sectionWidth } : undefined}>
+            <div className="box-background">
+              <div className="box-foreground">
+          <section style={{ marginBottom: "0px" }}>
             <div
               onClick={() => changePage("LearnMore")}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#f8f9fa")}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#fff")}
-              onMouseDown={e => (e.currentTarget.style.backgroundColor = "#e0e0e0")}
-              onMouseUp={e => (e.currentTarget.style.backgroundColor = "#f8f9fa")}
               style={{
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                backgroundColor: "#fff",
-                border: "1px solid #ddd",
-                borderRadius: "12px",
                 padding: "20px",
                 cursor: "pointer",
                 transition: "background-color 0.2s"
               }}
             >
               <div style={{ maxWidth: "60%", textAlign: "left", marginRight: "20px" }}>
-                <h2>Learn More About the Quiz</h2>
-                <p>
+                <h2 style={{ fontWeight: 700, fontSize: '2rem' }}>Learn More About the Quiz</h2>
+                <p style={{ fontWeight: 400, fontSize: '1rem' }}>
                   Discover how this quiz can guide your career choices—quick,
                   insightful, and research-backed!
                 </p>
@@ -116,8 +150,14 @@ export function Home({changePage}:HomeProps) {
               </div>
             </div>
           </section>
+              </div>
+            </div>
+          </div>
 
           {/* Social Icons Section */}
+          <div className="box-wrapper">
+            <div className="box-background">
+              <div className="box-foreground">
           <section style={{ textAlign: "center", marginBottom: "40px" }}>
             <p>Follow us</p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
@@ -158,23 +198,32 @@ export function Home({changePage}:HomeProps) {
               </a>
             </div>
           </section>
+              </div>
+            </div>
+          </div>
 
           {/* Footer Section */}
-          <section style={{ textAlign: "center", marginBottom: "40px" }}>
+          <div className="box-wrapper">
+            <div className="box-background">
+              <div className="box-foreground">
+          <section style={{ textAlign: "center", marginBottom: "0px" }}>
             <h3>Explore More</h3>
             <p>Join Thousands Who’ve Found Their Career Path! This quiz has helped countless users explore their strengths and discover careers that truly fit them. Start now!</p>
             <div>
-              <Button variant="secondary" style={{ marginRight: "10px" }}>Privacy & Policy</Button>
-              <Button variant="secondary">FAQs</Button>
+              <Button variant="outline-danger" style={{ marginRight: "10px" }}>Privacy & Policy</Button>
+              <Button variant="outline-danger">FAQs</Button>
             </div>
           </section>
+              </div>
+            </div>
+          </div>
 
           {/* Leave the API key section below untouched */}
           <Form>
-            <Form.Label>API Key:</Form.Label>
+            <Form.Label style={{ color: "#ffffff" }}>API Key:</Form.Label>
             <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
             <br></br>
-            <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+            <Button variant="outline-danger" onClick={handleSubmit}>Submit</Button>
           </Form>
         </div>
     )
