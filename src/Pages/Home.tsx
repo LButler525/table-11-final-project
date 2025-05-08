@@ -46,6 +46,22 @@ export function Home({changePage}:HomeProps) {
         setKey(event.target.value);
       }
 
+      const tips = [
+        "Did you know? 70% of jobs are filled through networking—so connect with peers!",
+        "Fun Fact: Candidates with optimized profiles are 30% more likely to be contacted by recruiters.",
+        "Tip: Tailoring your resume to each job can boost your chances by up to 50%.",
+        "Insight: Hiring managers spend an average of 6 seconds reviewing a resume—make those seconds count.",
+        "Reminder: 85% of hiring managers use LinkedIn to vet candidates—keep your profile updated.",
+        "Fact: Practicing mock interviews improves interview performance by up to 60%.",
+        "Career Tip: Internships increase your chance of a full-time offer by 70%.",
+        "Insight: Soft skills like communication and adaptability rank among the top traits employers seek.",
+        "Stat: People who set clear career goals are 10x more likely to achieve them.",
+        "Tip: Adding quantifiable results to your resume (e.g., 'increased sales by 20%') makes a big impact."
+      ];
+    const [basicTipIndex, setBasicTipIndex] = useState(0);
+    const [detailedTipIndex, setDetailedTipIndex] = useState(0);
+    const [basicHovered, setBasicHovered] = useState(false);
+    const [detailedHovered, setDetailedHovered] = useState(false);
     return(
         <div className="App" style={{ minHeight: "100vh", padding: "20px" }}>
           {/* Header Section */}
@@ -80,7 +96,12 @@ export function Home({changePage}:HomeProps) {
           </div>
 
           {/* Basic Quiz Section */}
-          <div className="box-wrapper" style={sectionWidth ? { width: sectionWidth } : undefined}>
+          <div
+            className="box-wrapper"
+            style={sectionWidth ? { width: sectionWidth } : undefined}
+            onMouseEnter={() => { setBasicTipIndex(Math.floor(Math.random() * tips.length)); setBasicHovered(true); }}
+            onMouseLeave={() => setBasicHovered(false)}
+          >
             <div className="box-background">
               <div className="box-foreground">
           <section style={{ marginBottom: "0px" }}>
@@ -90,9 +111,18 @@ export function Home({changePage}:HomeProps) {
                 <p style={{ fontWeight: 400, fontSize: '1rem' }}>A quick quiz with straightforward questions to help you explore career paths in just a few minutes</p>
                 <Button variant="outline-danger" onClick={() => changePage("Basic")}>Take Quiz (10–15 min)</Button>
               </div>
-              <div>
-                {/* Placeholder for image/icon */}
-                <div style={{ fontSize: "40px" }}>📝</div>
+              <div style={{ marginLeft: 'auto', maxWidth: '30%', textAlign: 'right' }}>
+                {basicHovered && (
+                  <span style={{
+                    fontStyle: 'italic',
+                    fontWeight: 400,
+                    fontSize: '0.9rem',
+                    textAlign: 'left',
+                    display: 'block'
+                  }}>
+                    {tips[basicTipIndex]}
+                  </span>
+                )}
               </div>
             </div>
           </section>
@@ -101,7 +131,13 @@ export function Home({changePage}:HomeProps) {
           </div>
 
           {/* Detailed Quiz Section */}
-          <div className="box-wrapper" ref={detailedRef} style={{ width: 'calc(100% - 20px)', margin: '20px auto' }}>
+          <div
+            className="box-wrapper"
+            ref={detailedRef}
+            style={{ width: 'calc(100% - 20px)', margin: '20px auto' }}
+            onMouseEnter={() => { setDetailedTipIndex(Math.floor(Math.random() * tips.length)); setDetailedHovered(true); }}
+            onMouseLeave={() => setDetailedHovered(false)}
+          >
             <div className="box-background">
               <div className="box-foreground">
           <section style={{ marginBottom: "0px" }}>
@@ -111,9 +147,18 @@ export function Home({changePage}:HomeProps) {
                 <p style={{ fontWeight: 400, fontSize: '1rem' }}>A deeper dive into your skills, values, and interests with varied question formats for a more personalized result</p>
                 <Button variant="outline-danger" onClick={() => changePage("Detailed")}>Take Quiz (30–40 min)</Button>
               </div>
-              <div>
-                {/* Placeholder for image/icon */}
-                <div style={{ fontSize: "40px" }}>📋</div>
+              <div style={{ marginLeft: 'auto', maxWidth: '30%', textAlign: 'right' }}>
+                {detailedHovered && (
+                  <span style={{
+                    fontStyle: 'italic',
+                    fontWeight: 400,
+                    fontSize: '0.9rem',
+                    textAlign: 'left',
+                    display: 'block'
+                  }}>
+                    {tips[detailedTipIndex]}
+                  </span>
+                )}
               </div>
             </div>
           </section>
@@ -158,7 +203,7 @@ export function Home({changePage}:HomeProps) {
           <div className="box-wrapper">
             <div className="box-background">
               <div className="box-foreground">
-          <section style={{ textAlign: "center", marginBottom: "40px" }}>
+          <section style={{ textAlign: "center", marginBottom: "0px" }}>
             <p>Follow us</p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
