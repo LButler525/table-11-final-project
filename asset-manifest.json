@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/table-11-final-project/static/css/main.affceca5.css",
-    "main.js": "/table-11-final-project/static/js/main.a11cfaf8.js",
+    "main.css": "/table-11-final-project/static/css/main.295f407c.css",
+    "main.js": "/table-11-final-project/static/js/main.7fbc2339.js",
     "static/js/453.bad6c33a.chunk.js": "/table-11-final-project/static/js/453.bad6c33a.chunk.js",
-    "static/media/IG.jpg": "/table-11-final-project/static/media/IG.3b5aded8016fcccefe5e.jpg",
-    "static/media/LinkedIn.jpg": "/table-11-final-project/static/media/LinkedIn.f60ee00c1e47292bf73e.jpg",
+    "static/media/IG.png": "/table-11-final-project/static/media/IG.926c567338210f0f924f.png",
+    "static/media/LinkedIn.png": "/table-11-final-project/static/media/LinkedIn.aef31b2061f677d7d6d0.png",
+    "static/media/ytb.png": "/table-11-final-project/static/media/ytb.34cf3d6cc23ce882730a.png",
     "static/media/Background-1.jpg": "/table-11-final-project/static/media/Background-1.a483ec5b753f09d3af0d.jpg",
-    "static/media/ytb.jpg": "/table-11-final-project/static/media/ytb.5920656860e31fae4ca4.jpg",
+    "static/media/twitter.png": "/table-11-final-project/static/media/twitter.827d35d1b67e42510464.png",
+    "static/media/facebook.png": "/table-11-final-project/static/media/facebook.3f55d055ced0deeca3ee.png",
     "static/media/basic-q4.png": "/table-11-final-project/static/media/basic-q4.b131f6ea6c2fc6c8da00.png",
     "static/media/basic-q1.jpg": "/table-11-final-project/static/media/basic-q1.4ec15132dc003b9351f1.jpg",
     "static/media/basic-q5.png": "/table-11-final-project/static/media/basic-q5.9a0928f82cfa45a7564c.png",
-    "static/media/twitter.jpg": "/table-11-final-project/static/media/twitter.b81b08bbbfad63c774ea.jpg",
-    "static/media/facebook.jpg": "/table-11-final-project/static/media/facebook.09b6be11aff8501d2c9d.jpg",
     "static/media/basic-q6.jpg": "/table-11-final-project/static/media/basic-q6.5b7a31670399e7881c50.jpg",
     "static/media/basic-q3.jpg": "/table-11-final-project/static/media/basic-q3.896304c5628dd3294b2d.jpg",
     "index.html": "/table-11-final-project/index.html",
-    "main.affceca5.css.map": "/table-11-final-project/static/css/main.affceca5.css.map",
-    "main.a11cfaf8.js.map": "/table-11-final-project/static/js/main.a11cfaf8.js.map",
+    "main.295f407c.css.map": "/table-11-final-project/static/css/main.295f407c.css.map",
+    "main.7fbc2339.js.map": "/table-11-final-project/static/js/main.7fbc2339.js.map",
     "453.bad6c33a.chunk.js.map": "/table-11-final-project/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.affceca5.css",
-    "static/js/main.a11cfaf8.js"
+    "static/css/main.295f407c.css",
+    "static/js/main.7fbc2339.js"
   ]
 }
