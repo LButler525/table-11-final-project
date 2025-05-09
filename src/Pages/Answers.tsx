@@ -158,29 +158,33 @@ export function Answers({changePage, answers2}:AnswersProps) {
             <Button onClick={() => changePage("Detailed")}>Detailed Page</Button>
 
             <Row>
-              <Col sm = "2" />
-              <Col sm = "8">
-                <div className="card">
-                      <div className="card-body"  style={{ whiteSpace: "pre-wrap", textAlign: "left" }}>
-                      {response && (
-                      <ReactMarkdown 
-                        components={{
-                          h3: ({ node, children, ...props }) => (
-                            <h3 {...props} style={{ color: 'black' }} id="Response Header 3">{children}</h3>
-                          ),
-                          h4: ({ node, children, ...props }) => (
-                            <h4 {...props} style={{ color: 'black' }} id="Response Header 4">{children}</h4>
-                          ),
-                          li: ({ node, ...props }) => <li {...props} style={{ color: 'black' }}/>,
-                          strong: ({ node, ...props }) => (
-                            <strong style={{ color: 'black' }} {...props} />
-                          ),
-                        }}
-                      >
-                        {response}
-                      </ReactMarkdown>)}
-                      </div>
+              <Col sm = "1"/>
+              <Col sm = "10">
+              <div className="box-wrapper">
+                <div className="box-background">
+                  <div className="box-foreground">
+                        <div style={{ fontSize: '1rem', textAlign: 'left'}}>
+                        {response && (
+                        <ReactMarkdown 
+                          components={{
+                            h3: ({ node, children, ...props }) => (
+                              <h3 {...props} style={{ color: 'black' }} id="Response Header 3">{children}</h3>
+                            ),
+                            h4: ({ node, children, ...props }) => (
+                              <h4 {...props} style={{ color: 'black' }} id="Response Header 4">{children}</h4>
+                            ),
+                            li: ({ node, ...props }) => <li {...props} style={{ color: 'black' }}/>,
+                            strong: ({ node, ...props }) => (
+                              <strong style={{ color: 'black' }} {...props} />
+                            ),
+                          }}
+                        >
+                          {response}
+                        </ReactMarkdown>)}
+                        </div>
+                    </div>
                   </div>
+                </div>
               </Col>
             </Row>
             

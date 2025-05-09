@@ -40,8 +40,9 @@ body {
     transform: rotate(360deg);
   }
 }
+
 .box-wrapper {
-  display: inline-block;
+  display: block;
   border: 4px solid #555;  /* Outer border if you still want one */
   border-radius: 8px;
 }
@@ -78,10 +79,11 @@ body {
   background-color: cutom-color;
   border-color: #e98585;
   border-color: cutom-cor;
+  font-size: 1.02rem !important;
 }
 
 .btn-danger{
-  scale: 1.03
+  font-size: 1.05rem !important;
 }
 
 .list-group-item-danger:hover {
