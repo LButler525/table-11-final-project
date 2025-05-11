@@ -159,14 +159,6 @@ export function Review({changePage, answers2}:ReviewProps) {
                                             </Button>
                                         ))}
                                     </ButtonGroup>
-                            
-                                    <Row>
-                                        <Col sm="1" />
-                                        <Col sm="10">
-                                            <hr style={{ border: "2px solid black", width: "100%" }} className="my-3" />
-                                        </Col>
-                                    </Row>
-                                    
                             </div>
                         </div>
                     </div>
@@ -178,13 +170,24 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "4" />
                     <Col sm = "4">
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                 </Row>
     
                 
-                
-                <h2 className="mb-5">Questions</h2>
+                <Row>
+                    <Col sm = "3"/>
+                    <Col sm = "6">
+                    <OverlappingBoxes text = {`Questions`}/>
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col sm = "4" />
+                    <Col sm = "4">
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                    </Col>
+                </Row>
     
                 <Row  className="mb-3">
                     <Col sm = "1" />
@@ -195,7 +198,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <div style={{ fontSize: '1.0rem', textAlign: 'center' }}>
+                                <div className = "my-2" style={{ fontSize: '1.0rem', textAlign: 'center' }}>
                                     {questionOptions2[0].map(option => (
                                             <Form.Check
                                             className = "custom-checkbox"
@@ -219,7 +222,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row>         
@@ -266,7 +269,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -304,7 +307,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -348,7 +351,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -393,7 +396,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -440,7 +443,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -478,7 +481,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -520,7 +523,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -556,7 +559,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -597,7 +600,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -633,7 +636,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -672,7 +675,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row>  
@@ -713,7 +716,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -760,7 +763,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -799,7 +802,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -835,7 +838,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -878,7 +881,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -925,7 +928,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -964,7 +967,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row>  
@@ -1002,7 +1005,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10">
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                 </Row>
     
@@ -1026,7 +1029,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10">
-                        <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                 </Row>
     

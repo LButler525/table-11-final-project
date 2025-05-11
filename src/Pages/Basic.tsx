@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, ButtonGroup, Form, Row, Col, OverlayTrigger, Tooltip, ProgressBar, ListGroup, Container } from "react-bootstrap";
+import { Button, ButtonGroup, Form, Row, Col, OverlayTrigger, Tooltip, ProgressBar, ListGroup } from "react-bootstrap";
 import q1_picture from '../Images/basic-q1.jpg';
 import q2_picture from '../Images/basic-q2.jpg';
 import q3_picture from '../Images/basic-q3.jpg';
@@ -369,34 +369,21 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
     return (
         <div>
             <div>
-                <Container fluid>
-                <Row>
-                    <Col sm = "2"/>
-                    <Col sm = "8">
-                   <div className="box-wrapper">
-                        <div className="box-background">
-                            <div className="box-foreground">
-                                
-                                    <h1>Basic Page</h1>
 
-                                      
-                                    <ButtonGroup>
-                                        {["Home", "Detailed"].map(page => (
-                                            <Button variant = "outline-danger" key={page} onClick={() => changePage(page)}>
-                                                {page} Page
-                                            </Button>
-                                        ))}
-                                    </ButtonGroup>
-                            
-                                    <Row>
-                                        <Col sm="1" />
-                                        <Col sm="10" ref={question1Ref}>
-                                            <hr style={{ border: "2px solid black", width: "100%" }} className="my-3" />
-                                        </Col>
-                                    </Row>
-                                
-                                    <h2 className="mb-3">Questions</h2>
-                                    <div style={{
+                <Row>
+                                            <Col sm = "2"/>
+                                            <Col sm = "8">
+                                            <div className="box-wrapper">
+                                                <div className="box-background">
+                                                    <div className="box-foreground">
+                                                        <h1>Basic Page</h1>
+                                    </div>
+                            </div>
+                        </div>
+                        </Col>
+                </Row>
+
+                <div style={{
                                         position: "sticky",
                                         top: 0,
                                         zIndex: 1000,
@@ -405,21 +392,34 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                         marginBottom: "10px",
                                         boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"
                                     }}>
+                                        <Row>
+                                            <Col sm = "2"/>
+                                            <Col sm = "8">
+                                            <div className="box-wrapper">
+                                                <div className="box-background">
+                                                    <div className="box-foreground">
                                         <ProgressBar
                                             now={progress} 
                                             label={`${progress}%`} 
                                             variant={progress === 100 ? "danger" : "warning"}
-                                            style={{ height: "12px", width: "100%", margin: "10px auto"}} 
+                                            style={{ height: "12px", width: "80%", margin: "10px auto"}} 
                                         />
+                                        <ButtonGroup>
+                                        {["Home", "Detailed"].map(page => (
+                                            <Button variant = "outline-danger" key={page} onClick={() => changePage(page)}>
+                                                {page} Page
+                                            </Button>
+                                        ))}
+                                    </ButtonGroup>
+
+                                        
                                     </div>
-                                    
                             </div>
                         </div>
+                    
+                                            </Col>
+                                        </Row>
                     </div>
-                    </Col>
-                    <Col sm = "2"/>
-                </Row>
-                </Container>
                 
     
                     <Row>
@@ -658,14 +658,14 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question5Ref}>
+                                    <Row ref={question6Ref}>
                                         <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             <Form.Group as={Row}>
                                             <Col sm = "1"/>
                                             <Col sm="2">
                                                 <Form.Label>Rating:</Form.Label>
                                             </Col>
-                                            <Col sm="7" ref={question6Ref}>
+                                            <Col sm="7">
                                                 <Form.Range
                                                 min="1"
                                                 max="10"
@@ -940,7 +940,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                                 <Col sm="2">
                                                     <Form.Label>Rating:</Form.Label>
                                                 </Col>
-                                                <Col sm="7" ref={question6Ref}>
+                                                <Col sm="7">
                                                     <Form.Control
                                                         type="number"
                                                         min="1"
@@ -988,7 +988,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question4Ref}>
+                                    <Row ref={question12Ref}>
                                         <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             {questionOptions2[10].map(option => (
                                                             <Button
@@ -1083,7 +1083,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question5Ref}>
+                                    <Row ref={question14Ref}>
                                         <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             <Form.Group as={Row}>
                                             <Col sm = "2"/>
@@ -1197,7 +1197,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question2Ref}>
+                                    <Row ref={question16Ref}>
                                         <div style={{ fontSize: '1.0rem', textAlign: 'center' }}>
                                             {questionOptions2[14].map(option => (
                                                 <Form.Check
@@ -1246,7 +1246,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question4Ref}>
+                                    <Row ref={question17Ref}>
                                         <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             {questionOptions2[15].map(option => (        
                                                             <Button
@@ -1292,14 +1292,14 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question5Ref}>
+                                    <Row ref={question18Ref}>
                                         <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             <Form.Group as={Row}>
                                                 <Col sm = "1"/>
                                                 <Col sm="2">
                                                     <Form.Label>Rating:</Form.Label>
                                                 </Col>
-                                                <Col sm="7" ref={question6Ref}>
+                                                <Col sm="7">
                                                 <Form.Range
                                                 min="1"
                                                 max="10"
@@ -1407,7 +1407,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question2Ref}>
+                                    <Row ref={question20Ref}>
                                         <div style={{ fontSize: '1.0rem', textAlign: 'center' }}>
                                             {questionOptions2[18].map(option => (
                                                 <Form.Check
@@ -1456,7 +1456,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question4Ref}>
+                                    <Row>
                                         <div style={{ fontSize: '1.0rem', textAlign: 'center' }}>
                                             {questionOptions2[19].map(option => (    
                                                             <Button
