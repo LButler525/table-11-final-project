@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/table-11-final-project/static/css/main.5208e62f.css",
-    "main.js": "/table-11-final-project/static/js/main.1a00d64e.js",
+    "main.css": "/table-11-final-project/static/css/main.446f12e3.css",
+    "main.js": "/table-11-final-project/static/js/main.ff4b00b9.js",
     "static/js/453.bad6c33a.chunk.js": "/table-11-final-project/static/js/453.bad6c33a.chunk.js",
     "static/media/IG.png": "/table-11-final-project/static/media/IG.926c567338210f0f924f.png",
     "static/media/LinkedIn.png": "/table-11-final-project/static/media/LinkedIn.aef31b2061f677d7d6d0.png",
@@ -10,18 +10,31 @@
     "static/media/Background-1.jpg": "/table-11-final-project/static/media/Background-1.a483ec5b753f09d3af0d.jpg",
     "static/media/twitter.png": "/table-11-final-project/static/media/twitter.827d35d1b67e42510464.png",
     "static/media/facebook.png": "/table-11-final-project/static/media/facebook.3f55d055ced0deeca3ee.png",
-    "static/media/basic-q4.png": "/table-11-final-project/static/media/basic-q4.b131f6ea6c2fc6c8da00.png",
-    "static/media/basic-q1.jpg": "/table-11-final-project/static/media/basic-q1.4ec15132dc003b9351f1.jpg",
-    "static/media/basic-q5.png": "/table-11-final-project/static/media/basic-q5.9a0928f82cfa45a7564c.png",
-    "static/media/basic-q6.jpg": "/table-11-final-project/static/media/basic-q6.5b7a31670399e7881c50.jpg",
-    "static/media/basic-q3.jpg": "/table-11-final-project/static/media/basic-q3.896304c5628dd3294b2d.jpg",
+    "static/media/basic-q1.jpg": "/table-11-final-project/static/media/basic-q1.3a3cd90d2bbc267c0c93.jpg",
+    "static/media/basic-q3.jpg": "/table-11-final-project/static/media/basic-q3.913ef9fc444b99271860.jpg",
+    "static/media/basic-q8.jpg": "/table-11-final-project/static/media/basic-q8.ef9e2acc3647e4d46ea3.jpg",
+    "static/media/basic-q2.jpg": "/table-11-final-project/static/media/basic-q2.7f18d5b585dd949e265b.jpg",
+    "static/media/basic-q10.jpg": "/table-11-final-project/static/media/basic-q10.fffd0dac472d441d3f1e.jpg",
+    "static/media/basic-q15.jpg": "/table-11-final-project/static/media/basic-q15.8750e5af2ec3cb17d981.jpg",
+    "static/media/basic-q17.jpg": "/table-11-final-project/static/media/basic-q17.463f7731a77d1eeefcc0.jpg",
+    "static/media/basic-q6.jpg": "/table-11-final-project/static/media/basic-q6.683712d298c9244d35ff.jpg",
+    "static/media/basic-q11.jpg": "/table-11-final-project/static/media/basic-q11.7ef9536c4e90e1e0bd17.jpg",
+    "static/media/basic-q18.jpg": "/table-11-final-project/static/media/basic-q18.b90094d12423189ca267.jpg",
+    "static/media/basic-q14.jpg": "/table-11-final-project/static/media/basic-q14.111552045eb67b3fe60a.jpg",
+    "static/media/basic-q12.jpg": "/table-11-final-project/static/media/basic-q12.00e0862995e5e93e8d89.jpg",
+    "static/media/basic-q19.jpg": "/table-11-final-project/static/media/basic-q19.05a055ac8e526c61cd42.jpg",
+    "static/media/basic-q4.jpg": "/table-11-final-project/static/media/basic-q4.3a68df5941a447663308.jpg",
+    "static/media/basic-q13.jpg": "/table-11-final-project/static/media/basic-q13.372ea0a03fd7fbd17f63.jpg",
+    "static/media/basic-q7.jpg": "/table-11-final-project/static/media/basic-q7.03d5243172f1f52d9c41.jpg",
+    "static/media/basic-q9.jpg": "/table-11-final-project/static/media/basic-q9.3ff2ce7e527e458331ec.jpg",
+    "static/media/basic-q20.jpg": "/table-11-final-project/static/media/basic-q20.2ec23cd86984fa610307.jpg",
     "index.html": "/table-11-final-project/index.html",
-    "main.5208e62f.css.map": "/table-11-final-project/static/css/main.5208e62f.css.map",
-    "main.1a00d64e.js.map": "/table-11-final-project/static/js/main.1a00d64e.js.map",
+    "main.446f12e3.css.map": "/table-11-final-project/static/css/main.446f12e3.css.map",
+    "main.ff4b00b9.js.map": "/table-11-final-project/static/js/main.ff4b00b9.js.map",
     "453.bad6c33a.chunk.js.map": "/table-11-final-project/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5208e62f.css",
-    "static/js/main.1a00d64e.js"
+    "static/css/main.446f12e3.css",
+    "static/js/main.ff4b00b9.js"
   ]
 }
