@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.css": "/table-11-final-project/static/css/main.295f407c.css",
-    "main.js": "/table-11-final-project/static/js/main.574ce4bc.js",
+    "main.css": "/table-11-final-project/static/css/main.5208e62f.css",
+    "main.js": "/table-11-final-project/static/js/main.1a00d64e.js",
     "static/js/453.bad6c33a.chunk.js": "/table-11-final-project/static/js/453.bad6c33a.chunk.js",
     "static/media/IG.png": "/table-11-final-project/static/media/IG.926c567338210f0f924f.png",
     "static/media/LinkedIn.png": "/table-11-final-project/static/media/LinkedIn.aef31b2061f677d7d6d0.png",
     "static/media/ytb.png": "/table-11-final-project/static/media/ytb.34cf3d6cc23ce882730a.png",
+    "static/media/loading-actual.gif": "/table-11-final-project/static/media/loading-actual.3b57421e0ee5b38b6fc6.gif",
     "static/media/Background-1.jpg": "/table-11-final-project/static/media/Background-1.a483ec5b753f09d3af0d.jpg",
     "static/media/twitter.png": "/table-11-final-project/static/media/twitter.827d35d1b67e42510464.png",
     "static/media/facebook.png": "/table-11-final-project/static/media/facebook.3f55d055ced0deeca3ee.png",
@@ -15,12 +16,12 @@
     "static/media/basic-q6.jpg": "/table-11-final-project/static/media/basic-q6.5b7a31670399e7881c50.jpg",
     "static/media/basic-q3.jpg": "/table-11-final-project/static/media/basic-q3.896304c5628dd3294b2d.jpg",
     "index.html": "/table-11-final-project/index.html",
-    "main.295f407c.css.map": "/table-11-final-project/static/css/main.295f407c.css.map",
-    "main.574ce4bc.js.map": "/table-11-final-project/static/js/main.574ce4bc.js.map",
+    "main.5208e62f.css.map": "/table-11-final-project/static/css/main.5208e62f.css.map",
+    "main.1a00d64e.js.map": "/table-11-final-project/static/js/main.1a00d64e.js.map",
     "453.bad6c33a.chunk.js.map": "/table-11-final-project/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.295f407c.css",
-    "static/js/main.574ce4bc.js"
+    "static/css/main.5208e62f.css",
+    "static/js/main.1a00d64e.js"
   ]
 }

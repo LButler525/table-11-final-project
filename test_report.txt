@@ -33,13 +33,13 @@ FAIL src/App.test.tsx
 
     SyntaxError: Unexpected token 'export'
 
-    [0m [90m 2 |[39m [36mimport[39m { [33mButton[39m[33m,[39m [33mCol[39m[33m,[39m [33mRow[39m } [36mfrom[39m [32m"react-bootstrap"[39m[33m;[39m
+    [0m [90m 2 |[39m [36mimport[39m { [33mButton[39m[33m,[39m [33mButtonGroup[39m[33m,[39m [33mCol[39m[33m,[39m [33mContainer[39m[33m,[39m [33mRow[39m } [36mfrom[39m [32m"react-bootstrap"[39m[33m;[39m
      [90m 3 |[39m [90m//import { Form } from "react-bootstrap";[39m
     [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m [33mReactMarkdown[39m [36mfrom[39m [32m'react-markdown'[39m[33m;[39m
      [90m   |[39m [31m[1m^[22m[39m
      [90m 5 |[39m [36mimport[39m [33mOpenAI[39m [36mfrom[39m [32m"openai"[39m[33m;[39m
      [90m 6 |[39m [36mimport[39m { summarizeBasicResponse } [36mfrom[39m [32m"./Basic"[39m[33m;[39m
-     [90m 7 |[39m [36mconst[39m key [33m=[39m localStorage[33m.[39mgetItem([32m"MYKEY"[39m) [0m
+     [90m 7 |[39m [36mimport[39m loading_actual [36mfrom[39m [32m'../Images/loading-actual.gif'[39m[0m
 
       at Runtime.createScriptFromCode (node_modules/jest-runtime/build/index.js:1728:14)
       at Object.<anonymous> (src/Pages/Answers.tsx:4:1)
@@ -59,18 +59,18 @@ All files              |       0 |        0 |       0 |       0 |
   index.tsx            |       0 |      100 |     100 |       0 | 8-22              
   reportWebVitals.ts   |       0 |        0 |       0 |       0 | 3-10              
  src/Pages             |       0 |        0 |       0 |       0 |                   
-  Answers.tsx          |       0 |        0 |       0 |       0 | 7-176             
+  Answers.tsx          |       0 |        0 |       0 |       0 | 8-208             
   Answers_D.tsx        |       0 |        0 |       0 |       0 | 7-156             
-  Basic.tsx            |       0 |        0 |       0 |       0 | 61-1386           
+  Basic.tsx            |       0 |        0 |       0 |       0 | 42-1505           
   Detailed.tsx         |       0 |        0 |       0 |       0 | 20-291            
   Home.tsx             |       0 |        0 |       0 |       0 | 10-175            
   LearnMore.tsx        |       0 |      100 |       0 |       0 | 10-83             
   OverlappingBoxes.tsx |       0 |      100 |       0 |       0 | 7-8               
   Questions.tsx        |       0 |        0 |       0 |       0 | 11-55             
-  Review.tsx           |       0 |        0 |       0 |       0 | 42-781            
+  Review.tsx           |       0 |        0 |       0 |       0 | 32-1025           
 -----------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        5.742 s
+Time:        5.78 s
 Ran all test suites.
