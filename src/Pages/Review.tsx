@@ -170,7 +170,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "4" />
                     <Col sm = "4">
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                 </Row>
     
@@ -185,7 +185,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "4" />
                     <Col sm = "4">
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                 </Row>
     
@@ -222,7 +222,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row>         
@@ -236,7 +236,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <div style={{ fontSize: '0.85rem', textAlign: 'left' }}>
+                                <div className = "my-1" style={{ fontSize: '0.85rem', textAlign: 'left' }}>
                                     <ListGroup horizontal>
                                         {questionOptions2[1].map(option => (
                                         <ListGroup.Item
@@ -269,7 +269,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -307,7 +307,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -321,7 +321,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <div style={{ fontSize: '1.0rem', textAlign: 'left' }}>
+                                <div className = "my-4" style={{ fontSize: '1.0rem', textAlign: 'left' }}>
                                     <Form.Group as = {Row} controlId="rating">
                                         <Col sm = "2"/>
                                         <Form.Label column sm="2">Rating:</Form.Label>
@@ -351,7 +351,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -365,7 +365,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                <div className = "my-3" style={{ fontSize: '1rem', textAlign: 'left' }}>
                                     <Form.Group as={Row}>
                                     <Col sm = "2"/>
                                     <Col sm = "2">
@@ -396,7 +396,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -443,7 +443,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -481,7 +481,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -495,7 +495,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                <div className = "my-4" style={{ fontSize: '1rem', textAlign: 'left' }}>
                                     <Form.Group as={Row}>
                                     <Col sm = "2"/>
                                     <Col sm = "2">
@@ -523,7 +523,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -559,7 +559,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -573,7 +573,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <div style={{ fontSize: '1.0rem', textAlign: 'left' }}>
+                                <div className = "my-4" style={{ fontSize: '1.0rem', textAlign: 'left' }}>
                                     <Form.Group as = {Row} controlId="rating">
                                     <Col sm = "2"/>
                                         <Form.Label column sm="2">Rating:</Form.Label>
@@ -600,7 +600,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -636,7 +636,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -675,7 +675,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row>  
@@ -689,7 +689,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <div style={{ fontSize: '1.0rem', textAlign: 'left' }}>
+                                <div className = "my-4" style={{ fontSize: '1.0rem', textAlign: 'left' }}>
                                     <Form.Group as = {Row} controlId="rating">
                                         <Col sm = "2"/>
                                         <Form.Label column sm="2">Rating:</Form.Label>
@@ -716,7 +716,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -763,7 +763,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -802,7 +802,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -838,7 +838,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -852,7 +852,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                <div className = "my-4" style={{ fontSize: '1rem', textAlign: 'left' }}>
                                     <Form.Group as={Row}>
                                         <Col sm = "2"/>
                                         <Col sm = "2">
@@ -881,7 +881,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -928,7 +928,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row> 
@@ -967,7 +967,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10" >
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                     <Col sm = "1"/>
                 </Row>  
@@ -1005,7 +1005,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10">
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                 </Row>
     
@@ -1029,7 +1029,7 @@ export function Review({changePage, answers2}:ReviewProps) {
                 <Row>
                     <Col sm = "1" />
                     <Col sm = "10">
-                        <hr style = {{border : "3px solid #555", opacity:1, width: "100%"}} className="my-3" />
+                        <hr style = {{border : "3px solid white", opacity:1, width: "100%"}} className="my-3" />
                     </Col>
                 </Row>
     
