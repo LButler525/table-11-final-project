@@ -7,6 +7,7 @@ import { summarizeBasicResponse } from "./Basic";
 import loading_actual from '../Images/loading-actual.gif'
 const key = localStorage.getItem("MYKEY") 
 const apiKey = key ? JSON.parse(key) : null;
+let Ran = false;
 
 
 
@@ -50,17 +51,18 @@ export function Answers({changePage, answers2}:AnswersProps) {
     }, []);
 
     useEffect(() => {
+
       if (!answers2.question1.length) return; //way to verify it's ready
 
         async function OpenAiResponse() {
           try {
-            const response = await openai.chat.completions.create({
+            const AIAnswer = await openai.chat.completions.create({
               model: "gpt-4o-mini",
               messages: [
                 {
                   role: "system",
                   content:
-                    `You are a career expert that wishes to provide a list of viable career options for the user based off of answers to a career quiz. You should also provide suggestions on education or other means to reach the top career suggested. Please return the response in the following format: 
+                    `You are a career expert that wishes to provide a list of viable career options for the user based off of answers to a career quiz. You should also provide suggestions on education or other means to reach the top career suggested. Please return the response in the following format, however not necessarily the same careers: 
                     Based on your responses, here are some viable career options that align with your preferences and strengths:
                     ###  1. Remote Engineering Consultant
 
@@ -118,26 +120,25 @@ export function Answers({changePage, answers2}:AnswersProps) {
                 },
               ],
             });
-    
-            let raw = response.choices[0].message.content || "No content returned"
-            let cleaned = raw
-            .replace(/\n{3,}/g, "\n\n")
-            .replace(/###([^\n])/g, "### $1")
-            .replace(/(### .+?)\n(?!\n)/g, "$1\n\n");
+            if (!Ran) {
+              let raw = AIAnswer.choices[0].message.content || "No content returned"
+              let cleaned = raw
+              .replace(/\n{3,}/g, "\n\n")
+              .replace(/###([^\n])/g, "### $1")
+              .replace(/(### .+?)\n(?!\n)/g, "$1\n\n");
 
-            // 2️⃣ Move bold from after number to before number
-            cleaned = cleaned.replace(
-            /^(\d+)\.\s\*\*(.+?)\*\*/gm,
-            (_, num, title) => `**${num}. ${title}**`
-            );
+              // 2️⃣ Move bold from after number to before number
+              cleaned = cleaned.replace(
+              /^(\d+)\.\s\*\*(.+?)\*\*/gm,
+              (_, num, title) => `**${num}. ${title}**`
+              );
 
-            console.log(response);
-            console.log(cleaned);
-
-            setResponse(cleaned);
+              setResponse(cleaned);
+              Ran = true;
+            }
           } catch (err) {
             console.error("OpenAI error:", err);
-            setResponse("Something went wrong with the OpenAI request.");
+            if (!Ran) setResponse("Something went wrong with the OpenAI request.");
           }
         }
     
@@ -164,7 +165,7 @@ export function Answers({changePage, answers2}:AnswersProps) {
                                       
                                     <ButtonGroup>
                                         {["Home", "Basic", "Detailed"].map(page => (
-                                            <Button variant = "outline-danger" key={page} onClick={() => changePage(page)}>
+                                            <Button variant = "outline-danger" key={page} onClick={() => {changePage(page); Ran = false;}}>
                                                 {page} Page
                                             </Button>
                                         ))}
@@ -185,11 +186,13 @@ export function Answers({changePage, answers2}:AnswersProps) {
                 <div className="box-background">
                   <div className="box-foreground">
                         <div style={{ fontSize: '1rem', textAlign: 'left'}}>
-                          {(response === "Loading..." ? 
+                          {(!Ran ? 
+                          (
                           <div style={{ textAlign: 'center' }}>
                             <h3>Loading your Career Quiz Results!</h3>
                             <img src={loading_actual} alt="Working with Hands" width={900} height={507}/>
                           </div> 
+                          )
                           :
                           (
                             <ReactMarkdown 
