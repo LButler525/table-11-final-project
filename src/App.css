@@ -96,9 +96,11 @@ body {
 }
 
 .btn-info {
-  color: #555;
-  background-color: #e98585;
-  border-color: #e98585;
+  color: white;
+  background-color: #555;
+  border-color: white;
+  border-radius: 12px; 
+  scale: 1.8;
 }
 
 .btn-info:hover {

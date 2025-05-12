@@ -3,10 +3,23 @@ import { Button, ButtonGroup, Form, Row, Col, OverlayTrigger, Tooltip, ProgressB
 import q1_picture from '../Images/basic-q1.jpg';
 import q2_picture from '../Images/basic-q2.jpg';
 import q3_picture from '../Images/basic-q3.jpg';
-import q4_picture from '../Images/basic-q4.png';
-import q5_picture from '../Images/basic-q5.png';
+import q4_picture from '../Images/basic-q4.jpg';
+import q5_picture from '../Images/basic-q5.jpg';
 import q6_picture from '../Images/basic-q6.jpg';
-import q7_picture from '../Images/basic-q7.png';
+import q7_picture from '../Images/basic-q7.jpg';
+import q8_picture from '../Images/basic-q8.jpg';
+import q9_picture from '../Images/basic-q9.jpg';
+import q10_picture from '../Images/basic-q10.jpg';
+import q11_picture from '../Images/basic-q11.jpg';
+import q12_picture from '../Images/basic-q12.jpg';
+import q13_picture from '../Images/basic-q13.jpg';
+import q14_picture from '../Images/basic-q14.jpg';
+import q15_picture from '../Images/basic-q15.jpg';
+import q16_picture from '../Images/basic-q16.jpg';
+import q17_picture from '../Images/basic-q17.jpg';
+import q18_picture from '../Images/basic-q18.jpg';
+import q19_picture from '../Images/basic-q19.jpg';
+import q20_picture from '../Images/basic-q20.jpg';
 
 import { useRef, useEffect, useState } from 'react';
 import OverlappingBoxes from "./OverlappingBoxes";
@@ -169,7 +182,7 @@ export function HelpButton({ qnumber }: HelpButtonProps) {
         placement="top" 
         overlay={<Tooltip id={`tooltip-${qnumber}`}>{helpList[qnumber]}</Tooltip>}
       >
-        <Button variant="info">?</Button>
+        <Button variant="info" className = "my-5">?</Button>
       </OverlayTrigger>
     );
   }
@@ -371,16 +384,16 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
             <div>
 
                 <Row>
-                                            <Col sm = "2"/>
-                                            <Col sm = "8">
-                                            <div className="box-wrapper">
-                                                <div className="box-background">
-                                                    <div className="box-foreground">
-                                                        <h1>Basic Page</h1>
-                                    </div>
+                    <Col sm = "2"/>
+                    <Col sm = "8">
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <h1>Basic Page</h1>
+                                </div>
                             </div>
                         </div>
-                        </Col>
+                    </Col>
                 </Row>
 
                 <div style={{
@@ -388,9 +401,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                         top: 0,
                                         zIndex: 1000,
                                         backgroundColor: "transparent",
-                                        //padding: "5px 20px",
                                         marginBottom: "10px",
-                                        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"
                                     }}>
                                         <Row>
                                             <Col sm = "2"/>
@@ -425,7 +436,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1}} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1}} className="my-5" />
                             </Col>
                     </Row>
                 
@@ -434,7 +445,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         {/* ----------------------------------------------------------------------------------------------------------------- */}
                         <Row className="mb-4">
                             <Col sm="1">
-                                <HelpButton qnumber={0} />
+                                <HelpButton  qnumber={0} />
                             </Col>
                             <Col sm="10">
                                 <div id="question1">
@@ -446,9 +457,9 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm = "1"/>
                             <Col sm = "10">
-                                <div className="box-wrapper">
-                                    <div className="box-background">
-                                        <div className="box-foreground">
+                            <div className="box-wrapper">
+                                        <div className="box-background">
+                                            <div className="box-foreground">
                                             <Row ref={question2Ref}>
                                                 <div style={{ fontSize: '0.97rem', textAlign: 'center' }}>
                                                     {questionOptions2[0].map(option => (
@@ -479,7 +490,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1}} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1}} className="my-5" />
                             </Col>
                         </Row>
 
@@ -539,7 +550,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -585,7 +596,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -637,7 +648,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -690,7 +701,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -751,7 +762,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -805,7 +816,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -859,7 +870,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -911,7 +922,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -966,7 +977,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1}} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1}} className="my-5" />
                             </Col>
                         </Row>
 
@@ -1013,7 +1024,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                         <Col sm="1" />
                         <Col sm="10">
-                            <hr style={{ border: "4px solid #555", width: "100%", opacity:1}} className="my-5" />
+                            <hr style={{ border: "4px solid white", width: "100%", opacity:1}} className="my-5" />
                         </Col>
                         </Row>
 
@@ -1063,7 +1074,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -1114,7 +1125,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -1175,7 +1186,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -1224,7 +1235,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -1271,7 +1282,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -1324,7 +1335,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -1385,7 +1396,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -1434,7 +1445,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         <Row>
                             <Col sm="1" />
                             <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1 }} className="my-5" />
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1 }} className="my-5" />
                             </Col>
                         </Row>
 
@@ -1477,63 +1488,246 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                             </Col>
                         </Row>
-
-                        <Row>
-                            <Col sm="1" />
-                            <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1}} className="my-5" />
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col sm = "1"/>
-                            <Col sm = "10">
-                            <div className="box-wrapper">
-                            <div className="box-background">
-                                <div className="box-foreground">
-                                    <Row>
-                                        <Col sm = "1"/>
-                                        <Col sm="4">
-                                            <Button variant = "outline-danger" disabled = {progress!==100} onClick={() => {
-                                                window.location.hash = ``;
-                                                changePage("Review")}}>Review Answers</Button>
-                                        </Col>
-                                        <Col sm = "1"/>
-                                        <Col sm="5">
-                                            <Button variant = "outline-danger" disabled = {progress!==100} onClick={() => {
-                                                window.location.hash = ``;
-                                                changePage("Answers")}}>Get Answers</Button>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </div>
-                        </div>
-                            </Col>
-                        </Row>
                         
                         {/* ----------------------------------------------------------------------------------------------------------------- */}
                     </Col>
-                    <Col sm="3">
-                        <img src={q1_picture} className="mb-5" alt="Working with Hands" width={450} height={200} />
-                        <img src={q2_picture} className="mb-4" alt="Collaborating with Others" width={450} height={200} />
-                        <img src={q3_picture} className="mb-4" alt="Risk or Secure" width={450} height={225} />
-                        <img src={q4_picture} className="mb-5" alt="Variability in job" width={450} height={200} />
-                        <img src={q5_picture} className="mb-5" alt="Leading Others" width={450} height={200} />
-                        <img src={q6_picture} className="mb-5" alt="Religious Career" width={450} height={200} />
-                        <img src={q7_picture} alt="Being Methodical" width={450} height={250} />
+                    <Col sm = "4">
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                                <div className="box-foreground">
+                                    <img src={q1_picture} className="my-3" alt="Career Field" width={450} height={200} />
+                                </div>
+                             </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-3"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q2_picture} className="my-3" alt="Team Size" width={450} height={400} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q3_picture} className="my-3" alt="Career-Driven" width={450} height={200} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q4_picture} className="my-3" alt="Risk" width={275} height={200} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q5_picture} className="my-3" alt="Job Stability" width={325} height={200} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q6_picture} className="my-3" alt="Skills" width={425} height={375} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q7_picture} className="my-3" alt="Problem & Solution" width={350} height={200} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-3"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q8_picture} className="my-3" alt="Soft Skills" width={500} height={200} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q9_picture} className="my-3" alt="Energized" width={450} height={250} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-3"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q10_picture} className="my-3" alt="Continuous Learning" width={400} height={200} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q11_picture} className="my-3" alt="Work Environment" width={400} height={200} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q12_picture} className="my-3" alt="Work Structure" width={400} height={200} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q13_picture} className="my-3" alt="Personal Values" width={400} height={200} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q14_picture} className="my-3" alt="Work Schedule" width={525} height={420} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q15_picture} className="my-3" alt="Company Culture" width={400} height={225} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q16_picture} className="my-3" alt="Career Goals" width={350} height={160} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q17_picture} className="my-3" alt="Motivation" width={325} height={200} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q18_picture} className="my-3" alt="Long-Term Vision" width={500} height={420} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q19_picture} className="my-3" alt="Money Isn't an Issue" width={400} height={220} />
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q20_picture} className="my-3" alt="Career Fears" width={450} height={245} />
+                            </div>
+                        </div>
+                    </div>
                     </Col>
                 </Row>
                 
+                <Row>
+                            <Col sm="1" />
+                            <Col sm="10">
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1}} className="my-5" />
+                            </Col>
+                        </Row>
+
+                    <Row>
+                    <Col sm = "1"/>
+                    <Col sm = "10">
+                        <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <Row>
+                                    <Col sm = "1"/>
+                                    <Col sm="4">
+                                        <Button variant = "outline-danger" disabled = {progress!==100} onClick={() => {
+                                            window.location.hash = ``;
+                                            changePage("Review")}}>Review Answers</Button>
+                                    </Col>
+                                    <Col sm = "1"/>
+                                    <Col sm="5">
+                                        <Button variant = "outline-danger" disabled = {progress!==100} onClick={() => {
+                                            window.location.hash = ``;
+                                            changePage("Answers")}}>Get Answers</Button>
+                                    </Col>
+                                </Row>
+                            </div>
+                        </div>
+                    </div>
+                    </Col>
+                    </Row>
                 
     
                 <Row>
-                    <Col sm="8">
-                        <Row className="my-5">
-                            <Col sm="1" />
-                            <Col sm="10">
-                                <hr style={{ border: "4px solid #555", width: "100%", opacity:1}} className="mb-5" />
-                            </Col>
-                        </Row>
+                    <Col sm = "1"/>
+                    <Col sm="10">
+                                <hr style={{ border: "4px solid white", width: "100%", opacity:1}} className="my-5" />
                     </Col>
                 </Row>
             </div>
