@@ -95,6 +95,9 @@ body {
   border-color: #cc2435 !important;
 }
 
+.btn-info:visited,
+.btn-info:active,
+.btn-info:hover,
 .btn-info {
   color: white;
   background-color: #555;
@@ -103,10 +106,10 @@ body {
   scale: 1.8;
 }
 
-.btn-info:hover {
-  color: #555;
-  background-color: #e98585;
-  border-color: #e98585;
+.btn-info:focus {
+  color: white;
+  background-color: black;
+  border-color: white;
 }
 
 .testimonial-text {
