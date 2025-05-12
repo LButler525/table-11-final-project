@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, ButtonGroup, Col, Container, Row } from "react-bootstrap";
 //import { Form } from "react-bootstrap";
 import ReactMarkdown from 'react-markdown';
 import OpenAI from "openai";
 import { summarizeBasicResponse } from "./Basic";
+import loading_actual from '../Images/loading-actual.gif'
 const key = localStorage.getItem("MYKEY") 
 const apiKey = key ? JSON.parse(key) : null;
+let Ran = false;
 
 
 
@@ -49,17 +51,18 @@ export function Answers({changePage, answers2}:AnswersProps) {
     }, []);
 
     useEffect(() => {
+
       if (!answers2.question1.length) return; //way to verify it's ready
 
         async function OpenAiResponse() {
           try {
-            const response = await openai.chat.completions.create({
+            const AIAnswer = await openai.chat.completions.create({
               model: "gpt-4o-mini",
               messages: [
                 {
                   role: "system",
                   content:
-                    `You are a career expert that wishes to provide a list of viable career options for the user based off of answers to a career quiz. You should also provide suggestions on education or other means to reach the top career suggested. Please return the response in the following format: 
+                    `You are a career expert that wishes to provide a list of viable career options for the user based off of answers to a career quiz. You should also provide suggestions on education or other means to reach the top career suggested. Please return the response in the following format, however not necessarily the same careers: 
                     Based on your responses, here are some viable career options that align with your preferences and strengths:
                     ###  1. Remote Engineering Consultant
 
@@ -117,26 +120,25 @@ export function Answers({changePage, answers2}:AnswersProps) {
                 },
               ],
             });
-    
-            let raw = response.choices[0].message.content || "No content returned"
-            let cleaned = raw
-            .replace(/\n{3,}/g, "\n\n")
-            .replace(/###([^\n])/g, "### $1")
-            .replace(/(### .+?)\n(?!\n)/g, "$1\n\n");
+            if (!Ran) {
+              let raw = AIAnswer.choices[0].message.content || "No content returned"
+              let cleaned = raw
+              .replace(/\n{3,}/g, "\n\n")
+              .replace(/###([^\n])/g, "### $1")
+              .replace(/(### .+?)\n(?!\n)/g, "$1\n\n");
 
-            // 2️⃣ Move bold from after number to before number
-            cleaned = cleaned.replace(
-            /^(\d+)\.\s\*\*(.+?)\*\*/gm,
-            (_, num, title) => `**${num}. ${title}**`
-            );
+              // 2️⃣ Move bold from after number to before number
+              cleaned = cleaned.replace(
+              /^(\d+)\.\s\*\*(.+?)\*\*/gm,
+              (_, num, title) => `**${num}. ${title}**`
+              );
 
-            console.log(response);
-            console.log(cleaned);
-
-            setResponse(cleaned);
+              setResponse(cleaned);
+              Ran = true;
+            }
           } catch (err) {
             console.error("OpenAI error:", err);
-            setResponse("Something went wrong with the OpenAI request.");
+            if (!Ran) setResponse("Something went wrong with the OpenAI request.");
           }
         }
     
@@ -150,37 +152,69 @@ export function Answers({changePage, answers2}:AnswersProps) {
 
     return(
         <div>
-            <h3>Answers Page</h3>
-            <Button onClick={() => changePage("Home")}>Home Page</Button>
-            <Button onClick={() => {
-              localStorage.setItem("returnFromReview", "true");
-              changePage("Basic")}}>Basic Page</Button>
-            <Button onClick={() => changePage("Detailed")}>Detailed Page</Button>
+            <Container fluid>
+                <Row className="mb-5">
+                    <Col sm = "2"/>
+                    <Col sm = "8">
+                   <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                
+                                    <h2>Answers Page</h2>
+
+                                      
+                                    <ButtonGroup>
+                                        {["Home", "Basic", "Detailed"].map(page => (
+                                            <Button variant = "outline-danger" key={page} onClick={() => {changePage(page); Ran = false;}}>
+                                                {page} Page
+                                            </Button>
+                                        ))}
+                                    </ButtonGroup>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                    </Col>
+                    <Col sm = "2"/>
+                </Row>
+                </Container>
 
             <Row>
-              <Col sm = "2" />
-              <Col sm = "8">
-                <div className="card">
-                      <div className="card-body"  style={{ whiteSpace: "pre-wrap", textAlign: "left" }}>
-                      {response && (
-                      <ReactMarkdown 
-                        components={{
-                          h3: ({ node, children, ...props }) => (
-                            <h3 {...props} style={{ color: 'black' }} id="Response Header 3">{children}</h3>
-                          ),
-                          h4: ({ node, children, ...props }) => (
-                            <h4 {...props} style={{ color: 'black' }} id="Response Header 4">{children}</h4>
-                          ),
-                          li: ({ node, ...props }) => <li {...props} style={{ color: 'black' }}/>,
-                          strong: ({ node, ...props }) => (
-                            <strong style={{ color: 'black' }} {...props} />
-                          ),
-                        }}
-                      >
-                        {response}
-                      </ReactMarkdown>)}
-                      </div>
+              <Col sm = "1"/>
+              <Col sm = "10">
+              <div className="box-wrapper">
+                <div className="box-background">
+                  <div className="box-foreground">
+                        <div style={{ fontSize: '1rem', textAlign: 'left'}}>
+                          {(!Ran ? 
+                          (
+                          <div style={{ textAlign: 'center' }}>
+                            <h3>Loading your Career Quiz Results!</h3>
+                            <img src={loading_actual} alt="Working with Hands" width={900} height={507}/>
+                          </div> 
+                          )
+                          :
+                          (
+                            <ReactMarkdown 
+                              components={{
+                                h3: ({ node, children, ...props }) => (
+                                  <h3 {...props} style={{ color: 'black' }} id="Response Header 3">{children}</h3>
+                                ),
+                                h4: ({ node, children, ...props }) => (
+                                  <h4 {...props} style={{ color: 'black' }} id="Response Header 4">{children}</h4>
+                                ),
+                                li: ({ node, ...props }) => <li {...props} style={{ color: 'black' }}/>,
+                                strong: ({ node, ...props }) => (
+                                  <strong style={{ color: 'black' }} {...props} />
+                                ),
+                              }}
+                            >
+                              {response}
+                            </ReactMarkdown>))}
+                        </div>
+                    </div>
                   </div>
+                </div>
               </Col>
             </Row>
             

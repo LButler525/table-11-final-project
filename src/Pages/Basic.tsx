@@ -13,15 +13,6 @@ import OverlappingBoxes from "./OverlappingBoxes";
 
 interface BasicProps {
     changePage: (input: string) => void;
-    // answers: {
-    //     question1: string[];
-    //     question2: number;
-    //     question3: string[];
-    //     question4: number;
-    //     question5: string;
-    //     question6: string[];
-    //     question7: string;
-    // };
     answers2: {
         question1: string[];
         question2: string[];
@@ -44,18 +35,8 @@ interface BasicProps {
         question19: string[];
         question20: string[];
     };
-    // setAnswers: React.Dispatch<React.SetStateAction<BasicProps["answers"]>>;
     setAnswers2: React.Dispatch<React.SetStateAction<BasicProps["answers2"]>>;
 }
-
-// const QuestionList = 
-// ["I like working and creating things with my hands",
-//      "On a scale to 1-10, how much do you enjoy collaborating with others (10 being the desire to always collaborate)",
-//      "I want a job that is extremely secure with no risk",
-//      "On a scale of 1-10, how much variability do you want in your day-to-day work (10 being extreme variability)",
-//      "I like to oversee other people and manage them",
-//      "I want religion to affect my carrer",
-//      "I prefer to be methodical when making decisions and take my time"]
 
 const QuestionList2 = 
 ["Which of the following career fields are you most interested in? (Select all that apply)",
@@ -64,19 +45,19 @@ const QuestionList2 =
     "How comfortable are you with taking risks in your career from 1-10? (With 10 being very comfortable with risk)",
     "How important is job stability to you from 1-10? (With 10 being extremely important)",
     "Which skills do you enjoy using most? (Select all that apply)",
-    "How do you like to solve problems?",
+    "How do you like to solve problems? (Select all that apply)",
     "How confident are you in your current professional skill set from 1-10? (With 10 being extremely confident)",
     "Which types of tasks do you find most energizing? (Select all that apply)",
     "How much do you value continuous learning in your career from 1-10? (With 10 being extremely important)",
     "Which of the following work environments would you prefer? (Select all that apply)",
-    "How much structure do you prefer in your day-to-day work?",
+    "How much structure do you prefer in your day-to-day work? (Select all that apply)",
     "How important is it for your work to align with your personal values from 1-10? (With 10 being extremely important)",
     "What kind of work schedules do you see yourself thriving in? (Select all that apply)",
     "Which aspects of company culture matter most to you? (Select all that apply)",
-    "What's your biggest career goal right now?",
+    "What's your biggest career goal right now? (Select all that apply)",
     "How motivated do you feel about your current career path from 1-10? (With 10 being extremely motivated)",
     "Which of the following describes your long-term vision best? (Select all that apply)",
-    "If money wasn’t an issue, what kind of work would you do?",
+    "If money wasn’t an issue, what kind of work would you do? (Select all that apply)",
     "What’s your biggest fear when it comes to your career? (Select all that apply)"]
 
 const questionOptions2 = [
@@ -388,46 +369,58 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
     return (
         <div>
             <div>
-                <div className="box-wrapper">
-                        <div className="box-background">
-                            <div className="box-foreground">
-                                <h1>Basic Page</h1>
-                                    
-                                <ButtonGroup>
-                                    {["Home", "Detailed"].map(page => (
-                                        <Button variant = "outline-danger" key={page} onClick={() => changePage(page)}>
-                                            {page} Page
-                                        </Button>
-                                    ))}
-                                </ButtonGroup>
-                        
-                               <Row>
-                                    <Col sm="4" />
-                                    <Col sm="4" ref={question1Ref}>
-                                        <hr style={{ border: "2px solid black", width: "100%" }} className="my-3" />
-                                    </Col>
-                                </Row>
-                        
-                                <h2 className="mb-3">Questions</h2>
-                                <div style={{
-                                    position: "sticky",
-                                    top: 0,
-                                    zIndex: 1000,
-                                    backgroundColor: "#555",
-                                    padding: "5px 20px",
-                                    marginBottom: "10px",
-                                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"
-                                }}>
-                                    <ProgressBar
-                                        now={progress} 
-                                        label={`${progress}%`} 
-                                        variant={progress === 100 ? "danger" : "warning"}
-                                        style={{ height: "12px", width: "1600px", margin: "10px auto", backgroundColor: "#e0e0e0" }} 
-                                    />
-                                </div>
+
+                <Row>
+                                            <Col sm = "2"/>
+                                            <Col sm = "8">
+                                            <div className="box-wrapper">
+                                                <div className="box-background">
+                                                    <div className="box-foreground">
+                                                        <h1>Basic Page</h1>
+                                    </div>
                             </div>
                         </div>
+                        </Col>
+                </Row>
+
+                <div style={{
+                                        position: "sticky",
+                                        top: 0,
+                                        zIndex: 1000,
+                                        backgroundColor: "transparent",
+                                        //padding: "5px 20px",
+                                        marginBottom: "10px",
+                                        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"
+                                    }}>
+                                        <Row>
+                                            <Col sm = "2"/>
+                                            <Col sm = "8">
+                                            <div className="box-wrapper">
+                                                <div className="box-background">
+                                                    <div className="box-foreground">
+                                        <ProgressBar
+                                            now={progress} 
+                                            label={`${progress}%`} 
+                                            variant={progress === 100 ? "danger" : "warning"}
+                                            style={{ height: "12px", width: "80%", margin: "10px auto"}} 
+                                        />
+                                        <ButtonGroup>
+                                        {["Home", "Detailed"].map(page => (
+                                            <Button variant = "outline-danger" key={page} onClick={() => changePage(page)}>
+                                                {page} Page
+                                            </Button>
+                                        ))}
+                                    </ButtonGroup>
+
+                                        
+                                    </div>
+                            </div>
+                        </div>
+                    
+                                            </Col>
+                                        </Row>
                     </div>
+                
     
                     <Row>
                             <Col sm="1" />
@@ -450,32 +443,37 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </Col>
                         </Row>
                     
-                        
-                        <div className="box-wrapper">
-                            <div className="box-background">
-                                <div className="box-foreground">
-                                    <Row ref={question2Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
-                                            {questionOptions2[0].map(option => (
-                                                    <Form.Check
-                                                        className = "custom-checkbox"
-                                                        key={option}
-                                                        inline
-                                                        type="checkbox"
-                                                        label={option}
-                                                        value={option}
-                                                        checked={answers2.question1.includes(option)}
-                                                        onChange={() => handleAnswerChange2("question1", answers2.question1.includes(option)
-                                                            ? answers2.question1.filter(e => e !== option)
-                                                            : [...answers2.question1, option]
-                                                        )}
-                                                    />
-                                            ))}
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
+                                <div className="box-wrapper">
+                                    <div className="box-background">
+                                        <div className="box-foreground">
+                                            <Row ref={question2Ref}>
+                                                <div style={{ fontSize: '0.97rem', textAlign: 'center' }}>
+                                                    {questionOptions2[0].map(option => (
+                                                            <Form.Check
+                                                                className = "custom-checkbox"
+                                                                key={option}
+                                                                inline
+                                                                type="checkbox"
+                                                                label={option}
+                                                                value={option}
+                                                                checked={answers2.question1.includes(option)}
+                                                                onChange={() => handleAnswerChange2("question1", answers2.question1.includes(option)
+                                                                    ? answers2.question1.filter(e => e !== option)
+                                                                    : [...answers2.question1, option]
+                                                                )}
+                                                            />
+                                                    ))} 
+                                                </div>
+                                            </Row>
                                         </div>
-                                    </Row>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            </Col>
+                        </Row>
+                        
                        
                         
                         <Row>
@@ -496,11 +494,14 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </Col>
                         </Row>
                     
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
                                     <Row ref={question3Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left'}}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'center'}}>
                                             <ListGroup>
                                             {questionOptions2[1].map(option => (
                                                 <ListGroup.Item
@@ -532,6 +533,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
                         
                         <Row>
                             <Col sm="1" />
@@ -551,11 +554,14 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </Col>
                         </Row>
                     
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
                                     <Row ref={question4Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             {questionOptions2[2].map(option => (
                                                             <Button
                                                                 variant={answers2.question3.includes(option) ? "danger" : "outline-danger"}
@@ -573,6 +579,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                            </div>
                         </div>
+                            </Col>
+                        </Row>
                         
                         <Row>
                             <Col sm="1" />
@@ -592,14 +600,18 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </Col>
                         </Row>
                         
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
                                     <Row ref={question5Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             <Form.Group as = {Row} controlId="rating">
-                                                <Form.Label column sm="4">Rating:</Form.Label>
-                                                <Col sm="8">
+                                                <Col sm = "2"/>
+                                                <Form.Label column sm="2">Rating:</Form.Label>
+                                                <Col sm="6">
                                                     <Form.Control
                                                         type="number"
                                                         min="1"
@@ -619,6 +631,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
     
                         <Row>
                             <Col sm="1" />
@@ -637,16 +651,21 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </div>
                         </Col>
                         </Row>
+
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question5Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                    <Row ref={question6Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             <Form.Group as={Row}>
-                                            <Col sm="3">
+                                            <Col sm = "1"/>
+                                            <Col sm="2">
                                                 <Form.Label>Rating:</Form.Label>
                                             </Col>
-                                            <Col sm="7" ref={question6Ref}>
+                                            <Col sm="7">
                                                 <Form.Range
                                                 min="1"
                                                 max="10"
@@ -665,6 +684,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
     
                         <Row>
                             <Col sm="1" />
@@ -684,11 +705,15 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </Col>
                         </Row>
+
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
                                     <Row ref={question7Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             <ListGroup>
                                                 {questionOptions2[5].map(option => (
                                                     <ListGroup.Item
@@ -720,6 +745,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
 
                         <Row>
                             <Col sm="1" />
@@ -739,11 +766,15 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </Col>
                         </Row>
+
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
                                     <Row ref={question8Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             {questionOptions2[6].map(option => (
                                                 <Form.Check
                                                     className = "custom-checkbox"
@@ -768,6 +799,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
 
                         <Row>
                             <Col sm="1" />
@@ -787,11 +820,15 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </Col>
                         </Row>
+
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
                                     <Row ref={question9Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             <Form.Group as={Row}>
                                                 <Col sm="3">
                                                     <Form.Label>Rating:</Form.Label>
@@ -816,6 +853,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
 
                         <Row>
                             <Col sm="1" />
@@ -835,11 +874,15 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </Col>
                         </Row>
+
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
                                     <Row ref={question10Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             {questionOptions2[8].map(option => (
                                                 <Button
                                                     key={option}
@@ -862,6 +905,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
 
                         <Row>
                             <Col sm="1" />
@@ -881,14 +926,21 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </Col>
                         </Row>
+
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
                                     <Row ref={question11Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             <Form.Group as={Row} controlId="rating">
-                                                <Form.Label column sm="4">Rating:</Form.Label>
-                                                <Col sm="8">
+                                                <Col sm = "1"/>
+                                                <Col sm="2">
+                                                    <Form.Label>Rating:</Form.Label>
+                                                </Col>
+                                                <Col sm="7">
                                                     <Form.Control
                                                         type="number"
                                                         min="1"
@@ -908,6 +960,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
 
                         <Row>
                             <Col sm="1" />
@@ -927,11 +981,15 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </div>
                         </Col>
                         </Row>
+
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question4Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                    <Row ref={question12Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             {questionOptions2[10].map(option => (
                                                             <Button
                                                                 variant={answers2.question11.includes(option) ? "danger" : "outline-danger"}
@@ -949,6 +1007,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                     </div>
                                 </div>
                             </div>
+                            </Col>
+                        </Row>
 
                         <Row>
                         <Col sm="1" />
@@ -968,11 +1028,15 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </div>
                         </Col>
                         </Row>
+
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
                                 <Row ref={question13Ref}>
-                                    <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                    <div style={{ fontSize: '0.94rem', textAlign: 'center' }}>
                                     {questionOptions2[11].map(option => (
                                         <Form.Check
                                             className = "custom-checkbox"
@@ -992,6 +1056,9 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </div>
                         </div>
                     </div>
+                            </Col>
+                        </Row>
+                    
 
                         <Row>
                             <Col sm="1" />
@@ -1010,14 +1077,18 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </div>
                         </Col>
                         </Row>
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question5Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                    <Row ref={question14Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             <Form.Group as={Row}>
-                                            <Form.Label column sm="4">Rating:</Form.Label>
-                                            <Col sm="8" ref={question14Ref}>
+                                            <Col sm = "2"/>
+                                                <Form.Label column sm="2">Rating:</Form.Label>
+                                                <Col sm="6">
                                                 <Form.Control
                                                 type="number"
                                                 min="1"
@@ -1036,6 +1107,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
 
 
                         <Row>
@@ -1056,11 +1129,15 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </div>
                         </Col>
                         </Row>
+
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
                                     <Row ref={question15Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left'}}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'center'}}>
                                             <ListGroup>
                                             {questionOptions2[13].map(option => (
                                                 <ListGroup.Item
@@ -1092,6 +1169,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
 
                         <Row>
                             <Col sm="1" />
@@ -1111,11 +1190,15 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </div>
                         </Col>
                         </Row>
+
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question2Ref}>
-                                        <div style={{ fontSize: '0.96rem', textAlign: 'left' }}>
+                                    <Row ref={question16Ref}>
+                                        <div style={{ fontSize: '1.0rem', textAlign: 'center' }}>
                                             {questionOptions2[14].map(option => (
                                                 <Form.Check
                                                     className = "custom-checkbox"
@@ -1135,6 +1218,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
 
                         <Row>
                             <Col sm="1" />
@@ -1154,11 +1239,15 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </div>
                         </Col>
                         </Row>
+
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question4Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                    <Row ref={question17Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             {questionOptions2[15].map(option => (        
                                                             <Button
                                                                 variant={answers2.question16.includes(option) ? "danger" : "outline-danger"}
@@ -1176,6 +1265,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
 
                         <Row>
                             <Col sm="1" />
@@ -1195,16 +1286,20 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </Col>
                         </Row>
 
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question5Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                    <Row ref={question18Ref}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'center' }}>
                                             <Form.Group as={Row}>
-                                            <Col sm="3">
-                                                <Form.Label>Rating:</Form.Label>
-                                            </Col>
-                                            <Col sm="7" ref={question18Ref}>
+                                                <Col sm = "1"/>
+                                                <Col sm="2">
+                                                    <Form.Label>Rating:</Form.Label>
+                                                </Col>
+                                                <Col sm="7">
                                                 <Form.Range
                                                 min="1"
                                                 max="10"
@@ -1223,6 +1318,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
 
                         <Row>
                             <Col sm="1" />
@@ -1242,11 +1339,15 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </div>
                         </Col>
                         </Row>
+
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
                                     <Row ref={question19Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left'}}>
+                                        <div style={{ fontSize: '1rem', textAlign: 'center'}}>
                                             <ListGroup>
                                             {questionOptions2[17].map(option => (
                                                 <ListGroup.Item
@@ -1278,6 +1379,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
 
                         <Row>
                             <Col sm="1" />
@@ -1297,11 +1400,15 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </div>
                         </Col>
                         </Row>
+
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question2Ref}>
-                                        <div style={{ fontSize: '0.95rem', textAlign: 'left' }}>
+                                    <Row ref={question20Ref}>
+                                        <div style={{ fontSize: '1.0rem', textAlign: 'center' }}>
                                             {questionOptions2[18].map(option => (
                                                 <Form.Check
                                                     className = "custom-checkbox"
@@ -1321,6 +1428,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
 
                         <Row>
                             <Col sm="1" />
@@ -1340,11 +1449,15 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </div>
                         </Col>
                         </Row>
+
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
                         <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
-                                    <Row ref={question4Ref}>
-                                        <div style={{ fontSize: '1rem', textAlign: 'left' }}>
+                                    <Row>
+                                        <div style={{ fontSize: '1.0rem', textAlign: 'center' }}>
                                             {questionOptions2[19].map(option => (    
                                                             <Button
                                                                 variant={answers2.question20.includes(option) ? "danger" : "outline-danger"}
@@ -1360,8 +1473,10 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                         </div>
                                     </Row>
                                 </div>
+                            </div>
                         </div>
-                        </div>
+                            </Col>
+                        </Row>
 
                         <Row>
                             <Col sm="1" />
@@ -1370,11 +1485,15 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </Col>
                         </Row>
 
-                        <div className="box-wrapper">
+                        <Row>
+                            <Col sm = "1"/>
+                            <Col sm = "10">
+                            <div className="box-wrapper">
                             <div className="box-background">
                                 <div className="box-foreground">
                                     <Row>
-                                        <Col sm="5">
+                                        <Col sm = "1"/>
+                                        <Col sm="4">
                                             <Button variant = "outline-danger" disabled = {progress!==100} onClick={() => {
                                                 window.location.hash = ``;
                                                 changePage("Review")}}>Review Answers</Button>
@@ -1389,6 +1508,9 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                             </div>
                         </div>
+                            </Col>
+                        </Row>
+                        
                         {/* ----------------------------------------------------------------------------------------------------------------- */}
                     </Col>
                     <Col sm="3">

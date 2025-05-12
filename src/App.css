@@ -41,8 +41,9 @@ body {
   }
 }
 
+
 .box-wrapper {
-  display: inline-block;
+  display: block;
   border: 4px solid #555;  /* Outer border if you still want one */
   border-radius: 8px;
   margin: 20px 0;
@@ -79,17 +80,31 @@ body {
   background-color: #e98585;
   /*background-color: cutom-color;*/
   border-color: #e98585;
+  border-color: cutom-cor;
+  font-size: 1.02rem !important;
   /*border-color: cutom-cor;*/
 }
 
 .btn-danger{
-  scale: 1.03
+  font-size: 1.05rem !important;
 }
 
 .list-group-item-danger:hover {
   color: white !important;
   background-color: #cc2435 !important;
   border-color: #cc2435 !important;
+}
+
+.btn-info {
+  color: #555;
+  background-color: #e98585;
+  border-color: #e98585;
+}
+
+.btn-info:hover {
+  color: #555;
+  background-color: #e98585;
+  border-color: #e98585;
 }
 
 .testimonial-text {
