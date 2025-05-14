@@ -64,7 +64,7 @@ All files              |       0 |        0 |       0 |       0 |
   Basic.tsx            |       0 |        0 |       0 |       0 | 55-1717           
   Detailed.tsx         |       0 |        0 |       0 |       0 | 20-291            
   Home.tsx             |       0 |        0 |       0 |       0 | 10-175            
-  LearnMore.tsx        |       0 |      100 |       0 |       0 | 10-83             
+  LearnMore.tsx        |       0 |      100 |       0 |       0 | 10-91             
   OverlappingBoxes.tsx |       0 |      100 |       0 |       0 | 7-8               
   Questions.tsx        |       0 |        0 |       0 |       0 | 11-55             
   Review.tsx           |       0 |        0 |       0 |       0 | 32-1025           
@@ -72,5 +72,5 @@ All files              |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        6.227 s
+Time:        6.022 s
 Ran all test suites.
