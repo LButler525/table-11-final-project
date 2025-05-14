@@ -1,6 +1,14 @@
 import React from "react";
 import { Button, OverlayTrigger, Row, Col, Tooltip, ProgressBar } from "react-bootstrap";
 import { Form } from "react-bootstrap";
+import OverlappingBoxes from "./OverlappingBoxes";
+import q1_pic from "../Images/Detailed Page/img_DQ1.jpg";
+import q2_pic from "../Images/Detailed Page/img_DQ2.jpg";
+import q3_pic from "../Images/Detailed Page/img_DQ3.jpg";
+import q4_pic from "../Images/Detailed Page/img_DQ4.jpg";
+import q5_pic from "../Images/Detailed Page/img_DQ5.jpg";
+import q6_pic from "../Images/Detailed Page/img_DQ6.jpg";
+import q7_pic from "../Images/Detailed Page/img_DQ7.jpg";
 
 
 interface DetailedProps {
@@ -46,7 +54,7 @@ export function HelpButton({ qnumber }: HelpButtonProps) {
         placement="right" // Position of the tooltip (top, bottom, left, right)
         overlay={<Tooltip id={`tooltip-${qnumber}`}>{helpList[qnumber]}</Tooltip>}
       >
-        <Button variant="info">?</Button>
+        <Button className = "my-5" variant="info">?</Button>
       </OverlayTrigger>
     );
   }
@@ -102,196 +110,439 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
 
     return(
         <div>
-            <h1>Detailed Page</h1>
+            <Row>
+                <Col sm = "2"/>
+                <Col sm = "8">
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <h1>Detailed Page</h1>
+                            </div>
+                        </div>
+                    </div>
+                </Col>
+            </Row>
 
-            <Button onClick={() => changePage("Home")}>Home Page</Button>
-            <Button onClick={() => changePage("Basic")}>Basic Page</Button>
+            <div style={{
+                position: "sticky",
+                top: 0,
+                zIndex: 1000,
+                backgroundColor: "transparent",
+                marginBottom: "10px",
+                }}>
+                <Row>
+                    <Col sm = "2"/>
+                    <Col sm = "8">
+                        <div className="box-wrapper">
+                            <div className="box-background">
+                                <div className="box-foreground">
+                                    <ProgressBar
+                                        now={progress} 
+                                        label={`${progress}%`} 
+                                        variant={progress === 100 ? "danger" : "warning"}
+                                        style={{ height: "12px", width: "80%", margin: "10px auto"}} 
+                                        />
+                                    <Button variant = "outline-danger" onClick={() => changePage("Home")}>Home Page</Button>
+                                    <Button variant = "outline-danger" onClick={() => changePage("Basic")}>Basic Page</Button>
+                                </div>
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
+            </div>
             
             <Row>
-                <Col sm = "4" />
-                <Col sm = "4">
-                <hr style = {{border : "2px solid black", width: "100%"}} className="my-3" />
-                </Col>
-            </Row>
-
-            <h2 style={{textAlign: "center"}}>Questions</h2>
-            <div style={{
-     position: "sticky",
-     top: 0,
-     zIndex: 1000,
-     backgroundColor: "#fff",
-     padding: "5px 20px",
-     marginBottom: "10px",
-     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"
-   }}>
-     <ProgressBar
-       now={progress}
-       label={`${progress}%`}
-       variant={progress === 100 ? "success" : "primary"}
-       style={{
-         height: "11px",
-         width: "80%",
-         margin: "10px auto",
-         backgroundColor: "#e0e0e0"
-       }}
-     />
-   </div>
-
-            <Row>
-                <Col sm = "1">
-                    <HelpButton qnumber = {0} />
-                </Col>
-                <Col sm = "6">
-                    <h3 style={{textAlign: "left"}}>Question 1 - {QuestionList[0]}</h3>
+                <Col sm = "1" />
+                <Col sm = "10">
+                <hr style = {{border : "4px solid white", width: "100%", opacity: 1}} className="my-5" />
                 </Col>
             </Row>
 
             <Row>
-                <Col sm = "1">
+                <Col sm="8">
+                    <Row className="mb-4">
+                        <Col sm = "1">
+                            <HelpButton qnumber = {0} />
+                        </Col>
+                        <Col sm = "10">
+                            <div id="question 1">
+                                <OverlappingBoxes text = {`Question 1 - ${QuestionList[0]}`}/>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm="1"/>
+                        <Col sm = "10">
+                            <div className="box-wrapper">
+                                <div className="box-background">
+                                    <div className="box-forground">
+                                        <Form.Group controlId="formMovieName">
+                                            <Form.Control
+                                                as="textarea"
+                                                rows={3}
+                                                style={{backgroundColor: "#f6b26b",
+                                                    borderColor: "#f76c6c"
+                                                }}
+                                                value={answersD.question1}
+                                                onChange={(e) => handleAnswerChange("question1", e.target.value)} />
+                                        </Form.Group>
+                                    </div>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid white", width: "100%", opacity: 1}} className="my-5" />
+                        </Col>
+                    </Row>
+
+                    <Row className="mb-4">
+                        <Col sm = "1">
+                            <HelpButton qnumber = {1} />
+                        </Col>
+                        <Col sm = "10">
+                            <div id="question 2">
+                                <OverlappingBoxes text = {`Question 2 - ${QuestionList[1]}`}/>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm="1"/>
+                        <Col sm = "10">
+                            <div className="box-wrapper">
+                                <div className="box-background">
+                                    <div className="box-forground">
+                                        <Form.Group controlId="formMovieName">
+                                            <Form.Control
+                                                as="textarea"
+                                                rows={3}
+                                                style={{backgroundColor: "#f6b26b",
+                                                    borderColor: "#f76c6c"
+                                                }}
+                                                value={answersD.question2}
+                                                onChange={(e) => handleAnswerChange("question2", e.target.value)} />
+                                        </Form.Group>
+                                    </div>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid white", width: "100%", opacity: 1}} className="my-5" />
+                        </Col>
+                    </Row>
+
+                    <Row className="mb-4">
+                        <Col sm = "1">
+                            <HelpButton qnumber = {2} />
+                        </Col>
+                        <Col sm = "10">
+                            <div id="question 3">
+                                <OverlappingBoxes text = {`Question 3 - ${QuestionList[2]}`}/>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm="1"/>
+                        <Col sm = "10">
+                            <div className="box-wrapper">
+                                <div className="box-background">
+                                    <div className="box-forground">
+                                        <Form.Group controlId="formMovieName">
+                                            <Form.Control
+                                                as="textarea"
+                                                rows={3}
+                                                style={{backgroundColor: "#f6b26b",
+                                                    borderColor: "#f76c6c"
+                                                }}
+                                                value={answersD.question3}
+                                                onChange={(e) => handleAnswerChange("question3", e.target.value)} />
+                                        </Form.Group>
+                                    </div>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid white", width: "100%", opacity: 1}} className="my-5" />
+                        </Col>
+                    </Row>
+
+                    <Row className="mb-4">
+                        <Col sm = "1">
+                            <HelpButton qnumber = {3} />
+                        </Col>
+                        <Col sm = "10">
+                            <div id="question 4">
+                                <OverlappingBoxes text = {`Question 4 - ${QuestionList[3]}`}/>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm="1"/>
+                        <Col sm = "10">
+                            <div className="box-wrapper">
+                                <div className="box-background">
+                                    <div className="box-forground">
+                                        <Form.Group controlId="formMovieName">
+                                            <Form.Control
+                                                as="textarea"
+                                                rows={3}
+                                                style={{backgroundColor: "#f6b26b",
+                                                    borderColor: "#f76c6c"
+                                                }}
+                                                value={answersD.question4}
+                                                onChange={(e) => handleAnswerChange("question4", e.target.value)} />
+                                        </Form.Group>
+                                    </div>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid white", width: "100%", opacity: 1}} className="my-5" />
+                        </Col>
+                    </Row>
+
+                    <Row className="mb-4">
+                        <Col sm = "1">
+                            <HelpButton qnumber = {4} />
+                        </Col>
+                        <Col sm = "10">
+                            <div id="question 5">
+                                <OverlappingBoxes text = {`Question 5 - ${QuestionList[4]}`}/>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm="1"/>
+                        <Col sm = "10">
+                            <div className="box-wrapper">
+                                <div className="box-background">
+                                    <div className="box-forground">
+                                        <Form.Group controlId="formMovieName">
+                                            <Form.Control
+                                                as="textarea"
+                                                rows={3}
+                                                style={{backgroundColor: "#f6b26b",
+                                                    borderColor: "#f76c6c"
+                                                }}
+                                                value={answersD.question5}
+                                                onChange={(e) => handleAnswerChange("question5", e.target.value)} />
+                                        </Form.Group>
+                                    </div>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid white", width: "100%", opacity: 1}} className="my-5" />
+                        </Col>
+                    </Row>
+
+                    <Row className="mb-4">
+                        <Col sm = "1">
+                            <HelpButton qnumber = {5} />
+                        </Col>
+                        <Col sm = "10">
+                            <div id="question 6">
+                                <OverlappingBoxes text = {`Question 6 - ${QuestionList[5]}`}/>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm="1"/>
+                        <Col sm = "10">
+                            <div className="box-wrapper">
+                                <div className="box-background">
+                                    <div className="box-forground">
+                                        <Form.Group controlId="formMovieName">
+                                            <Form.Control
+                                                as="textarea"
+                                                rows={3}
+                                                style={{backgroundColor: "#f6b26b",
+                                                    borderColor: "#f76c6c"
+                                                }}
+                                                value={answersD.question6}
+                                                onChange={(e) => handleAnswerChange("question6", e.target.value)} />
+                                        </Form.Group>
+                                    </div>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid white", width: "100%", opacity: 1}} className="my-5" />
+                        </Col>
+                    </Row>
+
+                   <Row className="mb-4">
+                        <Col sm = "1">
+                            <HelpButton qnumber = {6} />
+                        </Col>
+                        <Col sm = "10">
+                            <div id="question 7">
+                                <OverlappingBoxes text = {`Question 7 - ${QuestionList[6]}`}/>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm="1"/>
+                        <Col sm = "10">
+                            <div className="box-wrapper">
+                                <div className="box-background">
+                                    <div className="box-forground">
+                                        <Form.Group controlId="formMovieName">
+                                            <Form.Control
+                                                as="textarea"
+                                                rows={3}
+                                                style={{backgroundColor: "#f6b26b",
+                                                    borderColor: "#f76c6c"
+                                                }}
+                                                value={answersD.question7}
+                                                onChange={(e) => handleAnswerChange("question7", e.target.value)} />
+                                        </Form.Group>
+                                    </div>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
                 </Col>
-                <Form.Group controlId="formMovieName">
-                    <Form.Control
-                        as="textarea"
-                        rows={3}
-                        value={answersD.question1}
-                        onChange={(e) => handleAnswerChange("question1", e.target.value)} />
-                </Form.Group>
+
+                <Col sm="4">
+                {/*images here*/}
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q1_pic} className="my-3" alt="A temporary" width={350} height={200}/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <Row className="my-5"/>
+                    <Row className="my-4"/>
+                    <Row className="mb-3"/>
+
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q2_pic} className="my-3" alt="A temporary" width={350} height={184}/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <Row className="my-5"/>
+                    <Row className="my-4"/>
+                    <Row className="mb-3"/>
+
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q3_pic} className="my-3" alt="A temporary" width={350} height={233}/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <Row className="my-5"/>
+                    <Row className="my-4"/>
+
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q4_pic} className="my-3" alt="A temporary" width={206} height={200}/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <Row className="my-5"/>
+
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q5_pic} className="my-3" alt="A temporary" width={350} height={233}/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <Row className="my-5"/>
+
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q6_pic} className="my-3" alt="A temporary" width={350} height={197}/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <Row className="my-5"/>
+                    <Row className="my-3"/>
+
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q7_pic} className="my-3" alt="A temporary" width={300} height={200}/>
+                            </div>
+                        </div>
+                    </div>
+                </Col>
             </Row>
 
             <Row>
-                <Col sm = "1">
-                    <HelpButton qnumber = {1} />
-                </Col>
-                <Col sm = "6">
-                    <h3 style={{textAlign: "left"}}>Question 2 - {QuestionList[1]}</h3>
+                <Col sm="1"/>
+                <Col sm="10">
+                    <hr style={{ border: "4px solid white", width: "100%", opacity:1}} className="my-5" />
                 </Col>
             </Row>
 
             <Row>
-                <Col sm = "1">
-                </Col>
-                <Form.Group controlId="formMovieName">
-                    <Form.Control
-                        as="textarea"
-                        rows={3}
-                        value={answersD.question2}
-                        onChange={(e) => handleAnswerChange("question2", e.target.value)} />
-                </Form.Group>
-            </Row>
-
-            <Row>
-                <Col sm = "1">
-                    <HelpButton qnumber = {2} />
-                </Col>
-                <Col sm = "6">
-                    <h3 style={{textAlign: "left"}}>Question 3 - {QuestionList[2]}</h3>
+                <Col sm="1" />
+                <Col sm="10">
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <Row>
+                                    <Col sm = "5"/>
+                                    <Col sm = "2">
+                                        <Button variant = "outline-danger" disabled = {progress!==100} onClick={() => changePage("AnswersD")}>Get Answers</Button>
+                                    </Col>
+                                </Row>
+                            </div>
+                        </div>
+                    </div>
                 </Col>
             </Row>
 
             <Row>
-                <Col sm = "1">
-                </Col>
-                <Form.Group controlId="formMovieName">
-                    <Form.Control
-                        as="textarea"
-                        rows={3}
-                        value={answersD.question3}
-                        onChange={(e) => handleAnswerChange("question3", e.target.value)} />
-                </Form.Group>
-
-
-            </Row>
-
-            <Row>
-                <Col sm = "1">
-                    <HelpButton qnumber = {3} />
-                </Col>
-                <Col sm = "6">
-                    <h3 style={{textAlign: "left"}}>Question 4 - {QuestionList[3]}</h3>
+                <Col sm = "1"/>
+                <Col sm="10">
+                    <hr style={{ border: "4px solid white", width: "100%", opacity:1}} className="my-5" />
                 </Col>
             </Row>
-
-            <Row>
-                <Col sm = "1">
-                </Col>
-                <Form.Group controlId="formMovieName">
-                    <Form.Control
-                        as="textarea"
-                        rows={3}
-                        value={answersD.question4}
-                        onChange={(e) => handleAnswerChange("question4", e.target.value)} />
-                </Form.Group>
-            </Row>
-
-            <Row>
-                <Col sm = "1">
-                    <HelpButton qnumber = {4} />
-                </Col>
-                <Col sm = "6">
-                    <h3 style={{textAlign: "left"}}>Question 5 - {QuestionList[4]}</h3>
-                </Col>
-            </Row>
-
-            <Row>
-                <Col sm = "1">
-                </Col>
-                <Form.Group controlId="formMovieName">
-                    <Form.Control
-                        as="textarea"
-                        rows={3}
-                        value={answersD.question5}
-                        onChange={(e) => handleAnswerChange("question5", e.target.value)} />
-                </Form.Group>
-            </Row>
-
-            <Row>
-                <Col sm = "1">
-                    <HelpButton qnumber = {5} />
-                </Col>
-                <Col sm = "6">
-                    <h3 style={{textAlign: "left"}}>Question 6 - {QuestionList[5]}</h3>
-                </Col>
-            </Row>
-
-            <Row>
-                <Col sm = "1">
-                </Col>
-                <Form.Group controlId="formMovieName">
-                    <Form.Control
-                        as="textarea"
-                        rows={3}
-                        value={answersD.question6}
-                        onChange={(e) => handleAnswerChange("question6", e.target.value)} />
-                </Form.Group>
-            </Row>
-
-            <Row>
-                <Col sm = "1">
-                    <HelpButton qnumber = {6} />
-                </Col>
-                <Col sm = "6">
-                    <h3 style={{textAlign: "left"}}>Question 7 - {QuestionList[6]}</h3>
-                </Col>
-            </Row>
-
-            <Row>
-                <Col sm = "1">
-                </Col>
-                <Form.Group controlId="formMovieName">
-                    <Form.Control
-                        as="textarea"
-                        rows={3}
-                        value={answersD.question7}
-                        onChange={(e) => handleAnswerChange("question7", e.target.value)} />
-                </Form.Group>
-            </Row>
-            <Row>
-                                <Col sm="1" />
-                                <Col sm="2">
-                                    <Button  disabled = {progress!==100} onClick={() => changePage("AnswersD")}>Get Answers</Button>
-                                </Col>
-                            </Row>
-                
         </div>
     )
 }
