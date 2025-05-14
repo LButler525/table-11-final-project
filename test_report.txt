@@ -61,7 +61,7 @@ All files              |       0 |        0 |       0 |       0 |
  src/Pages             |       0 |        0 |       0 |       0 |                   
   Answers.tsx          |       0 |        0 |       0 |       0 | 8-208             
   Answers_D.tsx        |       0 |        0 |       0 |       0 | 8-193             
-  Basic.tsx            |       0 |        0 |       0 |       0 | 55-1715           
+  Basic.tsx            |       0 |        0 |       0 |       0 | 55-1732           
   Detailed.tsx         |       0 |        0 |       0 |       0 | 28-531            
   Home.tsx             |       0 |        0 |       0 |       0 | 10-175            
   LearnMore.tsx        |       0 |      100 |       0 |       0 | 10-91             
@@ -72,5 +72,5 @@ All files              |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        6.514 s
+Time:        6.397 s
 Ran all test suites.
