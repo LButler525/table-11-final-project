@@ -1499,7 +1499,9 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                                 </div>
                              </div>
                     </div>
-                    <Row className = "my-4"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1508,7 +1510,11 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                     </div>
                     <Row className = "my-5"/>
-                    <Row className = "my-4"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-3"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1516,6 +1522,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                             </div>
                         </div>
                     </div>
+                    <Row className = "my-5"/>
                     <Row className = "my-5"/>
                     <Row className = "my-4"/>
                     <div className="box-wrapper">
@@ -1526,8 +1533,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                     </div>
                     <Row className = "my-5"/>
-                    <Row className = "my-4"/>
-                    <Row className = "mb-4"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-3"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1536,8 +1543,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                     </div>
                     <Row className = "my-5"/>
+                    <Row className = "my-5"/>
                     <Row className = "my-4"/>
-                    <Row className = "mb-4"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1546,8 +1553,12 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                     </div>
                     <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
                     <Row className = "my-4"/>
-                    <Row className = "mb-4"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1556,8 +1567,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                     </div>
                     <Row className = "my-5"/>
-                    <Row className = "my-4"/>
-                    <Row className = "mb-3"/>
+                    <Row className = "my-3"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1566,8 +1576,9 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                     </div>
                     <Row className = "my-5"/>
-                    <Row className = "my-4"/>
-                    <Row className = "mb-4"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1576,8 +1587,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                     </div>
                     <Row className = "my-5"/>
-                    <Row className = "my-4"/>
-                    <Row className = "mb-3"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1586,8 +1597,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                     </div>
                     <Row className = "my-5"/>
-                    <Row className = "my-4"/>
-                    <Row className = "mb-4"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-3"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1596,8 +1607,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                     </div>
                     <Row className = "my-5"/>
+                    <Row className = "my-5"/>
                     <Row className = "my-4"/>
-                    <Row className = "mb-4"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1607,7 +1618,6 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     </div>
                     <Row className = "my-5"/>
                     <Row className = "my-4"/>
-                    <Row className = "mb-4"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1616,8 +1626,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                     </div>
                     <Row className = "my-5"/>
-                    <Row className = "my-4"/>
-                    <Row className = "mb-4"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1626,8 +1636,12 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                     </div>
                     <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
                     <Row className = "my-4"/>
-                    <Row className = "mb-4"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1636,8 +1650,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                     </div>
                     <Row className = "my-5"/>
-                    <Row className = "my-4"/>
-                    <Row className = "mb-4"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1656,8 +1670,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                     </div>
                     <Row className = "my-5"/>
-                    <Row className = "my-4"/>
-                    <Row className = "mb-4"/>
+                    <Row className = "my-3"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1666,8 +1679,12 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                     </div>
                     <Row className = "my-5"/>
-                    <Row className = "my-4"/>
-                    <Row className = "mb-4"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-3"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
@@ -1676,8 +1693,8 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                         </div>
                     </div>
                     <Row className = "my-5"/>
-                    <Row className = "my-4"/>
-                    <Row className = "mb-4"/>
+                    <Row className = "my-5"/>
+                    <Row className = "my-3"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
