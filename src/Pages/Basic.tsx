@@ -1495,17 +1495,15 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                                 <div className="box-foreground">
-                                    <img src={q1_picture} className="my-3" alt="Career Field" width={450} height={200} />
+                                    <img src={q1_picture} className="img-fluid my-3" alt="Career Field"/>
                                 </div>
                              </div>
                     </div>
-                    <Row className = "my-5"/>
                     <Row className = "my-4"/>
-                    <Row className = "mb-3"/>
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q2_picture} className="my-3" alt="Team Size" width={450} height={400} />
+                                <img src={q2_picture} className="img-fluid w-75 my-3" alt="Team Size"/>
                             </div>
                         </div>
                     </div>
@@ -1514,7 +1512,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q3_picture} className="my-3" alt="Career-Driven" width={450} height={200} />
+                                <img src={q3_picture} className="img-fluid my-3" alt="Career-Driven"/>
                             </div>
                         </div>
                     </div>
@@ -1523,17 +1521,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q4_picture} className="my-3" alt="Risk" width={275} height={200} />
-                            </div>
-                        </div>
-                    </div>
-                    <Row className = "my-5"/>
-                    <Row className = "my-4"/>
-                    <Row className = "mb-4"/>
-                    <div className="box-wrapper">
-                        <div className="box-background">
-                            <div className="box-foreground">
-                                <img src={q5_picture} className="my-3" alt="Job Stability" width={325} height={200} />
+                                <img src={q4_picture} className="img-fluid w-75 my-3" alt="Risk"/>
                             </div>
                         </div>
                     </div>
@@ -1543,7 +1531,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q6_picture} className="my-3" alt="Skills" width={425} height={375} />
+                                <img src={q5_picture} className="img-fluid w-75 my-3" alt="Job Stability"/>
                             </div>
                         </div>
                     </div>
@@ -1553,17 +1541,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q7_picture} className="my-3" alt="Problem & Solution" width={350} height={200} />
-                            </div>
-                        </div>
-                    </div>
-                    <Row className = "my-5"/>
-                    <Row className = "my-4"/>
-                    <Row className = "mb-3"/>
-                    <div className="box-wrapper">
-                        <div className="box-background">
-                            <div className="box-foreground">
-                                <img src={q8_picture} className="my-3" alt="Soft Skills" width={500} height={200} />
+                                <img src={q6_picture} className="img-fluid w-75 my-3" alt="Skills"/>
                             </div>
                         </div>
                     </div>
@@ -1573,7 +1551,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q9_picture} className="my-3" alt="Energized" width={450} height={250} />
+                                <img src={q7_picture} className="img-fluid my-3" alt="Problem & Solution"/>
                             </div>
                         </div>
                     </div>
@@ -1583,7 +1561,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q10_picture} className="my-3" alt="Continuous Learning" width={400} height={200} />
+                                <img src={q8_picture} className="img-fluid my-3" alt="Soft Skills"/>
                             </div>
                         </div>
                     </div>
@@ -1593,7 +1571,17 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q11_picture} className="my-3" alt="Work Environment" width={400} height={200} />
+                                <img src={q9_picture} className="img-fluid w-75 my-3" alt="Energized"/>
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-3"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q10_picture} className="img-fluid w-75 my-3" alt="Continuous Learning"/>
                             </div>
                         </div>
                     </div>
@@ -1603,7 +1591,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q12_picture} className="my-3" alt="Work Structure" width={400} height={200} />
+                                <img src={q11_picture} className="img-fluid my-3" alt="Work Environment"/>
                             </div>
                         </div>
                     </div>
@@ -1613,7 +1601,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q13_picture} className="my-3" alt="Personal Values" width={400} height={200} />
+                                <img src={q12_picture} className="img-fluid my-3" alt="Work Structure"/>
                             </div>
                         </div>
                     </div>
@@ -1623,7 +1611,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q14_picture} className="my-3" alt="Work Schedule" width={525} height={420} />
+                                <img src={q13_picture} className="img-fluid my-3" alt="Personal Values"/>
                             </div>
                         </div>
                     </div>
@@ -1633,7 +1621,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q15_picture} className="my-3" alt="Company Culture" width={400} height={225} />
+                                <img src={q14_picture} className="img-fluid w-75 my-3" alt="Work Schedule"/>
                             </div>
                         </div>
                     </div>
@@ -1643,7 +1631,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q16_picture} className="my-3" alt="Career Goals" width={350} height={160} />
+                                <img src={q15_picture} className="img-fluid w-75 my-3" alt="Company Culture"/>
                             </div>
                         </div>
                     </div>
@@ -1653,7 +1641,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q17_picture} className="my-3" alt="Motivation" width={325} height={200} />
+                                <img src={q16_picture} className="img-fluid my-3" alt="Career Goals"/>
                             </div>
                         </div>
                     </div>
@@ -1663,7 +1651,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q18_picture} className="my-3" alt="Long-Term Vision" width={500} height={420} />
+                                <img src={q17_picture} className="img-fluid  w-75 my-3" alt="Motivation"/>
                             </div>
                         </div>
                     </div>
@@ -1673,7 +1661,7 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q19_picture} className="my-3" alt="Money Isn't an Issue" width={400} height={220} />
+                                <img src={q18_picture} className="img-fluid w-75 my-3" alt="Long-Term Vision"/>
                             </div>
                         </div>
                     </div>
@@ -1683,7 +1671,17 @@ export function Basic({ changePage, answers2, setAnswers2 }: BasicProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q20_picture} className="my-3" alt="Career Fears" width={450} height={245} />
+                                <img src={q19_picture} className="img-fluid w-75 my-3" alt="Money Isn't an Issue"/>
+                            </div>
+                        </div>
+                    </div>
+                    <Row className = "my-5"/>
+                    <Row className = "my-4"/>
+                    <Row className = "mb-4"/>
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q20_picture} className="img-fluid w-75 my-3" alt="Career Fears"/>
                             </div>
                         </div>
                     </div>

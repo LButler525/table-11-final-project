@@ -59,7 +59,7 @@ export function AnswersD({changePage, answersD}:AnswersProps) {
                     - Certifications or licenses that are necessary or helpful for this job.
                     - Other helpful actions to seek this career.
 
-                    ###  1. Job 2
+                    ###  2. Job 2
 
                     3-4 Sentence Description of the Job.
 
@@ -68,7 +68,7 @@ export function AnswersD({changePage, answersD}:AnswersProps) {
                     - Certifications or licenses that are necessary or helpful for this job.
                     - Other helpful actions to seek this career.
 
-                    ###  1. Job 3
+                    ###  3. Job 3
 
                     3-4 Sentence Description of the Job.
 
@@ -77,7 +77,7 @@ export function AnswersD({changePage, answersD}:AnswersProps) {
                     - Certifications or licenses that are necessary or helpful for this job.
                     - Other helpful actions to seek this career.
 
-                    ###  1. Job 4
+                    ###  4. Job 4
 
                     3-4 Sentence Description of the Job.
 
@@ -86,7 +86,7 @@ export function AnswersD({changePage, answersD}:AnswersProps) {
                     - Certifications or licenses that are necessary or helpful for this job.
                     - Other helpful actions to seek this career.
 
-                    ###  1. Job 5
+                    ###  5. Job 5
 
                     3-4 Sentence Description of the Job.
 
@@ -175,7 +175,7 @@ export function AnswersD({changePage, answersD}:AnswersProps) {
                           (
                           <div style={{ textAlign: 'center' }}>
                             <h3>Loading your Career Quiz Results!</h3>
-                            <img src={loading_actual} alt="Working with Hands" width={900} height={507}/>
+                            <img src={loading_actual} alt="Working with Hands" className="img-fluid" style={{ width: '100%', maxWidth: 'none' }}/>
                           </div> 
                           )
                           :
