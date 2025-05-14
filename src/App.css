@@ -40,10 +40,13 @@ body {
     transform: rotate(360deg);
   }
 }
+
+
 .box-wrapper {
-  display: inline-block;
+  display: block;
   border: 4px solid #555;  /* Outer border if you still want one */
   border-radius: 8px;
+  margin: 20px 0;
 }
 
 .box-background {
@@ -75,13 +78,15 @@ body {
 .btn-outline-danger {
   color: black;
   background-color: #e98585;
-  background-color: cutom-color;
+  /*background-color: cutom-color;*/
   border-color: #e98585;
   border-color: cutom-cor;
+  font-size: 1.02rem !important;
+  /*border-color: cutom-cor;*/
 }
 
 .btn-danger{
-  scale: 1.03
+  font-size: 1.05rem !important;
 }
 
 .list-group-item-danger:hover {
@@ -90,3 +95,44 @@ body {
   border-color: #cc2435 !important;
 }
 
+.btn-info:visited,
+.btn-info:active,
+.btn-info:hover,
+.btn-info {
+  color: white;
+  background-color: #555;
+  border-color: white;
+  border-radius: 12px; 
+  scale: 1.8;
+}
+
+.btn-info:focus {
+  color: white;
+  background-color: black;
+  border-color: white;
+}
+
+.testimonial-text {
+  font-style: italic;
+  font-weight: 400; /* normal weight */
+}
+
+.testimonial-author {
+  font-style: italic;
+  font-weight: 300; /* lighter weight */
+  margin-top: 8px;
+}
+
+.interactive-box .box-foreground {
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.interactive-box:hover .box-foreground {
+  background-color: #f8d19e; /* lighter shade on hover */
+  transform: translateY(-4px);
+}
+
+.interactive-box:active .box-foreground {
+  background-color: #f6b26b; /* original shade on press */
+  transform: translateY(0);
+}

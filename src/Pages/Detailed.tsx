@@ -181,13 +181,22 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                                             <Form.Control
                                                 as="textarea"
                                                 rows={3}
-                                                style={{opacity: 0}}
+                                                style={{backgroundColor: "#f6b26b",
+                                                    borderColor: "#f76c6c"
+                                                }}
                                                 value={answersD.question1}
                                                 onChange={(e) => handleAnswerChange("question1", e.target.value)} />
                                         </Form.Group>
                                     </div>
                                 </div>
                             </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid white", width: "100%", opacity: 1}} className="my-5" />
                         </Col>
                     </Row>
 
@@ -212,12 +221,22 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                                             <Form.Control
                                                 as="textarea"
                                                 rows={3}
+                                                style={{backgroundColor: "#f6b26b",
+                                                    borderColor: "#f76c6c"
+                                                }}
                                                 value={answersD.question2}
                                                 onChange={(e) => handleAnswerChange("question2", e.target.value)} />
                                         </Form.Group>
                                     </div>
                                 </div>
                             </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid white", width: "100%", opacity: 1}} className="my-5" />
                         </Col>
                     </Row>
 
@@ -242,12 +261,22 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                                             <Form.Control
                                                 as="textarea"
                                                 rows={3}
+                                                style={{backgroundColor: "#f6b26b",
+                                                    borderColor: "#f76c6c"
+                                                }}
                                                 value={answersD.question3}
                                                 onChange={(e) => handleAnswerChange("question3", e.target.value)} />
                                         </Form.Group>
                                     </div>
                                 </div>
                             </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid white", width: "100%", opacity: 1}} className="my-5" />
                         </Col>
                     </Row>
 
@@ -272,12 +301,22 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                                             <Form.Control
                                                 as="textarea"
                                                 rows={3}
+                                                style={{backgroundColor: "#f6b26b",
+                                                    borderColor: "#f76c6c"
+                                                }}
                                                 value={answersD.question4}
                                                 onChange={(e) => handleAnswerChange("question4", e.target.value)} />
                                         </Form.Group>
                                     </div>
                                 </div>
                             </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid white", width: "100%", opacity: 1}} className="my-5" />
                         </Col>
                     </Row>
 
@@ -302,12 +341,22 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                                             <Form.Control
                                                 as="textarea"
                                                 rows={3}
+                                                style={{backgroundColor: "#f6b26b",
+                                                    borderColor: "#f76c6c"
+                                                }}
                                                 value={answersD.question5}
                                                 onChange={(e) => handleAnswerChange("question5", e.target.value)} />
                                         </Form.Group>
                                     </div>
                                 </div>
                             </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid white", width: "100%", opacity: 1}} className="my-5" />
                         </Col>
                     </Row>
 
@@ -332,12 +381,22 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                                             <Form.Control
                                                 as="textarea"
                                                 rows={3}
+                                                style={{backgroundColor: "#f6b26b",
+                                                    borderColor: "#f76c6c"
+                                                }}
                                                 value={answersD.question6}
                                                 onChange={(e) => handleAnswerChange("question6", e.target.value)} />
                                         </Form.Group>
                                     </div>
                                 </div>
                             </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col sm = "1" />
+                        <Col sm = "10">
+                            <hr style = {{border : "4px solid white", width: "100%", opacity: 1}} className="my-5" />
                         </Col>
                     </Row>
 
@@ -362,6 +421,9 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                                             <Form.Control
                                                 as="textarea"
                                                 rows={3}
+                                                style={{backgroundColor: "#f6b26b",
+                                                    borderColor: "#f76c6c"
+                                                }}
                                                 value={answersD.question7}
                                                 onChange={(e) => handleAnswerChange("question7", e.target.value)} />
                                         </Form.Group>
