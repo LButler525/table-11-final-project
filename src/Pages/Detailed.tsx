@@ -181,6 +181,7 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                                             <Form.Control
                                                 as="textarea"
                                                 rows={3}
+                                                style={{opacity: 0}}
                                                 value={answersD.question1}
                                                 onChange={(e) => handleAnswerChange("question1", e.target.value)} />
                                         </Form.Group>
