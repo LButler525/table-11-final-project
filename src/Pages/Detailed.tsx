@@ -2,13 +2,13 @@ import React from "react";
 import { Button, OverlayTrigger, Row, Col, Tooltip, ProgressBar } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import OverlappingBoxes from "./OverlappingBoxes";
-import q1_pic from "../Images/Detailed Page/temp-img.jpg";
-import q2_pic from "../Images/Detailed Page/temp-img.jpg";
-import q3_pic from "../Images/Detailed Page/temp-img.jpg";
-import q4_pic from "../Images/Detailed Page/temp-img.jpg";
-import q5_pic from "../Images/Detailed Page/temp-img.jpg";
-import q6_pic from "../Images/Detailed Page/temp-img.jpg";
-import q7_pic from "../Images/Detailed Page/temp-img.jpg";
+import q1_pic from "../Images/Detailed Page/img_DQ1.jpg";
+import q2_pic from "../Images/Detailed Page/img_DQ2.jpg";
+import q3_pic from "../Images/Detailed Page/img_DQ3.jpg";
+import q4_pic from "../Images/Detailed Page/img_DQ4.jpg";
+import q5_pic from "../Images/Detailed Page/img_DQ5.jpg";
+import q6_pic from "../Images/Detailed Page/img_DQ6.jpg";
+import q7_pic from "../Images/Detailed Page/img_DQ7.jpg";
 
 
 interface DetailedProps {
@@ -54,7 +54,7 @@ export function HelpButton({ qnumber }: HelpButtonProps) {
         placement="right" // Position of the tooltip (top, bottom, left, right)
         overlay={<Tooltip id={`tooltip-${qnumber}`}>{helpList[qnumber]}</Tooltip>}
       >
-        <Button variant="info">?</Button>
+        <Button className = "my-5" variant="info">?</Button>
       </OverlayTrigger>
     );
   }
@@ -439,7 +439,7 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q1_pic} className="my-3" alt="A temporary" width={350} height={300}/>
+                                <img src={q1_pic} className="my-3" alt="A temporary" width={350} height={200}/>
                             </div>
                         </div>
                     </div>
@@ -451,19 +451,7 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q2_pic} className="my-3" alt="A temporary" width={350} height={300}/>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <Row className="my-5"/>
-                    <Row className="my-4"/>
-                    <Row className="mb-3"/>
-
-                    <div className="box-wrapper">
-                        <div className="box-background">
-                            <div className="box-foreground">
-                                <img src={q3_pic} className="my-3" alt="A temporary" width={350} height={300}/>
+                                <img src={q2_pic} className="my-3" alt="A temporary" width={350} height={184}/>
                             </div>
                         </div>
                     </div>
@@ -475,43 +463,49 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q4_pic} className="my-3" alt="A temporary" width={350} height={300}/>
+                                <img src={q3_pic} className="my-3" alt="A temporary" width={350} height={233}/>
                             </div>
                         </div>
                     </div>
                     
                     <Row className="my-5"/>
                     <Row className="my-4"/>
-                    <Row className="mb-3"/>
 
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q5_pic} className="my-3" alt="A temporary" width={350} height={300}/>
+                                <img src={q4_pic} className="my-3" alt="A temporary" width={206} height={200}/>
                             </div>
                         </div>
                     </div>
                     
                     <Row className="my-5"/>
-                    <Row className="my-4"/>
-                    <Row className="mb-3"/>
 
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q6_pic} className="my-3" alt="A temporary" width={350} height={300}/>
+                                <img src={q5_pic} className="my-3" alt="A temporary" width={350} height={233}/>
                             </div>
                         </div>
                     </div>
                     
                     <Row className="my-5"/>
-                    <Row className="my-4"/>
-                    <Row className="mb-3"/>
 
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q7_pic} className="my-3" alt="A temporary" width={350} height={300}/>
+                                <img src={q6_pic} className="my-3" alt="A temporary" width={350} height={197}/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <Row className="my-5"/>
+                    <Row className="my-3"/>
+
+                    <div className="box-wrapper">
+                        <div className="box-background">
+                            <div className="box-foreground">
+                                <img src={q7_pic} className="my-3" alt="A temporary" width={300} height={200}/>
                             </div>
                         </div>
                     </div>
@@ -527,13 +521,13 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
 
             <Row>
                 <Col sm="1" />
-                <Col sm="2">
+                <Col sm="10">
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
                                 <Row>
-                                    <Col sm = "1"/>
-                                    <Col sm = "4">
+                                    <Col sm = "5"/>
+                                    <Col sm = "2">
                                         <Button variant = "outline-danger" disabled = {progress!==100} onClick={() => changePage("AnswersD")}>Get Answers</Button>
                                     </Col>
                                 </Row>
