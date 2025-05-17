@@ -439,7 +439,7 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q1_pic} className="my-3" alt="A temporary" width={350} height={200}/>
+                                <img src={q1_pic} className="my-3" alt="A cartoon of a busy work environment" width={350} height={200}/>
                             </div>
                         </div>
                     </div>
@@ -451,7 +451,7 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q2_pic} className="my-3" alt="A temporary" width={350} height={184}/>
+                                <img src={q2_pic} className="my-3" alt="An individual traveling up a moutain" width={350} height={184}/>
                             </div>
                         </div>
                     </div>
@@ -463,7 +463,7 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q3_pic} className="my-3" alt="A temporary" width={350} height={233}/>
+                                <img src={q3_pic} className="my-3" alt="A cartoon person jumping over a brick wall" width={350} height={233}/>
                             </div>
                         </div>
                     </div>
@@ -474,7 +474,7 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q4_pic} className="my-3" alt="A temporary" width={206} height={200}/>
+                                <img src={q4_pic} className="my-3" alt="A street sign with several career options as the street names" width={206} height={200}/>
                             </div>
                         </div>
                     </div>
@@ -484,7 +484,7 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q5_pic} className="my-3" alt="A temporary" width={350} height={233}/>
+                                <img src={q5_pic} className="my-3" alt="A cartoon woman that is overwhelmed" width={350} height={233}/>
                             </div>
                         </div>
                     </div>
@@ -494,7 +494,7 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q6_pic} className="my-3" alt="A temporary" width={350} height={197}/>
+                                <img src={q6_pic} className="my-3" alt="Cartoon office worker holding a large bar bell above their head" width={350} height={197}/>
                             </div>
                         </div>
                     </div>
@@ -505,7 +505,7 @@ export function Detailed({changePage, answersD, setAnswersD}:DetailedProps) {
                     <div className="box-wrapper">
                         <div className="box-background">
                             <div className="box-foreground">
-                                <img src={q7_pic} className="my-3" alt="A temporary" width={300} height={200}/>
+                                <img src={q7_pic} className="my-3" alt="Cartoon of business man running up stairs to a target" width={300} height={200}/>
                             </div>
                         </div>
                     </div>
